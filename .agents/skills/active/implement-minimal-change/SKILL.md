@@ -1,0 +1,50 @@
+---
+name: implement-minimal-change
+kind: active
+---
+
+# Implement a minimal change
+
+## Trigger
+
+Use after scope and impact are understood and the request authorizes the
+implementation.
+
+## Goal
+
+Change only the smallest coherent unit that satisfies the contract.
+
+## Investigation / reasoning
+
+1. Re-read the target file and its local conventions immediately before editing.
+2. Select the narrowest extension point.
+3. Preserve existing naming, exports, error behavior, and public contracts
+   unless the plan explicitly changes them.
+4. Prefer composition and local configuration over flags, duplication, or a
+   new global abstraction.
+5. Keep framework-specific behavior at the smallest boundary that needs it.
+
+## Actions
+
+Implement one isolated unit. After the edit, report changed paths, behavior,
+risk, and the next verification step before moving to another independent unit.
+Record newly discovered adjacent work as follow-up work.
+
+## Verification
+
+Run the narrowest relevant formatter, type check, lint, unit test, or focused
+browser check. Inspect the diff for unrelated changes and accidental contract
+drift.
+
+## Completion criteria
+
+The intended behavior exists, the diff is coherent and minimal, and the next
+step is either verified or explicitly blocked by evidence.
+
+## Graph
+
+```yaml
+requires: [understand-and-plan-change]
+may-trigger: [debug-systematically]
+followed-by: [verify-change]
+```
