@@ -15,3 +15,12 @@
 - Place client-only behavior at the smallest file boundary that needs it.
 - Validate claims about browser behavior against the supported browser matrix;
   do not promote a blog convention into a platform guarantee.
+- Use text smaller than `14px` only in rare, explicitly justified cases; it is
+  not a default size for body text, controls, labels, or important metadata.
+- A form must not be submitted while required fields are empty or invalid, or
+  while a required consent checkbox is not selected. Use native constraints and
+  clear accessible error feedback where possible, and validate again on the
+  server when the form crosses a trust boundary.
+- After a successful form submission has been confirmed, reset the form fields
+  and consent state. Preserve the user's input when submission fails so that
+  they can correct the error without re-entering the form.

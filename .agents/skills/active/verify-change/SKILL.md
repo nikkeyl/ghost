@@ -24,11 +24,34 @@ Establish what is actually verified and prevent false completion claims.
 4. Inspect outputs for warnings, skipped tests, environment assumptions, and
    generated-file changes.
 
+## Verification ladder
+
+Do not build the entire project after every change. A full build is expensive
+and often adds no evidence for a local change.
+
+Use the narrowest check that can falsify the relevant failure mode:
+
+1. diff and affected-file inspection;
+2. formatter, linter, or focused type check;
+3. focused unit, integration, browser, or accessibility test;
+4. package or application build only when the change crosses a build/runtime
+   boundary or a lower-level check cannot cover the risk;
+5. full release-level build when explicitly requested or when release,
+   deployment, dependency, routing, environment, generated-output, or
+   server/client-boundary risk makes it necessary.
+
 ## Decision rules
 
 - A check is evidence only for the behavior it actually exercises.
 - A successful type check does not prove browser, UX, performance, or security
   correctness.
+- Do not run a full project build by habit or use it as a generic substitute
+  for choosing the relevant check.
+- Escalate to a full build when the change affects build configuration,
+  dependency resolution, bundling, routing, environment variables, generated
+  artifacts, server/client boundaries, or release behavior.
+- If a full build was not run, state that explicitly; this is not a failure
+  when the selected checks adequately cover the changed risk.
 - If a required check cannot run, report the blocker and its consequence.
 - Never replace missing verification with confidence or code inspection alone.
 
