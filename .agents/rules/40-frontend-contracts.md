@@ -8,11 +8,34 @@
   types where that improves contract accuracy.
 - Keep shared components ignorant of consumer-specific business concepts;
   prefer explicit slots/composition when the structure is genuinely shared.
+- Keep reusable components focused on a stable core contract. Let consumers
+  extend that core through composition, slots, children, or narrowly scoped
+  callbacks instead of adding a prop for every consumer-specific case.
 - Keep visual variants represented by a typed configuration table when that
   reduces duplicated conditional markup.
+- Turn repeated visual decisions into semantic tokens or explicit variants.
+  Keep a local value when it carries a distinct local meaning; do not create a
+  token merely to remove one isolated literal.
+- When the repository uses Tailwind with a `cn` utility, use `cn` to compose
+  base, variant, state, and consumer class names. Inspect the utility's merge
+  semantics before relying on override order.
+- Treat a small number of Tailwind classes as potentially intentional. Check
+  global CSS, existing component styles, design tokens, and native browser
+  behavior before adding a utility class that duplicates an already-established
+  rule.
+- When a module supplies both values and types, keep them in one named import
+  and mark the type specifier inline, for example
+  `import { Button, type ButtonProps } from '@/ui/button'`, unless the
+  repository has a stronger local convention.
 - Apply a framework-specific convention only when the repository already uses
   the relevant tool or the task explicitly adopts it.
 - Place client-only behavior at the smallest file boundary that needs it.
+- Treat the server as the default execution boundary. Add client code only when
+  interaction, browser APIs, or a material UX requirement makes it necessary.
+- In a Next.js repository, prefer Server Actions for authorized server-side
+  mutations when they fit the operation and do not obscure a needed client
+  lifecycle or browser-only behavior. Validate inputs and handle failures on
+  the server regardless of the transport.
 - Validate claims about browser behavior against the supported browser matrix;
   do not promote a blog convention into a platform guarantee.
 - Use text smaller than `14px` only in rare, explicitly justified cases; it is

@@ -3,15 +3,16 @@
 ## Objective
 
 Convert the supplied blueprint, the public gists at `gist.github.com/nikkeyl`,
-and the 15 articles in `nikkeyl.com/en/articles` into a reusable `.agents`
+and the listed articles in `nikkeyl.com/en/articles` into a reusable `.agents`
 capability layer. The target is not imitation of prose; it is a compact system
-for better engineering decisions.
+for better engineering decisions, now extended with evidence from the user's
+own codebase where the user explicitly confirmed the extracted patterns.
 
 ## Source inventory
 
 ### Supplied document
 
-- `/Users/nikkeyl/Downloads/AI Engineering Skills - Neural Blueprint.md`
+- `/Users/nikkeyl/Documents/ghost/AI Engineering Skills - Neural Blueprint.md`
 - Role: primary design specification for the separation of rules, knowledge,
   heuristics, passive skills, active skills, progressive activation, and graph
   limits.
@@ -63,6 +64,15 @@ for better engineering decisions.
 - [How to use Vite with VPN enabled](https://nikkeyl.com/en/articles/guides/how-to-use-vite-with-vpn-enabled-quick-solution)
   — hypothesis-driven local-network troubleshooting and HMR configuration.
 
+### User's codebase
+
+- `/Users/nikkeyl/Documents/501rose.kimdevs.ru/`
+  — read-only evidence from the user's direct commits: route-local data
+  loading, responsibility-based structure, API-to-UI shaping, form lifecycle,
+  state ownership, async request handling, isolated calculations, and commit
+  semantics. Team and merge commits were excluded from personal pattern
+  inference.
+
 ## Cross-source findings
 
 ### 1. Predictability is treated as an engineering multiplier
@@ -104,9 +114,57 @@ The blueprint and SSG both favor coherent changes, Conventional Commits, and
 staged checks. In GHOST this becomes a change-management rule, while actual
 commit execution remains explicit and environment-dependent.
 
+## Grid audit and compatibility decisions
+
+The current grid is structurally compatible with the blueprint, with three
+intentional normalizations:
+
+1. The blueprint's `knowledge` and `mental-models` layers are stored together
+   in `.agents/knowledge/`. A separate mental-model directory would add a
+   second routing surface without improving retrieval for the current corpus.
+2. The blueprint's `heuristics` are kept in knowledge when they explain a
+   mechanism and in rules when they constrain recurring behavior. They are
+   marked as contextual in their wording; a separate heuristics directory is
+   deferred until it has an independent routing need.
+3. The conceptual graph vocabulary is normalized to kebab-case metadata keys:
+   `requires`, `may-trigger`, `followed-by`, `delegates-to`,
+   `conflicts-with`, and `references`. A relationship is recorded only when a
+   real dependency, escalation path, delegation boundary, or conflict exists;
+   the presence of a field never means automatic activation.
+
+Naming and structure are consistent with the current contract:
+
+- numbered rule files are stable and runtime-agnostic;
+- knowledge files use descriptive kebab-case names;
+- active skills use imperative kebab-case names and the required procedure
+  sections;
+- passive skills use `detect-` names and return signals rather than taking over
+  the workflow;
+- every active and passive skill has `name`, `description`, and `kind`
+  metadata;
+- `.agents` is the portable core, while `AGENTS.md`, `CLAUDE.md`, hooks, and
+  plugin manifests are runtime adapters rather than additional engineering
+  principles.
+
+The backlog therefore has three valid outcomes: a candidate can remain
+`proposed`, be `covered` by an existing artifact, or be promoted to a
+standalone skill only after the promotion criteria in `ROADMAP.md` are met.
+This is the mechanism that preserves the candidate inventory without causing
+skills explosion.
+
+## Runtime and context-budget adaptation
+
+The portable core is documented in
+`.agents/knowledge/runtime-adapters-and-context-budget.md`. The adapter
+boundary is deliberate: Codex and Claude Code discover and load instruction
+files differently, so their discovery files should remain short and point to
+the same core rather than copy the entire corpus.
+
 ## What became a rule
 
 - Prefer the smallest coherent change.
+- Check existing code, the standard library, and native platform capabilities
+  before adding a custom solution.
 - Do not modify unrelated code.
 - Preserve public contracts unless a breaking change is explicit and planned.
 - Do not claim tests, profiling, or review that did not happen.
@@ -114,6 +172,8 @@ commit execution remains explicit and environment-dependent.
 - Measure before optimizing.
 - Keep changes semantically coherent and reviewable.
 - Treat accessibility, security, and performance as part of correctness.
+- Turn repeated visual decisions into semantic tokens or explicit variants;
+  keep isolated local values local when they have a distinct meaning.
 - Do not change an assessment merely because a person repeats or intensifies a
   claim.
 
@@ -126,6 +186,7 @@ commit execution remains explicit and environment-dependent.
 - Detect performance risk.
 - Detect architecture drift and speculative abstraction.
 - Detect component-anatomy drift when React conventions are in scope.
+- Detect stale or uncancelled user-driven asynchronous work.
 
 ## What became an active skill
 
@@ -135,6 +196,19 @@ commit execution remains explicit and environment-dependent.
 - Debug systematically.
 - Verify a change.
 - Review React component anatomy.
+- Review a custom interactive control through a state and interaction matrix.
+- Review a form contract, including validation, submission lifecycle, server
+  boundary, and primary or secondary failure behavior.
+
+## What became knowledge
+
+- Async UI state, debounce, cancellation, stale-response protection, and data
+  freshness.
+- Next.js Server Actions as a contextual mutation boundary.
+- Trust boundaries for CMS or Markdown content before HTML sinks.
+- User-confirmed patterns and evidence from `501rose.kimdevs.ru`.
+- Runtime adapters, progressive routing, minimal-solution heuristics, and
+  context-budget controls.
 
 ## Deliberately not unconditional
 
@@ -147,6 +221,8 @@ commit execution remains explicit and environment-dependent.
 - Disabling SSH password login, changing ports, or enabling UFW requires a
   recovery plan and a verified access path.
 - `kebab-case`, FSD layers, and specific folder naming require repository fit.
+- UI-oriented API mapping, Server Actions, and `cache: 'no-store'` are
+  contextual choices, not unconditional platform rules.
 - “Always stop and wait for user approval after one file” was translated into
   checkpoints and explicit gates for material ambiguity, not a blanket deadlock.
 - Automatic `git add`/`git commit` is never implied by a source document.
@@ -160,4 +236,5 @@ The generated layer is structurally valid when:
 2. passive skills report signals rather than hijacking ordinary work;
 3. rules do not require knowledge of a specific agent runtime;
 4. the router stays within the activation limits;
-5. sources and adaptation boundaries remain visible to future maintainers.
+5. backlog promotions have an explicit coverage status and artifact path;
+6. sources and adaptation boundaries remain visible to future maintainers.

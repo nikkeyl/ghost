@@ -1,5 +1,6 @@
 ---
 name: review-component-anatomy
+description: Review React component boundaries, props, variants, effects, exports, and server/client placement against repository conventions.
 kind: active
 ---
 
@@ -25,7 +26,10 @@ style convention that the repository does not use.
    contracts or explicit variants.
 4. Check whether variants are better represented by a typed lookup object and
    whether shared markup is truly identical in ownership and evolution.
-5. Review accessibility, state, effects, and JSX readability.
+5. Inspect global CSS, existing component styles, native browser behavior,
+   and the repository's class-composition utility before adding Tailwind
+   classes.
+6. Review accessibility, state, effects, and JSX readability.
 
 ## Decision rules
 
@@ -33,8 +37,15 @@ style convention that the repository does not use.
   components.
 - `cn` is required only when the repository uses it and override semantics are
   intentional.
+- A low Tailwind class count is not evidence of missing styling. Preserve
+  global, component-level, token-based, and native behavior when it already
+  satisfies the visual contract.
+- If values and types come from the same module, prefer one named import with
+  an inline `type` modifier, following the repository's import ordering.
 - Slots/composition are preferable to consumer-specific boolean flags when the
   layout is genuinely shared.
+- Keep a reusable component's props focused on its stable core. Extend it from
+  the outside instead of adding a prop for every consumer-specific case.
 - Keeping effects last may aid scanning, but dependency correctness and React
   lifecycle semantics win.
 - Named exports are preferred only when consistent with the repository's public

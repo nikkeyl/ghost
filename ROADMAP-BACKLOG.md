@@ -9,6 +9,11 @@ ROADMAP.md: first group related candidates into a parent
 domain skill or checklist, then create a standalone skill only when it has an
 independent trigger, mental model, verification method, and repeated value.
 
+During a task, the router selects the smallest relevant parent skill from this
+registry. Candidates are not activated individually just because their names
+match the request, and inactive candidates remain available for later
+promotion.
+
 ## Imported candidate inventory
 
 Codebase understanding- map-codebase

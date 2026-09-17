@@ -2,6 +2,9 @@
 
 - Prefer small, reviewable changes with one clear purpose.
 - Keep commits semantically coherent.
+- A `refactor` commit must preserve externally observable behavior. If a change
+  alters a user flow, business rule, public contract, or other behavior, use a
+  type that describes that effect even when restructuring is part of the work.
 - Do not mix behavior changes, broad refactors, formatting churn, and generated
   output without a reason.
 - Use Conventional Commits when the repository uses them:

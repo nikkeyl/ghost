@@ -1,5 +1,6 @@
 ---
 name: debug-systematically
+description: Investigate failures and regressions by reproducing behavior, testing hypotheses, and identifying the violated invariant.
 kind: active
 ---
 
@@ -25,6 +26,15 @@ symptoms.
 5. Trace the relevant data flow, control flow, browser lifecycle, network
    request, cache, or state propagation.
 6. Identify the violated invariant or boundary.
+
+## Decision rules
+
+- Do not patch a symptom before a hypothesis explains the observed behavior.
+- Prefer a small experiment that distinguishes competing hypotheses over broad
+  speculative changes.
+- Treat cancellation, stale state, cache behavior, and environment differences
+  as separate possible causes until evidence connects them.
+- Keep unrelated cleanup out of the fix.
 
 ## Actions
 

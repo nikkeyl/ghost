@@ -22,6 +22,9 @@ Verification → self-critique → final report
 - `may-trigger` — conditional follow-up, not automatic execution.
 - `followed-by` — normal next stage after completion.
 - `references` — useful context, not a launch condition.
+- `delegates-to` — an explicitly isolated subtask or subagent boundary; use
+  only when the runtime supports delegation and the separation reduces context
+  or risk.
 - `conflicts-with` — do not activate both without resolving the conflict.
 
 ## Progressive activation
@@ -35,6 +38,29 @@ no material signal
 signal: <finding> / <evidence> / <severity>
 escalate: <active skill> because <reason>
 ```
+
+## Routing policy
+
+Use `understand-and-plan-change` as the default routing point instead of
+creating a standalone skill for every backlog item.
+
+1. Classify the request by its dominant nouns and verbs: understand, frame,
+   plan, implement, debug, review, verify, or operate.
+2. Match the request to the smallest existing parent skill that can complete
+   the procedure. Treat similarly named backlog items as sub-procedures until
+   they prove they need an independent trigger, workflow, and verification.
+3. Add at most the active skills needed by the actual risk surface. Prefer one
+   parent skill that covers a capability family over several narrow leaf skills.
+4. Let passive detectors observe adjacent risks without automatically loading
+   a full active workflow. Escalate only when their signal is material.
+5. Expand the active set only when investigation discovers a new contract,
+   boundary, failure mode, or verification need that the current set cannot
+   cover.
+
+The backlog is a candidate registry, not an activation list. A candidate can
+remain documented there, be covered by a parent skill, or be promoted to a
+standalone skill after repeated value and an independent procedure are
+demonstrated.
 
 ## Completion model
 

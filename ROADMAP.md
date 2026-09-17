@@ -28,17 +28,88 @@ implementation plan; the appendix is the exhaustive candidate list.
 
 Already implemented in `.agents/`:
 
-- 5 persistent rules for scope, evidence, Git/review, frontend contracts, and
-  disagreement.
-- 2 knowledge files for activation and source-derived frontend patterns.
-- 6 active skills for planning, impact analysis, minimal implementation,
-  debugging, verification, and React component review.
-- 7 passive detectors for scope drift, breaking changes, missing verification,
-  accessibility, performance, architecture, and component drift.
+- 6 persistent rules for scope, evidence, Git/review, frontend contracts,
+  disagreement, and data/failure contracts.
+- 8 knowledge files for activation, source-derived frontend patterns, the
+  data-loading/failure model, async UI state, Next.js Server Actions,
+  runtime/context adaptation, content trust boundaries, and user-confirmed
+  Rose patterns.
+- 8 active skills for planning, impact analysis, minimal implementation,
+  debugging, verification, React component review, custom-control review, and
+  form-contract review.
+- 8 passive detectors for scope drift, breaking changes, missing verification,
+  accessibility, performance, architecture, component drift, and async races.
 - Progressive activation limits: 5 active skills by default, 2 graph hops.
+- P0 runtime target set: Codex, Claude Code, Cursor, GitHub Copilot, Gemini
+  CLI, and OpenCode. Runtime-specific files remain thin adapters over the
+  portable `.agents` core.
 
 Phase 0 exit criteria were met when each active skill had a trigger, goal,
 investigation, decision rules, actions, verification, and completion criteria.
+
+## Evidence-backed promotions and backlog coverage
+
+The following capabilities were promoted from the user's confirmed patterns in
+`501rose.kimdevs.ru` without creating one skill per observation:
+
+- `review-form-contract` groups form validation, lifecycle, state ownership,
+  server-boundary, and primary/secondary failure procedures.
+- `detect-async-race` observes debounce, cancellation, freshness, and stale
+  response risks during user-driven asynchronous work.
+- `async-ui-state-and-cancellation`, `nextjs-server-actions`, and
+  `content-trust-boundaries`, and `rose-derived-patterns` preserve the
+  underlying mental models and evidence.
+
+These promotions are routed through the existing parent workflow and do not
+change the default activation budget.
+
+The following backlog candidates are now represented in GHOST. `covered` means
+the candidate is implemented by an existing rule, parent skill, detector, or
+knowledge file; it is intentionally not a new standalone skill.
+
+| Backlog candidates | GHOST artifact | Kind | Status | Routing |
+|---|---|---|---|---|
+| `implement-cancellation` | `knowledge/async-ui-state-and-cancellation.md`, `skills/passive/detect-async-race` | knowledge + passive | covered | `debug-systematically` or async signal |
+| `analyze-module-loading` | `knowledge/data-loading-and-failure-model.md`, `skills/passive/detect-performance-risk` | knowledge + passive | covered | a dependency or renderer may be loaded too broadly |
+| `analyze-async-control-flow`, `review-state-transitions`, `detect-stale-state` | `knowledge/async-ui-state-and-cancellation.md`, `skills/passive/detect-async-race` | knowledge + passive | covered | user-driven async state can become obsolete |
+| `choose-server-vs-client-component`, `review-server-component-boundaries`, `identify-client-server-boundaries` | `rules/40-frontend-contracts.md`, `skills/active/review-component-anatomy` | rule + active | covered | React/Next.js boundary is in scope |
+| `analyze-server-actions` | `knowledge/nextjs-server-actions.md`, `rules/40-frontend-contracts.md` | knowledge + rule | covered | Next.js mutation is in scope |
+| `review-data-fetching-strategy`, `optimize-data-fetching`, `optimize-caching` | `rules/50-data-and-failure-contracts.md`, `knowledge/data-loading-and-failure-model.md` | rule + knowledge | covered | data boundary or freshness risk |
+| `design-layer-boundaries`, `design-domain-boundaries` | `rules/20-change-scope.md`, `skills/passive/detect-architecture-drift` | rule + passive | covered | ownership or FSD layer is uncertain |
+| `identify-state-owner`, `identify-state-ownership`, `classify-state`, `separate-server-and-client-state`, `design-state-architecture` | `knowledge/data-loading-and-failure-model.md`, `knowledge/rose-derived-patterns.md` | knowledge | covered | state ownership is uncertain |
+| `design-error-model`, `design-failure-isolation`, `review-partial-failure`, `implement-fallback-behavior` | `rules/50-data-and-failure-contracts.md`, `knowledge/data-loading-and-failure-model.md` | rule + knowledge | covered | primary/partial/secondary outcome exists |
+| `review-user-generated-content`, `identify-trust-boundaries` | `knowledge/content-trust-boundaries.md` | knowledge | covered | external content reaches a rendering or behavior sink |
+| `design-data-flow`, `design-cache-strategy`, `design-concurrency-model` | `knowledge/data-loading-and-failure-model.md`, `knowledge/async-ui-state-and-cancellation.md` | knowledge | covered | data, freshness, or race behavior needs a model |
+| `review-data-shape`, `normalize-api-data`, `design-view-model`, `separate-domain-and-transport-model` | `knowledge/data-loading-and-failure-model.md`, `knowledge/rose-derived-patterns.md` | knowledge | covered | transport and UI ownership need an explicit boundary |
+| `review-form-accessibility`, `test-error-paths`, `test-concurrency` | `skills/active/review-form-contract` | active | covered | form or submit pipeline is in scope |
+| `design-component-api`, `design-extension-points`, `review-component-boundaries`, `review-hook-design`, `review-variant-model`, `design-slot-api`, `separate-ui-and-domain-logic` | `rules/40-frontend-contracts.md`, `skills/active/review-component-anatomy`, `knowledge/rose-derived-patterns.md` | rule + active + knowledge | covered | component or UI/domain contract is in scope |
+| `extract-domain-logic`, `remove-duplication`, `reduce-complexity`, `improve-module-cohesion`, `incremental-refactor` | `rules/20-change-scope.md`, `skills/active/implement-minimal-change` | rule + active | covered | duplication or complexity is demonstrated |
+| `split-commit`, `prepare-clean-commit`, `review-commit-history` | `rules/30-git-and-review.md` | rule | covered | commit or review boundary is in scope |
+| `review-design-token-usage`, `design-token-architecture` | `rules/40-frontend-contracts.md`, `skills/active/review-component-anatomy` | rule + active | covered | repeated visual meaning is demonstrated |
+| `define-verification-plan`, `design-minimal-change` | `skills/active/understand-and-plan-change`, `skills/active/verify-change` | active | covered | a change needs a bounded plan or risk-appropriate check |
+
+Candidates such as `understand-codebase` and the broader platform, security,
+and production families remain planned. They have useful names in the backlog,
+but the current evidence does not yet justify claiming a complete independent
+workflow for them.
+
+## P0 runtime compatibility
+
+Goal: make the same GHOST capability graph usable across the six selected
+coding-agent runtimes without maintaining six copies of the rules.
+
+| Runtime | Core entry point | Adapter status | Next validation |
+|---|---|---|---|
+| Codex | `AGENTS.md` + `.agents/skills/` | implemented | run the representative workflow |
+| Claude Code | `CLAUDE.md` + host skills directory | loader implemented; skills projection to validate | run the representative workflow |
+| Cursor | `.cursor/rules/` + `.cursor/skills/` | planned thin projection | verify current discovery and invocation controls |
+| GitHub Copilot | custom instructions + `.agents/skills/` | planned direct path | verify cloud agent, CLI, and review surfaces |
+| Gemini CLI | `GEMINI.md` + `.agents/skills/` | planned direct path | verify workspace discovery and `/skills` behavior |
+| OpenCode | `AGENTS.md` + `.agents/skills/` | planned direct path | verify passive-detector handling |
+
+The runtime matrix and token-budget policy live in
+`.agents/knowledge/runtime-adapters-and-context-budget.md`. P1 and P2 hosts
+are intentionally not part of this slice.
 
 ## Phase 1 — cognitive core and repository understanding (P0)
 
@@ -296,16 +367,23 @@ prevents graph explosion and keeps progressive activation meaningful.
 
 Every promoted capability should record:
 
+Standalone skills use the full record below. A candidate covered by an existing
+rule, parent skill, detector, or knowledge file uses the compact coverage table
+above and inherits that artifact's graph and verification contract.
+
 ```yaml
 name: <stable name>
-kind: active | passive | knowledge
+description: <one-sentence routing description>
+kind: rule | active | passive | knowledge
 priority: P0 | P1 | P2 | P3
 trigger: <observable condition>
 requires: [<capability>]
 may-trigger: [<capability>]
 verification: <evidence required>
 owner: <human or team, when applicable>
-status: proposed | designed | implemented | verified | deprecated
+status: proposed | designed | covered | implemented | verified | deprecated
+coverage: standalone | parent | rule | knowledge | detector
+artifact: <relative path or list of paths>
 ```
 
 ## Next implementation slice
@@ -324,7 +402,9 @@ the files.
 
 ## Source boundary
 
-The backlog comes from the user-provided attachment:
+The canonical backlog is this repository's
+[`ROADMAP-BACKLOG.md`](./ROADMAP-BACKLOG.md). Its initial inventory comes from
+the user-provided attachment:
 
 `/Users/nikkeyl/.codex/attachments/67062245-ee1b-4681-9702-506aca0cd323/pasted-text.txt`
 

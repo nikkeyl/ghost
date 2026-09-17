@@ -1,5 +1,6 @@
 ---
 name: verify-change
+description: Verify an implemented change with risk-appropriate evidence and keep completion claims within what was actually checked.
 kind: active
 ---
 
@@ -14,7 +15,7 @@ claims completion.
 
 Establish what is actually verified and prevent false completion claims.
 
-## Investigation
+## Investigation / reasoning
 
 1. Read the diff and compare it with the requested contract and plan.
 2. Select checks by risk: type/build, unit/integration, browser behavior,
@@ -45,6 +46,13 @@ Use the narrowest check that can falsify the relevant failure mode:
 - A check is evidence only for the behavior it actually exercises.
 - A successful type check does not prove browser, UX, performance, or security
   correctness.
+- Linting is useful evidence for style and selected static rules, but it does
+  not replace an explicit TypeScript check when type correctness matters.
+- Verification depth may be proportional to project size, delivery constraints,
+  and business risk, but a shorter verification path must still cover the
+  material failure modes.
+- Disabling type checking during a production build is a delivery trade-off,
+  not evidence that the code is type-correct or otherwise verified.
 - Do not run a full project build by habit or use it as a generic substitute
   for choosing the relevant check.
 - Escalate to a full build when the change affects build configuration,

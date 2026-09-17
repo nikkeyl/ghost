@@ -1,5 +1,6 @@
 ---
 name: analyze-change-impact
+description: Analyze the blast radius of shared, public, data-flow, configuration, routing, security, and cross-cutting changes.
 kind: active
 ---
 
@@ -14,7 +15,7 @@ configuration, routing, security boundary, or cross-cutting concern.
 
 Predict what can break and reduce surprises before implementation.
 
-## Investigation
+## Investigation / reasoning
 
 1. Identify the changed contract and its consumers.
 2. Trace data flow and control flow from the entry point to side effects.

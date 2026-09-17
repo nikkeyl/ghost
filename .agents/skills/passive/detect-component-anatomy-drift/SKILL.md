@@ -1,5 +1,6 @@
 ---
 name: detect-component-anatomy-drift
+description: Detect React component structure that drifts from the adopted component contract or creates consumer-specific complexity.
 kind: passive
 ---
 

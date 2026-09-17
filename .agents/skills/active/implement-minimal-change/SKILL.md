@@ -1,5 +1,6 @@
 ---
 name: implement-minimal-change
+description: Implement an authorized change as the smallest coherent diff while preserving existing contracts and local conventions.
 kind: active
 ---
 
@@ -23,6 +24,16 @@ Change only the smallest coherent unit that satisfies the contract.
 4. Prefer composition and local configuration over flags, duplication, or a
    new global abstraction.
 5. Keep framework-specific behavior at the smallest boundary that needs it.
+
+## Decision rules
+
+- Implement only what the authorized contract requires; record adjacent ideas
+  as follow-up work.
+- Prefer an existing stable extension point over a new abstraction.
+- Keep one-use domain logic near its owner and promote it only after real reuse
+  or an explicitly stable cross-domain contract appears.
+- Preserve externally observable behavior during a refactor. If behavior must
+  change, make that change explicit in the plan and verification.
 
 ## Actions
 

@@ -35,6 +35,13 @@ all capabilities → relevant candidates → 2–5 active skills → verified re
 
 Default graph constraints are five active skills and two traversal levels.
 Increase them only when the task is genuinely cross-cutting and state why.
+The default router is `understand-and-plan-change`: it selects a parent skill
+from the candidate families, keeps leaf procedures grouped, and expands only
+when investigation exposes a material uncovered risk.
+
+Runtime-specific loading and context-budget guidance lives in
+`.agents/knowledge/runtime-adapters-and-context-budget.md`; it is read on
+demand and is not part of the always-loaded core.
 
 ## Entry points
 
@@ -44,6 +51,10 @@ Increase them only when the task is genuinely cross-cutting and state why.
 - For a code change, route through `understand-and-plan-change`,
   `implement-minimal-change`, and `verify-change` as needed.
 - Load `review-component-anatomy` only for React component work.
+- Load `review-custom-control` when a custom interactive control or its state
+  matrix is in scope.
+- Load `review-form-contract` when a form or its submission lifecycle is in
+  scope.
 - Let passive detectors raise signals; do not turn every warning into a full
   audit.
 
