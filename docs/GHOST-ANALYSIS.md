@@ -12,7 +12,7 @@ own codebase where the user explicitly confirmed the extracted patterns.
 
 ### Supplied document
 
-- `/Users/nikkeyl/Documents/ghost/AI Engineering Skills - Neural Blueprint.md`
+- `/Users/nikkeyl/Documents/ghost/docs/AI Engineering Skills - Neural Blueprint.md`
 - Role: primary design specification for the separation of rules, knowledge,
   heuristics, passive skills, active skills, progressive activation, and graph
   limits.

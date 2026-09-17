@@ -24,8 +24,10 @@ copy of the engineering rules.
 - `.agents/knowledge/` — reusable source-derived mental models and boundaries.
 - `CLAUDE.md` — a thin Claude Code discovery adapter; it is not another rule
   layer.
-- `GHOST-ANALYSIS.md` — research record, source map, and adaptation decisions.
-- `ROADMAP.md` — phased capability backlog and promotion criteria.
+- `docs/` — source records, blueprint, roadmap, and backlog documentation.
+- `docs/GHOST-ANALYSIS.md` — research record, source map, and adaptation
+  decisions.
+- `docs/ROADMAP.md` — phased capability backlog and promotion criteria.
 
 Every `SKILL.md` must contain non-empty `name`, `description`, and `kind`
 metadata. Active skills additionally require the standard procedure headings;

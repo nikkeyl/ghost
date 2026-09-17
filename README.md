@@ -43,6 +43,13 @@ Runtime-specific loading and context-budget guidance lives in
 `.agents/knowledge/runtime-adapters-and-context-budget.md`; it is read on
 demand and is not part of the always-loaded core.
 
+## Repository layout
+
+- `.agents/` — portable rules, knowledge, active skills, and passive detectors.
+- `docs/` — blueprint, source analysis, roadmap, and the candidate backlog.
+- `AGENTS.md` and `CLAUDE.md` — compact runtime discovery adapters kept in the
+  repository root so supported agents can find the portable core.
+
 ## Entry points
 
 - Start with `AGENTS.md`.
@@ -58,10 +65,11 @@ demand and is not part of the always-loaded core.
 - Let passive detectors raise signals; do not turn every warning into a full
   audit.
 
-See `GHOST-ANALYSIS.md` for the source inventory, evidence quality, and
-decisions that were deliberately not promoted to unconditional rules.
+See [`docs/GHOST-ANALYSIS.md`](./docs/GHOST-ANALYSIS.md) for the source
+inventory, evidence quality, and decisions that were deliberately not
+promoted to unconditional rules.
 
 The long-term capability backlog and implementation sequence are tracked in
-[`ROADMAP.md`](./ROADMAP.md). It intentionally groups the 444 candidate
-procedures into domain families before promoting individual procedures to
-standalone skills.
+[`docs/ROADMAP.md`](./docs/ROADMAP.md). It intentionally groups the 444
+candidate procedures into domain families before promoting individual
+procedures to standalone skills.
