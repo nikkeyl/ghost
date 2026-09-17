@@ -1,3 +1,5 @@
+![GHOST cyberbrain](./assets/ghost-cyberbrain.png)
+
 # GHOST
 
 GHOST is a reusable engineering cognition layer derived from the public
