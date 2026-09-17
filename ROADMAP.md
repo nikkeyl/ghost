@@ -32,8 +32,8 @@ Already implemented in `.agents/`:
   disagreement, and data/failure contracts.
 - 8 knowledge files for activation, source-derived frontend patterns, the
   data-loading/failure model, async UI state, Next.js Server Actions,
-  runtime/context adaptation, content trust boundaries, and user-confirmed
-  Rose patterns.
+  runtime/context adaptation, content trust boundaries, and engineering
+  patterns.
 - 8 active skills for planning, impact analysis, minimal implementation,
   debugging, verification, React component review, custom-control review, and
   form-contract review.
@@ -49,15 +49,15 @@ investigation, decision rules, actions, verification, and completion criteria.
 
 ## Evidence-backed promotions and backlog coverage
 
-The following capabilities were promoted from the user's confirmed patterns in
-`501rose.kimdevs.ru` without creating one skill per observation:
+The following capabilities were promoted from user-confirmed cross-project
+patterns without creating one skill per observation:
 
 - `review-form-contract` groups form validation, lifecycle, state ownership,
   server-boundary, and primary/secondary failure procedures.
 - `detect-async-race` observes debounce, cancellation, freshness, and stale
   response risks during user-driven asynchronous work.
 - `async-ui-state-and-cancellation`, `nextjs-server-actions`, and
-  `content-trust-boundaries`, and `rose-derived-patterns` preserve the
+  `content-trust-boundaries`, and `engineering-patterns` preserve the
   underlying mental models and evidence.
 
 These promotions are routed through the existing parent workflow and do not
@@ -76,13 +76,13 @@ knowledge file; it is intentionally not a new standalone skill.
 | `analyze-server-actions` | `knowledge/nextjs-server-actions.md`, `rules/40-frontend-contracts.md` | knowledge + rule | covered | Next.js mutation is in scope |
 | `review-data-fetching-strategy`, `optimize-data-fetching`, `optimize-caching` | `rules/50-data-and-failure-contracts.md`, `knowledge/data-loading-and-failure-model.md` | rule + knowledge | covered | data boundary or freshness risk |
 | `design-layer-boundaries`, `design-domain-boundaries` | `rules/20-change-scope.md`, `skills/passive/detect-architecture-drift` | rule + passive | covered | ownership or FSD layer is uncertain |
-| `identify-state-owner`, `identify-state-ownership`, `classify-state`, `separate-server-and-client-state`, `design-state-architecture` | `knowledge/data-loading-and-failure-model.md`, `knowledge/rose-derived-patterns.md` | knowledge | covered | state ownership is uncertain |
+| `identify-state-owner`, `identify-state-ownership`, `classify-state`, `separate-server-and-client-state`, `design-state-architecture` | `knowledge/data-loading-and-failure-model.md`, `knowledge/engineering-patterns.md` | knowledge | covered | state ownership is uncertain |
 | `design-error-model`, `design-failure-isolation`, `review-partial-failure`, `implement-fallback-behavior` | `rules/50-data-and-failure-contracts.md`, `knowledge/data-loading-and-failure-model.md` | rule + knowledge | covered | primary/partial/secondary outcome exists |
 | `review-user-generated-content`, `identify-trust-boundaries` | `knowledge/content-trust-boundaries.md` | knowledge | covered | external content reaches a rendering or behavior sink |
 | `design-data-flow`, `design-cache-strategy`, `design-concurrency-model` | `knowledge/data-loading-and-failure-model.md`, `knowledge/async-ui-state-and-cancellation.md` | knowledge | covered | data, freshness, or race behavior needs a model |
-| `review-data-shape`, `normalize-api-data`, `design-view-model`, `separate-domain-and-transport-model` | `knowledge/data-loading-and-failure-model.md`, `knowledge/rose-derived-patterns.md` | knowledge | covered | transport and UI ownership need an explicit boundary |
+| `review-data-shape`, `normalize-api-data`, `design-view-model`, `separate-domain-and-transport-model` | `knowledge/data-loading-and-failure-model.md`, `knowledge/engineering-patterns.md` | knowledge | covered | transport and UI ownership need an explicit boundary |
 | `review-form-accessibility`, `test-error-paths`, `test-concurrency` | `skills/active/review-form-contract` | active | covered | form or submit pipeline is in scope |
-| `design-component-api`, `design-extension-points`, `review-component-boundaries`, `review-hook-design`, `review-variant-model`, `design-slot-api`, `separate-ui-and-domain-logic` | `rules/40-frontend-contracts.md`, `skills/active/review-component-anatomy`, `knowledge/rose-derived-patterns.md` | rule + active + knowledge | covered | component or UI/domain contract is in scope |
+| `design-component-api`, `design-extension-points`, `review-component-boundaries`, `review-hook-design`, `review-variant-model`, `design-slot-api`, `separate-ui-and-domain-logic` | `rules/40-frontend-contracts.md`, `skills/active/review-component-anatomy`, `knowledge/engineering-patterns.md` | rule + active + knowledge | covered | component or UI/domain contract is in scope |
 | `extract-domain-logic`, `remove-duplication`, `reduce-complexity`, `improve-module-cohesion`, `incremental-refactor` | `rules/20-change-scope.md`, `skills/active/implement-minimal-change` | rule + active | covered | duplication or complexity is demonstrated |
 | `split-commit`, `prepare-clean-commit`, `review-commit-history` | `rules/30-git-and-review.md` | rule | covered | commit or review boundary is in scope |
 | `review-design-token-usage`, `design-token-architecture` | `rules/40-frontend-contracts.md`, `skills/active/review-component-anatomy` | rule + active | covered | repeated visual meaning is demonstrated |

@@ -132,6 +132,11 @@ intentional normalizations:
    real dependency, escalation path, delegation boundary, or conflict exists;
    the presence of a field never means automatic activation.
 
+Project names, repository paths, and raw commit evidence remain in this
+research record only. Reusable `.agents` artifacts use general names and
+formulations so that the capability layer can be applied to another
+repository.
+
 Naming and structure are consistent with the current contract:
 
 - numbered rule files are stable and runtime-agnostic;
@@ -206,7 +211,8 @@ the same core rather than copy the entire corpus.
   freshness.
 - Next.js Server Actions as a contextual mutation boundary.
 - Trust boundaries for CMS or Markdown content before HTML sinks.
-- User-confirmed patterns and evidence from `501rose.kimdevs.ru`.
+- Generalized engineering patterns and formatting hierarchy confirmed through
+  source analysis and user review.
 - Runtime adapters, progressive routing, minimal-solution heuristics, and
   context-budget controls.
 

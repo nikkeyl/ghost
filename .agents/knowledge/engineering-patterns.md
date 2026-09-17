@@ -1,27 +1,26 @@
-# User-confirmed patterns from 501rose.kimdevs.ru
+# Engineering patterns
 
-This document records patterns extracted from Nikkeyl's direct commits in the
-`501rose.kimdevs.ru` repository. It is evidence and rationale, not an
-additional instruction layer. Normative constraints belong in `.agents/rules`;
+This document records reusable engineering patterns confirmed through source
+analysis and user review. It is knowledge and rationale, not an additional
+instruction layer. Normative constraints belong in `.agents/rules`, and
 procedures belong in `.agents/skills`.
 
-Primary evidence was limited to the user's authored commits. Team and merge
-commits were not used to infer the user's personal engineering principles.
+## Confirmed engineering patterns
 
-## Confirmed patterns
-
-- Move route-specific data and expensive work out of global boundaries.
-- Place code by responsibility and ownership in an FSD-style structure.
-- Keep single-use domain logic local; promote it after real reuse rather than
-  hypothetical reuse.
-- Adapt external data into a UI-oriented model when that removes repeated
-  plumbing and preserves a useful boundary.
+- Load route-specific data and expensive work at the narrowest boundary that
+  needs them.
+- Place code by responsibility and ownership. Keep single-use domain logic
+  local and promote it only after real reuse appears.
+- Adapt transport data to a UI-oriented model when that removes repeated
+  plumbing and preserves a useful boundary. Direct transport data is valid
+  when it already has the stable shape the UI needs.
 - Keep reusable components focused on a stable core and extend them from the
-  outside.
+  outside through composition, slots, children, or narrow callbacks.
 - Centralize stable repeated form and data contracts while keeping business
   scenarios explicit.
-- Use local client state for transient feature interactions and URL query
-  parameters for shareable or reloadable state.
+- Keep transient feature interactions in local client state. Use URL query
+  parameters for state that should be shareable, reloadable, or represented in
+  navigation.
 - Use debounce for high-frequency input, cancellation for obsolete work, and a
   freshness check when asynchronous responses can race.
 - Keep domain calculations separate from UI when they have independent rules
@@ -36,7 +35,7 @@ commits were not used to infer the user's personal engineering principles.
 - If values and types come from the same module, use an inline `type` modifier
   in the named import instead of splitting the import without a reason.
 
-## Confirmed formatting hierarchy
+## Formatting hierarchy
 
 Formatting is a toolchain, not one flat rule list. Interpret it in this order:
 
@@ -44,8 +43,7 @@ Formatting is a toolchain, not one flat rule list. Interpret it in this order:
    indentation, final newline, trailing whitespace, and repository line-length
    guidance.
 2. **Prettier** owns syntactic formatting and quote style. Its plugins extend
-   that formatting; in these projects `prettier-plugin-tailwindcss` orders
-   Tailwind utility tokens.
+   that formatting; a Tailwind plugin may order utility tokens.
 3. **ESLint** checks code conventions and likely defects around the formatted
    code: imports, exports, naming, destructuring, JSX props, component form,
    unsafe TypeScript escapes, and GraphQL operations.
@@ -60,23 +58,11 @@ reformatting.
 
 ## Contextual boundaries
 
-- UI-oriented mapping is a decision, not a universal adapter layer. Direct API
-  data can be acceptable when it is already the stable shape the UI needs.
+- UI-oriented mapping is a decision, not a universal adapter layer.
 - `cache: 'no-store'` is appropriate for freshness-sensitive data, not for all
   requests.
-- Server Actions are a Next.js-specific preference for suitable mutations, not
-  a general frontend rule.
+- Server Actions are a framework-specific preference for suitable mutations,
+  not a general frontend rule.
 - A complex one-use unit may be decomposed locally without being promoted to a
   shared module.
 
-## Evidence index
-
-- `f4a3dff`, `8776b19` — route-local data loading and query boundaries.
-- `6c30841`, `75b9528`, `e811365` — responsibility and page/component
-  restructuring.
-- `4a72038`, `f42de5e`, `259a63f` — transport-to-UI shaping.
-- `b48beb5`, `29865f9` — repeated query and form contracts.
-- `014b765`, `9516b6f`, `9a972d8` — URL-driven search and filtering.
-- `f9c5c42`, `be6a463`, `c3a5b71` — local interaction state and async modal/cart
-  behavior.
-- `a1562e8` — isolated calculation logic and edge handling.
