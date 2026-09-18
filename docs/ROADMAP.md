@@ -1,6 +1,8 @@
 # GHOST roadmap
 
-Status: Phase 0 complete; Phase 1 is the next implementation target.
+Status: Phase 0 complete; the first Phase 1 implementation slice is complete.
+Phase 2 is the next implementation target. P0 runtime validation remains a
+separate follow-up because host-specific discovery still needs evidence.
 
 ## Purpose
 
@@ -46,6 +48,27 @@ Already implemented in `.agents/`:
 
 Phase 0 exit criteria were met when each active skill had a trigger, goal,
 investigation, decision rules, actions, verification, and completion criteria.
+
+## Phase 1 checkpoint — first implementation slice (complete)
+
+The first Phase 1 slice is implemented and trialled on the real
+`time-to-your-hair` repository:
+
+- `understand-codebase` builds a scoped module, ownership, runtime-boundary,
+  flow, source-of-truth, unknowns, and evidence model.
+- `clarify-engineering-task` turns materially ambiguous requests or symptoms
+  into a bounded contract with invariants, non-goals, and success criteria.
+- `.agents/templates/repository-context.md` provides the durable checkpoint
+  output shape.
+- `verify-change` compares the plan with the implementation and records
+  challenged assumptions or counterexamples.
+- The trial preserved the prototype/production boundary and exposed existing
+  repository state as a risk instead of treating it as a clean baseline.
+
+The trial also confirmed that a repository without `AGENTS.md` or `CLAUDE.md`
+can still be modelled from its project brief, package/build configuration,
+entry points, and runtime configuration, but the missing adapter guidance must
+remain an explicit uncertainty.
 
 ## Evidence-backed promotions and backlog coverage
 
@@ -388,17 +411,18 @@ artifact: <relative path or list of paths>
 
 ## Next implementation slice
 
-The next coherent slice is intentionally small:
+The next coherent slice is intentionally small and moves to Phase 2:
 
-1. implement `understand-codebase`;
-2. implement `clarify-engineering-task`;
-3. add a repository-context checkpoint template;
-4. extend `verify-change` with plan-versus-implementation comparison;
-5. run the workflow on one real repository and record friction before adding
-   the next family.
+1. promote `debug-systematically` and `analyze-change-impact` with the
+   procedure checklists identified in Phase 2;
+2. add `review-code-change` and `design-test-strategy` as parent skills;
+3. add passive detectors for test-signal weakness, overmocking, leaky
+   abstraction, complexity creep, and lockfile/CI impact;
+4. run representative Phase 2 workflows and record friction before promoting
+   specialized leaf procedures.
 
-The slice is complete only after a real-repository trial, not after writing
-the files.
+The slice is complete only after representative workflows are trialled on a
+real repository, not after writing the files.
 
 ## Source boundary
 

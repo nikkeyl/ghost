@@ -22,6 +22,7 @@ copy of the engineering rules.
 - `.agents/skills/active/` — deliberate engineering procedures.
 - `.agents/skills/passive/` — background detectors and guards.
 - `.agents/knowledge/` — reusable source-derived mental models and boundaries.
+- `.agents/templates/` — reusable output templates for operational checkpoints.
 - `CLAUDE.md` — a thin Claude Code discovery adapter; it is not another rule
   layer.
 - `docs/` — source records, blueprint, roadmap, and backlog documentation.

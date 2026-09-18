@@ -24,6 +24,10 @@ Establish what is actually verified and prevent false completion claims.
    justifies it.
 4. Inspect outputs for warnings, skipped tests, environment assumptions, and
    generated-file changes.
+5. Compare the plan with the implementation: mark each planned unit as
+   implemented, intentionally changed, omitted, or blocked; identify every
+   unplanned changed path; and challenge at least the material assumptions or
+   edge cases that could falsify the result.
 
 ## Verification ladder
 
@@ -65,17 +69,21 @@ Use the narrowest check that can falsify the relevant failure mode:
   when the selected checks adequately cover the changed risk.
 - If a required check cannot run, report the blocker and its consequence.
 - Never replace missing verification with confidence or code inspection alone.
+- A plan-versus-implementation review is evidence of scope alignment, not
+  proof that runtime behavior is correct. Verify the changed behavior with the
+  narrowest check that can falsify its material failure modes.
 
 ## Actions
 
 Produce a verification record: command or method, result, scope covered,
+plan-versus-implementation status, challenged assumptions or counterexamples,
 remaining uncertainty, and follow-up.
 
 ## Verification
 
 Check that the verification record matches the actual commands or observations,
-that skipped checks are named, and that the completion claim does not exceed
-the evidence.
+that every planned unit and unplanned path is accounted for, skipped checks are
+named, and the completion claim does not exceed the evidence.
 
 ## Completion criteria
 

@@ -15,6 +15,8 @@ location. Do not create separate engineering rules for each host.
 | Skill | Use when |
 |---|---|
 | `understand-and-plan-change` | a change needs scope, context, or sequencing |
+| `understand-codebase` | repository ownership, boundaries, or relevant flows are unclear |
+| `clarify-engineering-task` | the request, symptom, contract, or success criteria are materially ambiguous |
 | `analyze-change-impact` | a public/shared/cross-cutting contract may change |
 | `implement-minimal-change` | the scoped implementation is authorized |
 | `debug-systematically` | behavior is failing or unexpected |
@@ -40,6 +42,7 @@ location. Do not create separate engineering rules for each host.
 
 ```text
 understand-and-plan-change
+  → clarify-engineering-task or understand-codebase (only when their triggers are present)
   → analyze-change-impact (only if the risk surface warrants it)
   → implement-minimal-change
   → verify-change

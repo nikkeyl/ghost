@@ -26,8 +26,10 @@ Build a small context model and an implementation sequence before editing.
 6. Estimate blast radius and list adjacent work that is explicitly out of
    scope.
 7. Route the task to the smallest existing parent skill that covers its
-   dominant capability and risk. Inspect the candidate backlog for coverage,
-   but do not activate every matching leaf procedure.
+   dominant capability and risk. Use `clarify-engineering-task` when the
+   contract is materially ambiguous and `understand-codebase` when repository
+   ownership or boundaries are not established. Inspect the candidate backlog
+   for coverage, but do not activate every matching leaf procedure.
 
 ## Decision rules
 
@@ -63,7 +65,7 @@ can be executed without rediscovering the repository structure.
 ## Graph
 
 ```yaml
-may-trigger: [analyze-change-impact]
+may-trigger: [clarify-engineering-task, understand-codebase, analyze-change-impact]
 followed-by: [implement-minimal-change]
 references: [verify-change]
 ```
