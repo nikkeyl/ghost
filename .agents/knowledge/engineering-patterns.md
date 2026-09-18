@@ -7,6 +7,28 @@ procedures belong in `.agents/skills`.
 
 ## Confirmed engineering patterns
 
+- Start with the minimum necessary code, structure, state, dependencies, and
+  component props. Expand the solution only when the current contract,
+  demonstrated variation, or measured complexity requires it.
+- Prefer a known and maintained package over a bespoke implementation for a
+  non-trivial capability when it fits the repository's constraints. Keep
+  small, stable behavior local or native when adding a dependency would create
+  more complexity than it removes.
+- Extract stable shared, configuration, and domain values into named uppercase
+  constants when their identity matters beyond one expression. Keep genuinely
+  local one-off values local when naming would not improve understanding.
+- Prefer a typed map or lookup table for finite data mappings, variants, and
+  strategies. Keep conditionals when they express control flow, predicates,
+  sequencing, or dependencies between operations.
+- Prefer `??` for nullish defaults and reserve `||` for cases where all falsy
+  values intentionally represent the same fallback condition. Use a ternary
+  for a short value choice and a block `if` for multi-step behavior.
+- `switch`/`case` is not part of the preferred style. Represent finite data
+  mappings as typed objects and express behavioral branches with the simplest
+  readable conditional structure.
+- Keep synchronous code synchronous. An `async` marker is justified by a real
+  asynchronous operation, required API, or meaningful consumer contract, not
+  by stylistic consistency.
 - Load route-specific data and expensive work at the narrowest boundary that
   needs them.
 - Place code by responsibility and ownership. Keep single-use domain logic
@@ -25,6 +47,13 @@ procedures belong in `.agents/skills`.
   freshness check when asynchronous responses can race.
 - Keep domain calculations separate from UI when they have independent rules
   and edge cases.
+- For deterministic regex, validation, and transformation utilities, focused
+  unit tests covering valid, invalid, and edge cases are the primary evidence.
+  Add integration or build checks when the risk crosses a package, runtime, or
+  generated-output boundary.
+- Separate pure computation from reporting and other side effects by default.
+  A small utility may combine them when reducing consumer complexity is the
+  explicit goal and the side effect is part of the documented contract.
 - Keep `refactor` commits behavior-preserving; describe behavioral changes with
   an appropriate commit type.
 - Compose Tailwind classes through the repository's `cn` utility when base,
@@ -65,4 +94,3 @@ reformatting.
   not a general frontend rule.
 - A complex one-use unit may be decomposed locally without being promoted to a
   shared module.
-

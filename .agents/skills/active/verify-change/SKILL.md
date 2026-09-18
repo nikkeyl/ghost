@@ -51,6 +51,9 @@ Use the narrowest check that can falsify the relevant failure mode:
 - Verification depth may be proportional to project size, delivery constraints,
   and business risk, but a shorter verification path must still cover the
   material failure modes.
+- For deterministic regex, validation, and transformation utilities, focused
+  unit tests covering valid, invalid, and edge cases are sufficient unless the
+  change also affects packaging, runtime integration, or generated output.
 - Disabling type checking during a production build is a delivery trade-off,
   not evidence that the code is type-correct or otherwise verified.
 - Do not run a full project build by habit or use it as a generic substitute

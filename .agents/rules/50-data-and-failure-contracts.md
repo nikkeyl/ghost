@@ -22,7 +22,9 @@ libraries, or side effects.
 - Separate the primary outcome of a pipeline from secondary side effects. If
   the primary operation succeeds but a secondary notification, telemetry, or
   enrichment step fails, preserve the successful result and log the secondary
-  failure for diagnosis.
+  failure for diagnosis by default. If the secondary step is itself part of
+  the user-visible or business contract, classify it as essential or partial
+  before allowing its failure to fail the operation.
 - Report a user-facing failure when the primary outcome did not complete or the
   user-visible contract was materially violated; do not expose an incidental
   secondary failure as if the main operation failed.

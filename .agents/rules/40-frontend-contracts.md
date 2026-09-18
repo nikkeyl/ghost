@@ -3,7 +3,17 @@
 - Treat semantic HTML, keyboard behavior, focus, visible state, responsive
   layout, loading behavior, and reduced-motion behavior as part of a UI
   component's contract.
+- Use list semantics such as `ul` and `li` when the content is semantically a
+  list. Visual styling or the component's interaction model does not remove
+  that structural meaning.
 - Prefer native platform behavior before recreating it with JavaScript or ARIA.
+- Treat animation as an optional enhancement. The component's usable behavior
+  must remain correct without animation, and reduced-motion preferences must be
+  respected.
+- For a disabled custom or native control, ARIA communicates state but does
+  not block interaction by itself. `aria-disabled` is sufficient only when the
+  implementation also prevents the relevant behavior and preserves an
+  intentional keyboard and focus contract.
 - Keep a component's props narrow and derived from existing platform or schema
   types where that improves contract accuracy.
 - Keep shared components ignorant of consumer-specific business concepts;

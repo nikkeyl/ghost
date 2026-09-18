@@ -26,10 +26,14 @@ style convention that the repository does not use.
    contracts or explicit variants.
 4. Check whether variants are better represented by a typed lookup object and
    whether shared markup is truly identical in ownership and evolution.
-5. Inspect global CSS, existing component styles, native browser behavior,
+5. Check whether finite value mappings, variants, or strategies are data that
+   should be represented by a typed map instead of a conditional chain. Keep
+   conditionals when they express control flow, predicates, sequencing, or
+   dependencies between operations.
+6. Inspect global CSS, existing component styles, native browser behavior,
    and the repository's class-composition utility before adding Tailwind
    classes.
-6. Review accessibility, state, effects, and JSX readability.
+7. Review accessibility, state, effects, and JSX readability.
 
 ## Decision rules
 
@@ -46,6 +50,12 @@ style convention that the repository does not use.
   layout is genuinely shared.
 - Keep a reusable component's props focused on its stable core. Extend it from
   the outside instead of adding a prop for every consumer-specific case.
+- Use semantic list elements when the rendered content is a list, even when
+  the component provides interaction or custom visual styling.
+- Treat animation as an enhancement rather than the component's core behavior.
+  Verify the non-animated path and reduced-motion behavior.
+- `aria-disabled` must be paired with behavior that actually prevents the
+  disabled interaction; ARIA state alone does not disable a control.
 - Keeping effects last may aid scanning, but dependency correctness and React
   lifecycle semantics win.
 - Named exports are preferred only when consistent with the repository's public
