@@ -24,6 +24,11 @@ These are persistent rules for relevant engineering work.
   Use uppercase names for constants whose identity is meaningful beyond one
   local expression; keep a truly local one-off value local when naming it adds
   no clarity.
+- Name new files and directories with lowercase kebab-case by default. Preserve
+  required runtime or discovery names such as `AGENTS.md`, `CLAUDE.md`,
+  `README.md`, and `SKILL.md`, along with established external paths and the
+  existing repository layout; do not rename those compatibility paths merely
+  to enforce this convention.
 - Represent finite value-to-value, variant, or strategy mappings with a typed
   object or lookup table when the behavior is data. Use `if` for control flow,
   predicates, ordering, or dependent behavior rather than forcing every
