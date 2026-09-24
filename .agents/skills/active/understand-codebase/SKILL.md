@@ -33,7 +33,10 @@ result will be verified.
 5. Identify the source of truth for behavior, data, configuration, and public
    contracts. Search for adapters, generated files, schemas, and compatibility
    layers that may encode the same contract.
-6. Record unknowns, assumptions, hypotheses, risks, and explicit exclusions.
+6. Check path semantics: whether parent directories communicate ownership,
+   whether filenames redundantly repeat that context, and whether an existing
+   FSD or equivalent layer/slice convention is being followed.
+7. Record unknowns, assumptions, hypotheses, risks, and explicit exclusions.
    Stop when the model is sufficient to place and verify the change; do not
    inventory unrelated repository areas.
 
@@ -48,6 +51,12 @@ result will be verified.
   analysis.
 - Distinguish a module's ownership from its reuse count. A one-consumer domain
   module can still be the correct owner of its logic.
+- Let the path provide context and the leaf name provide local responsibility.
+  Treat duplicated context as a signal to investigate, not an automatic error;
+  framework, generated, public, or relocation contracts may justify it.
+- Apply FSD-style plural layer groups, singular slices, and conventional
+  internal segments only when the repository already demonstrates that
+  convention.
 - Do not infer data or control flow from names alone. Confirm it through
   imports, call sites, types, tests, configuration, or runtime evidence.
 - If evidence is insufficient to place the change or define verification,
@@ -63,6 +72,7 @@ Produce a repository-context checkpoint using
 - runtime boundaries;
 - relevant data and control flows;
 - source-of-truth and contract map;
+- path semantics and naming exceptions;
 - unknowns, assumptions, risks, and exclusions;
 - evidence links with file paths, line references, commands, or observations;
 - placement decision and verification plan.
@@ -73,8 +83,10 @@ change and name follow-up investigation rather than expanding the active scope.
 ## Verification
 
 Check that every planned change has an identified owner and entry point, every
-crossed boundary has a named contract or risk, the important flows have
-evidence, and the verification plan can falsify the material failure modes.
+crossed boundary has a named contract or risk, path names communicate the
+observed repository convention or have an explicit exception, the important
+flows have evidence, and the verification plan can falsify the material
+failure modes.
 Re-check the exact files and line references before reporting the checkpoint.
 
 ## Completion criteria

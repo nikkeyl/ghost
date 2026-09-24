@@ -43,6 +43,15 @@ Evidence:
 - Schemas, generated files, adapters, or compatibility layers:
 - Behavioral source of truth:
 
+## Path semantics
+
+- Established file and directory naming convention:
+- Does the parent path communicate domain, layer, or slice ownership?
+- Does any filename redundantly repeat context already supplied by its path?
+- Does the repository use FSD or an equivalent layer/slice convention?
+- Naming exceptions required by a framework, generator, public contract, or
+  existing repository layout:
+
 ## Unknowns, assumptions, and risks
 
 - Fact:

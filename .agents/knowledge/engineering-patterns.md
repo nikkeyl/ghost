@@ -33,6 +33,16 @@ procedures belong in `.agents/skills`.
   needs them.
 - Place code by responsibility and ownership. Keep single-use domain logic
   local and promote it only after real reuse appears.
+- Make local paths predictable. Let parent directories provide domain, layer,
+  or slice context, and name the leaf file after its local responsibility
+  instead of repeating the path context. Keep repetition when a framework,
+  generator, public contract, frequent relocation, or import readability gives
+  it a concrete reason.
+- When a repository has adopted FSD or an equivalent layer/slice structure,
+  preserve its established path semantics: layer groups may be plural, slices
+  may be singular, and internal segments such as `ui`, `model`, and `api` may
+  remain stable. Verify the repository convention before applying it; this is
+  not a universal folder taxonomy.
 - Adapt transport data to a UI-oriented model when that removes repeated
   plumbing and preserves a useful boundary. Direct transport data is valid
   when it already has the stable shape the UI needs.
