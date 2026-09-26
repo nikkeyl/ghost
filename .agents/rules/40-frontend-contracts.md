@@ -7,6 +7,17 @@
   list. Visual styling or the component's interaction model does not remove
   that structural meaning.
 - Prefer native platform behavior before recreating it with JavaScript or ARIA.
+- Use an anchor with an href for navigation and a button for an action. Give
+  each button an explicit type that matches its form behavior.
+- Preserve native table semantics when content expresses row-and-column
+  relationships, and make header-to-cell relationships available
+  programmatically rather than relying on visual styling alone.
+- Give meaningful images a context-appropriate text alternative and
+  decorative images an empty alt attribute. If an image is the only content
+  of a control, its alternative must communicate the control's purpose.
+- When the product targets WCAG 2.2 AA, verify pointer targets against
+  criterion 2.5.8, including its exceptions; the visible icon need not be the
+  full target area.
 - Treat animation as an optional enhancement. The component's usable behavior
   must remain correct without animation, and reduced-motion preferences must be
   respected.

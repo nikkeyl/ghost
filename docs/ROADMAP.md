@@ -1,7 +1,9 @@
 # GHOST roadmap
 
 Status: Phase 0 complete; the first Phase 1 implementation slice is complete.
-Phase 2 is the next implementation target. P0 runtime validation remains a
+Phase 2 remains the next implementation target. A scoped P1 metadata capability
+was promoted in response to the Standards-source review; this does not advance
+Phase 3 or reorder the planned Phase 2 slice. P0 runtime validation remains a
 separate follow-up because host-specific discovery still needs evidence.
 
 ## Purpose
@@ -32,13 +34,14 @@ Already implemented in `.agents/`:
 
 - 6 persistent rules for scope, evidence, Git/review, frontend contracts,
   disagreement, and data/failure contracts.
-- 8 knowledge files for activation, source-derived frontend patterns, the
-  data-loading/failure model, async UI state, Next.js Server Actions,
-  runtime/context adaptation, content trust boundaries, and engineering
-  patterns.
-- 8 active skills for planning, impact analysis, minimal implementation,
-  debugging, verification, React component review, custom-control review, and
-  form-contract review.
+- 9 knowledge files covering activation, source-derived frontend patterns, web
+  document metadata, data loading and failure, async UI state, Next.js Server
+  Actions, runtime/context adaptation, content trust boundaries, and general
+  engineering patterns.
+- 11 active skills for planning, impact analysis, minimal implementation,
+  debugging, verification, codebase understanding, task clarification, React
+  component review, custom-control review, form-contract review, and metadata
+  strategy review.
 - 8 passive detectors for scope drift, breaking changes, missing verification,
   accessibility, performance, architecture, component drift, and async races.
 - Progressive activation limits: 5 active skills by default, 2 graph hops.
@@ -79,9 +82,12 @@ patterns without creating one skill per observation:
   server-boundary, and primary/secondary failure procedures.
 - `detect-async-race` observes debounce, cancellation, freshness, and stale
   response risks during user-driven asynchronous work.
-- `async-ui-state-and-cancellation`, `nextjs-server-actions`, and
+- `async-ui-state-and-cancellation`, `nextjs-server-actions`,
   `content-trust-boundaries`, and `engineering-patterns` preserve the
   underlying mental models and evidence.
+- `review-metadata-strategy` and `web-document-metadata` promote the
+  route-level metadata, indexing, localization, social-preview, and
+  structured-data review from the candidate backlog.
 
 These promotions are routed through the existing parent workflow and do not
 change the default activation budget.
@@ -92,6 +98,7 @@ knowledge file; it is intentionally not a new standalone skill.
 
 | Backlog candidates | GHOST artifact | Kind | Status | Routing |
 |---|---|---|---|---|
+| `review-metadata-strategy` | `skills/active/review-metadata-strategy`, `knowledge/web-document-metadata.md` | active + knowledge | implemented | page metadata, indexability, locale, social preview, or structured data changes |
 | `implement-cancellation` | `knowledge/async-ui-state-and-cancellation.md`, `skills/passive/detect-async-race` | knowledge + passive | covered | `debug-systematically` or async signal |
 | `analyze-module-loading` | `knowledge/data-loading-and-failure-model.md`, `skills/passive/detect-performance-risk` | knowledge + passive | covered | a dependency or renderer may be loaded too broadly |
 | `analyze-async-control-flow`, `review-state-transitions`, `detect-stale-state` | `knowledge/async-ui-state-and-cancellation.md`, `skills/passive/detect-async-race` | knowledge + passive | covered | user-driven async state can become obsolete |

@@ -14,6 +14,19 @@ registry. Candidates are not activated individually just because their names
 match the request, and inactive candidates remain available for later
 promotion.
 
+## Current promotion note
+
+- `review-metadata-strategy` has been promoted to an active skill with
+  supporting knowledge in `.agents/knowledge/web-document-metadata.md`, based
+  on the SSM Standards article. Its implementation and routing status are
+  recorded in `ROADMAP.md`. The candidate remains in the imported inventory
+  below so the original list is preserved.
+- Other findings from the eight reviewed Standards articles strengthen
+  existing frontend rules, control/form reviews, trust-boundary and
+  data/failure knowledge, and passive accessibility/performance detectors.
+  These enrichments do not claim that broader accessibility-audit or
+  image-optimization procedures are complete.
+
 ## Imported candidate inventory
 
 Codebase understanding- map-codebase

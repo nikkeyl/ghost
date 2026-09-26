@@ -32,6 +32,13 @@ of a lead is primary; a Telegram notification after persistence is secondary.
 The notification may be retried or logged independently without converting a
 successful persistence result into a failed form submission.
 
+Promise combinators coordinate asynchronous results; they do not create a
+transaction across destinations or roll back completed side effects. When one
+user action writes to multiple systems, define which persisted outcome counts
+as accepted, how partial delivery is reported and recovered, and where retries
+and duplicate prevention are owned. Retrying a side effect is safe only when
+its idempotency or deduplication contract is understood.
+
 The failure message should describe the failed user-visible outcome, not every
 internal step that encountered an error. Observability still needs the internal
 failure with enough context to diagnose it.

@@ -24,6 +24,7 @@ location. Do not create separate engineering rules for each host.
 | `review-component-anatomy` | React component structure is in scope |
 | `review-custom-control` | a custom interactive control or its state contract is in scope |
 | `review-form-contract` | a form or its submission lifecycle is in scope |
+| `review-metadata-strategy` | page metadata, indexability, localized URLs, or structured data are in scope |
 
 ## Passive
 

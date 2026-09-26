@@ -63,6 +63,22 @@ own codebase where the user explicitly confirmed the extracted patterns.
   — autoplay constraints, `muted`/`playsinline`, captions, fallbacks, poster.
 - [How to use Vite with VPN enabled](https://nikkeyl.com/en/articles/guides/how-to-use-vite-with-vpn-enabled-quick-solution)
   — hypothesis-driven local-network troubleshooting and HMR configuration.
+- [SST-A — Tabs](https://nikkeyl.com/ru/articles/standards/sst-a-single-standard-for-tabs)
+  — tab semantics, activation modes, URL/history state, keyboard behavior, and RTL.
+- [SSCF — Contact forms](https://nikkeyl.com/ru/articles/standards/sscf-single-standard-for-contact-forms)
+  — field contracts, validation feedback, file boundaries, and multi-destination submission.
+- [SSM — Metadata](https://nikkeyl.com/ru/articles/standards/ssm-single-standard-for-metadata)
+  — page identity, crawl/index directives, localized URLs, social previews, and structured data.
+- [SST — Tables](https://nikkeyl.com/ru/articles/standards/sst-single-standard-for-tables)
+  — native table relationships, responsive overflow, and print behavior.
+- [SSB — Buttons](https://nikkeyl.com/ru/articles/standards/ssb-single-standard-for-buttons)
+  — native action semantics, explicit types, states, and target-size checks.
+- [SSS — Sliders](https://nikkeyl.com/ru/articles/standards/sss-single-standard-for-sliders)
+  — carousel navigation, overflow, offscreen focus, automatic motion, and media loading.
+- [SSL — Links](https://nikkeyl.com/ru/articles/standards/ssl-single-standard-for-links)
+  — navigation semantics, URL trust, accessible names, and new-context behavior.
+- [SSI — Images](https://nikkeyl.com/ru/articles/standards/ssi-single-standard-for-images)
+  — text alternatives, responsive source selection, layout reservation, and loading priority.
 
 ### User's codebase
 
@@ -113,6 +129,21 @@ hypotheses, and decisions, and naming what would change the decision.
 The blueprint and SSG both favor coherent changes, Conventional Commits, and
 staged checks. In GHOST this becomes a change-management rule, while actual
 commit execution remains explicit and environment-dependent.
+
+### 7. UI behavior belongs to the platform contract
+
+Buttons, links, tables, tabs, carousels, forms, and images are not only visual
+patterns. Their native browser semantics, keyboard and touch behavior, focus
+model, responsive layout, and loading behavior affect the contract. GHOST adds
+these as focused review cues and detector signals; library APIs and exact
+component implementations remain repository-specific.
+
+### 8. Metadata is a consumer-specific signal, not an outcome guarantee
+
+Search engines and social platforms can rewrite, cache, or ignore metadata.
+GHOST therefore checks route identity, delivery, canonical and locale
+relationships, crawler directives, and data accuracy, while separating
+technical validity from indexing, ranking, rich-result, and preview outcomes.
 
 ## Grid audit and compatibility decisions
 
@@ -177,6 +208,11 @@ the same core rather than copy the entire corpus.
 - Measure before optimizing.
 - Keep changes semantically coherent and reviewable.
 - Treat accessibility, security, and performance as part of correctness.
+- Use native anchors for navigation and buttons for actions; specify each
+  button's form type.
+- Preserve table header relationships and provide context-appropriate image
+  alternatives. Check target sizing against the criterion the product adopts,
+  including applicable exceptions.
 - Turn repeated visual decisions into semantic tokens or explicit variants;
   keep isolated local values local when they have a distinct meaning.
 - Do not change an assessment merely because a person repeats or intensifies a
@@ -189,6 +225,8 @@ the same core rather than copy the entire corpus.
 - Detect missing verification.
 - Detect accessibility regression.
 - Detect performance risk.
+- Detect table, image, and carousel accessibility cues, plus image loading and
+  layout-shift risks when the relevant UI changes.
 - Detect architecture drift and speculative abstraction.
 - Detect component-anatomy drift when React conventions are in scope.
 - Detect stale or uncancelled user-driven asynchronous work.
@@ -204,6 +242,8 @@ the same core rather than copy the entire corpus.
 - Review a custom interactive control through a state and interaction matrix.
 - Review a form contract, including validation, submission lifecycle, server
   boundary, and primary or secondary failure behavior.
+- Review route-level metadata strategy, crawler directives, localized URLs,
+  social previews, structured data, and delivery to intended consumers.
 
 ## What became knowledge
 
@@ -211,12 +251,25 @@ the same core rather than copy the entire corpus.
   freshness.
 - Next.js Server Actions as a contextual mutation boundary.
 - Trust boundaries for CMS or Markdown content before HTML sinks.
+- URL scheme and destination validation for untrusted navigation/resource data.
+- Web document metadata and discovery, including canonical/localized URLs,
+  crawler directives, social previews, structured data, and verification.
+- Extended source-derived patterns for forms, tables, images, buttons, links,
+  tabs, carousels, and measured media delivery.
 - Generalized engineering patterns and formatting hierarchy confirmed through
   source analysis and user review.
 - Runtime adapters, progressive routing, minimal-solution heuristics, and
   context-budget controls.
 
 ## Deliberately not unconditional
+
+- Search-result title/snippet lengths, crawler rendering, rankings, indexing,
+  rich-result display, social preview rendering, and installability are not
+  guaranteed by metadata configuration.
+- Image format, compression quality, fetch priority, and eager/lazy boundaries
+  depend on the asset, actual layout, consumer, and measured performance.
+- Carousel library APIs, URL history semantics, and native/custom control
+  choices remain tied to the product interaction and supported browser matrix.
 
 - `cn` is a convention only when the repository uses the utility and its
   merge semantics are desired.

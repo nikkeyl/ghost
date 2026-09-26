@@ -64,6 +64,8 @@ demand and is not part of the always-loaded core.
   matrix is in scope.
 - Load `review-form-contract` when a form or its submission lifecycle is in
   scope.
+- Load `review-metadata-strategy` when page metadata, indexability, localized
+  URL relationships, social previews, or structured data are in scope.
 - Let passive detectors raise signals; do not turn every warning into a full
   audit.
 
