@@ -29,6 +29,8 @@ These are persistent rules for relevant engineering work.
   `README.md`, and `SKILL.md`, along with established external paths and the
   existing repository layout; do not rename those compatibility paths merely
   to enforce this convention.
+- Name `package.json` scripts that perform a specific action as `script:name`,
+  for example `lint:fix` or `test:unit`.
 - Represent finite value-to-value, variant, or strategy mappings with a typed
   object or lookup table when the behavior is data. Use `if` for control flow,
   predicates, ordering, or dependent behavior rather than forcing every
