@@ -16,6 +16,14 @@
 - A user request that already specifies implementation and scope is sufficient
   authorization to implement that scoped work; do not manufacture a second
   approval gate.
+- Separate settled requirements from implementation choices. Give each work
+  unit an outcome, dependencies, and a verification condition; keep intermediate
+  states runnable. Use checkpoints according to risk, not an arbitrary file count.
+- Preserve unrelated user changes and re-check relevant state before applying
+  a prepared edit; another session may have changed the same file or index.
+- Use the adopting repository's planning location when a saved plan is useful.
+  Keep handoffs self-contained and bind factual context to its observed state.
+
 - In an FSD repository, place code by ownership and responsibility, not only by
   reuse count. Keep single-use domain logic near its owner. Extract a local
   function or module when that improves a complex unit, but promote code to

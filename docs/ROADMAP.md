@@ -1,8 +1,9 @@
 # GHOST roadmap
 
 Status: Phase 0 complete; the first Phase 1 implementation slice is complete.
-Phase 2 remains the next implementation target. A scoped P1 metadata capability
-was promoted in response to the Standards-source review; this does not advance
+The scoped source import authors the next Phase 2 procedures; representative
+Phase 2 runtime trials remain the next validation target. A scoped P1 metadata
+capability was promoted in response to the Standards-source review; this does not advance
 Phase 3 or reorder the planned Phase 2 slice. P0 runtime validation remains a
 separate follow-up because host-specific discovery still needs evidence.
 
@@ -34,16 +35,19 @@ Already implemented in `.agents/`:
 
 - 6 persistent rules for scope, evidence, Git/review, frontend contracts,
   disagreement, and data/failure contracts.
-- 9 knowledge files covering activation, source-derived frontend patterns, web
+- 16 knowledge files covering activation, source-derived frontend patterns, web
   document metadata, data loading and failure, async UI state, Next.js Server
   Actions, runtime/context adaptation, content trust boundaries, and general
-  engineering patterns.
-- 11 active skills for planning, impact analysis, minimal implementation,
+  engineering patterns, plus behavior preservation, research, writing, skill
+  authoring, personal preferences, context hygiene, and optional integrations.
+- 19 active skills for planning, impact analysis, minimal implementation,
   debugging, verification, codebase understanding, task clarification, React
   component review, custom-control review, form-contract review, and metadata
-  strategy review.
-- 8 passive detectors for scope drift, breaking changes, missing verification,
-  accessibility, performance, architecture, component drift, and async races.
+  strategy review, plus diff review, test strategy, behavior-preserving refactoring,
+  migration planning, API research, handover, prose, and lesson capture.
+- 13 passive detectors for scope drift, breaking changes, missing verification,
+  accessibility, performance, architecture, component drift, async races, weak
+  test signal, overmocking, abstraction leaks, complexity creep, and build impact.
 - Progressive activation limits: 5 active skills by default, 2 graph hops.
 - P0 runtime target set: Codex, Claude Code, Cursor, GitHub Copilot, Gemini
   CLI, and OpenCode. Runtime-specific files remain thin adapters over the
@@ -118,10 +122,35 @@ knowledge file; it is intentionally not a new standalone skill.
 | `review-design-token-usage`, `design-token-architecture` | `rules/40-frontend-contracts.md`, `skills/active/review-component-anatomy` | rule + active | covered | repeated visual meaning is demonstrated |
 | `define-verification-plan`, `design-minimal-change` | `skills/active/understand-and-plan-change`, `skills/active/verify-change` | active | covered | a change needs a bounded plan or risk-appropriate check |
 
-Candidates such as `understand-codebase` and the broader platform, security,
-and production families remain planned. They have useful names in the backlog,
-but the current evidence does not yet justify claiming a complete independent
-workflow for them.
+Broader platform, security, and production families remain planned.
+`understand-codebase` is implemented in the Phase 1 slice described above.
+The remaining families have candidate names in the backlog, but the current
+evidence does not yet justify claiming complete independent workflows for them.
+
+## Scoped source import checkpoint
+
+The user-approved `info-for-ghost` import implements portable procedures and
+structural checks, not completion of a roadmap phase. Review, test strategy,
+refactoring, migration planning, handover, research, documentation, and lesson
+capture have authored artifacts. Five new passive detectors cover the planned
+Phase 2 signals. Representative runtime trials and outcome evaluation are pending.
+
+| Backlog candidates | GHOST artifact | Kind | Status | Routing |
+|---|---|---|---|---|
+| `review-code-change`, `review-pull-request`, `review-diff-not-files`, `review-for-correctness`, `review-for-overengineering` | `skills/active/review-code-change` | active | implemented | scoped review or received feedback |
+| `design-test-strategy`, `choose-test-level`, `write-regression-test`, `test-edge-cases`, `test-error-paths`, `test-concurrency`, `reduce-test-brittleness`, `improve-test-signal`, `review-mocking-strategy` | `skills/active/design-test-strategy`, `templates/manual-test.md` | active + template | covered | unclear proof or material regression risk |
+| `refactor-without-behavior-change`, `incremental-refactor`, `reduce-coupling`, `reduce-complexity` | `skills/active/refactor-without-behavior-change` | active | implemented | authorized structural change |
+| `plan-migration`, `design-backward-compatible-migration`, `track-migration-progress`, `write-migration-guide`, `write-runbook` | `skills/active/plan-migration`, `templates/migration-plan.md` | active + template | covered | overlap, state preservation, or recovery needs |
+| `research-unknown-api`, `read-library-source`, `compare-docs-with-runtime`, `create-minimal-reproduction`, `verify-library-api` | `skills/active/research-unknown-api`, `knowledge/web-research-and-source-evaluation.md` | active + knowledge | covered | decision-relevant API uncertainty |
+| `write-maintainer-notes`, `explain-code-decision` | `skills/active/write-maintainer-notes`, `templates/change-handover.md` | active + template | covered | review handover or PR-description draft |
+| `update-documentation`, `write-architecture-note`, `write-adr`, `document-invariants` | `skills/active/update-documentation`, `knowledge/writing-and-review-communication.md` | active + knowledge | covered | requested technical Markdown or prose |
+| `extract-engineering-lessons`, `challenge-own-assumptions`, `find-counterexample` | `skills/active/extract-engineering-lessons`, `knowledge/skill-authoring-and-evaluation.md` | active + knowledge | covered | requested durable guidance from evidence |
+| `detect-overmocking`, `detect-leaky-abstraction`, `detect-complexity-creep`, `check-lockfile-impact`, `check-ci-impact` | `skills/passive/detect-overmocking`, `skills/passive/detect-leaky-abstraction`, `skills/passive/detect-complexity-creep`, `skills/passive/detect-build-impact` | passive | covered | material signal during existing work |
+
+`covered` denotes the bounded procedures represented by these artifacts; it
+does not claim a complete general security, production, or test-design system.
+See [`info-for-ghost-import.md`](./info-for-ghost-import.md) for the accepted
+scope, exclusions, source records, and actual validation evidence.
 
 ## P0 runtime compatibility
 
@@ -418,15 +447,15 @@ artifact: <relative path or list of paths>
 
 ## Next implementation slice
 
-The next coherent slice is intentionally small and moves to Phase 2:
+The source import authors the planned Phase 2 parent skills, diagnostics,
+impact checklists, and passive signals. The next coherent slice is validation:
 
-1. promote `debug-systematically` and `analyze-change-impact` with the
-   procedure checklists identified in Phase 2;
-2. add `review-code-change` and `design-test-strategy` as parent skills;
-3. add passive detectors for test-signal weakness, overmocking, leaky
-   abstraction, complexity creep, and lockfile/CI impact;
-4. run representative Phase 2 workflows and record friction before promoting
-   specialized leaf procedures.
+1. trial review, test strategy, and bounded change workflows on a real repository;
+2. exercise a behavior-preserving refactor and a compatibility transition;
+3. evaluate positive triggers, non-triggers, evidence quality, and routing cost;
+4. record friction and make narrow corrections before promoting more leaf skills.
+
+P0 host discovery and passive-projection validation remain separate follow-ups.
 
 The slice is complete only after representative workflows are trialled on a
 real repository, not after writing the files.

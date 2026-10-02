@@ -48,6 +48,11 @@ Change only the smallest coherent unit that satisfies the contract.
 - Preserve externally observable behavior during a refactor. If behavior must
   change, make that change explicit in the plan and verification.
 
+- Keep a coherent outcome across the layers that own its invariants; the
+  narrowest responsible fix is not necessarily the smallest file edit.
+- Use `refactor-without-behavior-change` when preservation needs an explicit
+  baseline, and `plan-migration` for non-atomic consumer or state transitions.
+
 ## Actions
 
 Implement one isolated unit. After the edit, report changed paths, behavior,
@@ -69,6 +74,6 @@ step is either verified or explicitly blocked by evidence.
 
 ```yaml
 requires: [understand-and-plan-change]
-may-trigger: [debug-systematically]
+may-trigger: [debug-systematically, refactor-without-behavior-change, plan-migration, design-test-strategy]
 followed-by: [verify-change]
 ```

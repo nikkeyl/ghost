@@ -297,3 +297,16 @@ The generated layer is structurally valid when:
 4. the router stays within the activation limits;
 5. backlog promotions have an explicit coverage status and artifact path;
 6. sources and adaptation boundaries remain visible to future maintainers.
+
+
+## Additional source import
+
+On 2026-10-02, the user authorized importing the useful engineering material
+from `/Users/nikkeyl/Documents/info-for-ghost/` after reviewing a checklist.
+The user explicitly excluded interface design, CV, Whisper transcription,
+and PDF/DOCX/PPTX/XLSX reading or validation capabilities from this import.
+
+The accepted scope, file-to-capability map, source notices, and validation record
+are in [`info-for-ghost-import.md`](./info-for-ghost-import.md). Source instructions
+were adapted as evidence. They did not authorize installer scripts, global
+settings, model selection, Git publication, or external account changes.

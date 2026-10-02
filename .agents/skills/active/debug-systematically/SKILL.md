@@ -27,6 +27,15 @@ symptoms.
    request, cache, or state propagation.
 6. Identify the violated invariant or boundary.
 
+7. Rank hypotheses by supporting evidence and the cost of a discriminating
+   check. Compare with a working case where it can expose the relevant difference.
+8. For multi-layer failures, capture inputs and outputs at the suspected
+   boundary. Separate environment, timing, state, and implementation causes.
+
+A diagnostic-only request ends with the cause and evidence; it does not
+authorize a fix. If no cause can be established, report the precise evidence
+gap instead of repeatedly trying unrelated edits.
+
 ## Decision rules
 
 - Do not patch a symptom before a hypothesis explains the observed behavior.
@@ -38,23 +47,28 @@ symptoms.
 
 ## Actions
 
-Apply the smallest fix that restores the invariant. Avoid unrelated cleanup.
+When implementation is authorized, apply the smallest fix that restores
+the invariant. Avoid unrelated cleanup.
 If a hypothesis fails, discard it explicitly rather than bending the evidence.
 
 ## Verification
 
-Reproduce the original failure, run the regression check, and test the most
-important adjacent edge case. State what was not tested.
+For an authorized fix, exercise the original failure and regression check,
+including the important adjacent edge case. Establish pre-fix failure when
+feasible and explain alternative evidence when it is not. For diagnosis alone,
+verify that the proposed mechanism explains the observed evidence. State what
+was not tested.
 
 ## Completion criteria
 
-The root cause explains the observed behavior, the fix addresses that cause,
-and the original failure no longer reproduces under the stated conditions.
+The diagnosis explains the observed behavior or names the unresolved evidence
+gap. When a fix is in scope, it addresses the cause and the original failure
+no longer reproduces under the stated conditions.
 
 ## Graph
 
 ```yaml
 requires: [understand-and-plan-change]
-may-trigger: [analyze-change-impact]
+may-trigger: [analyze-change-impact, design-test-strategy, research-unknown-api]
 followed-by: [verify-change]
 ```

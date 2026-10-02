@@ -11,5 +11,11 @@
 - When evidence is weak or conflicting, say what is known, what is not known,
   and what would change the conclusion.
 - Prefer a small discriminating experiment over a long speculative argument.
+- Before reporting a path, reference, identifier, or configuration as broken,
+  perform the check that establishes the failure. A related rename or edit
+  alone is not proof; confirm the premise before proposing a broad repair.
+- Keep an unconfirmed possibility labelled as a hypothesis or risk. A missing
+  reproduction does not erase a plausible risk, but it cannot become a fact.
+
 - Apply the same standard to the agent's own earlier output; prior confidence
   is not evidence.

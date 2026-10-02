@@ -45,6 +45,24 @@ Runtime-specific loading and context-budget guidance lives in
 `.agents/knowledge/runtime-adapters-and-context-budget.md`; it is read on
 demand and is not part of the always-loaded core.
 
+## Imported workflow capabilities
+
+The scoped `info-for-ghost` import adds review, test strategy, behavior-preserving
+refactoring, migration planning, API research, change handover, Markdown
+authoring, and requested lesson capture. It also adds lightweight signals for
+weak test evidence, overmocking, abstraction leaks, complexity, and build impact.
+Select these through the skill index; the activation budget remains unchanged.
+
+Requirements, plan, manual-test, migration, handover, verification, and skill
+evaluation templates live in `.agents/templates/`. Read them only when the
+task needs a persistent artifact, using the adopting project's destination.
+
+The source map, accepted scope, adaptation decisions, and validation limits
+are recorded in [`docs/info-for-ghost-import.md`](./docs/info-for-ghost-import.md).
+Optional authoring preferences are documented in
+[`.agents/knowledge/personal-authoring-preferences.md`](./.agents/knowledge/personal-authoring-preferences.md);
+enable that profile explicitly rather than treating it as a team-wide rule.
+
 ## Repository layout
 
 - `.agents/` — portable rules, knowledge, active skills, and passive detectors.

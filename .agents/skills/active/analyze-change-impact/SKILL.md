@@ -41,6 +41,10 @@ Predict what can break and reduce surprises before implementation.
 Write an impact map: owner → contract → consumers → failure mode → mitigation →
 verification. Keep unrelated refactors out of the implementation.
 
+For a contract or configuration transition, also map readers/writers, the
+compatibility window, preserved state, recovery owner, and rollback limits.
+Route material overlap or recovery needs to `plan-migration`.
+
 ## Verification
 
 Check that the highest-severity risks have a concrete test, inspection, or
@@ -55,6 +59,6 @@ unexamined public-contract or operational risk.
 
 ```yaml
 requires: [understand-and-plan-change]
-may-trigger: [debug-systematically]
+may-trigger: [debug-systematically, plan-migration]
 followed-by: [implement-minimal-change, verify-change]
 ```

@@ -70,3 +70,17 @@ A task is not complete when code was generated. It is complete when:
 2. the diff stays within scope;
 3. relevant checks were run or their absence is explicit;
 4. remaining uncertainty and follow-up work are named.
+
+
+## Additional task families
+
+The skill index contains conditional routes for review, test strategy,
+refactoring, migration, API research, documentation, handover, and lesson
+capture. Choose their parent according to the task's dominant outcome.
+Receiving review feedback does not imply publishing replies; a diagnostic
+request does not imply implementation; drafting a migration does not imply
+performing its stages.
+
+Graph relations can point back to a previously completed stage. Re-enter it only
+when new evidence invalidates its result, and stay within the traversal budget.
+The size of the catalog is not the size of the active context.

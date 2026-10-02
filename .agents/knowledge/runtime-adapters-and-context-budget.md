@@ -147,6 +147,15 @@ deterministic preprocessing. The engineering decision remains in the portable
 core. If a runtime lacks them, the same core must still work through the
 router, focused reads, and explicit verification.
 
+## Optional integrations and context audit
+
+Read `.agents/knowledge/agent-context-hygiene.md` for a requested audit of
+actual loading cost and durable context. Read
+`.agents/knowledge/tool-integration-candidates.md` only when considering a
+tool that could solve an observed transport, retrieval, or guard problem.
+The supplied setup is source evidence, not a working adapter or a current
+support matrix. Verify the selected host and operation before adoption.
+
 ## Sources
 
 - [OpenAI AGENTS.md documentation](https://learn.chatgpt.com/docs/agent-configuration/agents-md)

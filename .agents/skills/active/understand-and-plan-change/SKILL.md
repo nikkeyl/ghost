@@ -31,6 +31,19 @@ Build a small context model and an implementation sequence before editing.
    ownership or boundaries are not established. Inspect the candidate backlog
    for coverage, but do not activate every matching leaf procedure.
 
+For work handed to a fresh session, use `.agents/templates/requirements.md`
+and `.agents/templates/implementation-plan.md` as needed. Keep the desired
+behavior separate from the selected implementation, record dependency order,
+and give each runnable unit a completion check. A source snapshot or prior
+plan supplies leads whose drift-prone facts need rechecking.
+
+Choose `review-code-change` for a review; `refactor-without-behavior-change`
+for structural work; `plan-migration` for overlapping contracts;
+`research-unknown-api` for material API uncertainty; and `design-test-strategy`
+when the proof is unclear. `update-documentation`, `write-maintainer-notes`,
+and `extract-engineering-lessons` handle requested artifacts or guidance.
+Select these conditionally, never as a full checklist to preload.
+
 ## Decision rules
 
 - Do not design an abstraction before the variation is visible.
@@ -65,7 +78,7 @@ can be executed without rediscovering the repository structure.
 ## Graph
 
 ```yaml
-may-trigger: [clarify-engineering-task, understand-codebase, analyze-change-impact]
+may-trigger: [clarify-engineering-task, understand-codebase, analyze-change-impact, review-code-change, design-test-strategy, refactor-without-behavior-change, plan-migration, research-unknown-api, update-documentation, write-maintainer-notes, extract-engineering-lessons]
 followed-by: [implement-minimal-change]
 references: [verify-change]
 ```

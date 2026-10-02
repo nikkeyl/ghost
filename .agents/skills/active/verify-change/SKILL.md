@@ -73,11 +73,22 @@ Use the narrowest check that can falsify the relevant failure mode:
   proof that runtime behavior is correct. Verify the changed behavior with the
   narrowest check that can falsify its material failure modes.
 
+- Bind reused results to the repository state, configuration, and environment
+  they exercised. New relevant edits invalidate old completion evidence.
+- Preserve failed attempts and distinguish pass, fail, skipped, unavailable,
+  and blocked. Retrying a flaky check does not erase its earlier failure.
+- Once sufficient evidence covers acceptance, stop; do not add unrelated
+  cleanup or repeatedly broaden checks without a new risk or failure.
+
 ## Actions
 
 Produce a verification record: command or method, result, scope covered,
 plan-versus-implementation status, challenged assumptions or counterexamples,
 remaining uncertainty, and follow-up.
+
+Use `.agents/templates/verification-record.md` when a persistent record is
+needed. Use `design-test-strategy` when a material failure mode has no clear
+proof; keep structural validation distinct from a real runtime trial.
 
 ## Verification
 
@@ -94,6 +105,7 @@ risks are either checked, mitigated, or explicitly left open.
 
 ```yaml
 requires: [implement-minimal-change]
+may-trigger: [design-test-strategy]
 references: [analyze-change-impact]
 followed-by: []
 ```

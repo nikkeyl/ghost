@@ -63,6 +63,11 @@ Produce a task contract with:
 Use the repository's terminology and link each material claim to evidence when
 the task is based on existing behavior.
 
+When a persistent requirements artifact is needed, use
+`.agents/templates/requirements.md` and the repository's planning location.
+Related tickets provide context, not automatic scope. Verify existing or
+reusable capability claims before proposing a parallel implementation.
+
 ## Verification
 
 Check that the implementation plan can be evaluated against observable
