@@ -2,6 +2,10 @@
 
 # GHOST
 
+![AI](https://img.shields.io/badge/AI-red)
+
+This project was developed entirely with AI assistance.
+
 GHOST is a reusable engineering cognition layer derived from the public
 technical writing and gists of Nikkeyl, plus the supplied `AI Engineering
 Skills - Neural Blueprint.md`.
@@ -95,3 +99,7 @@ The long-term capability backlog and implementation sequence are tracked in
 [`docs/ROADMAP.md`](./docs/ROADMAP.md). It intentionally groups the 444
 candidate procedures into domain families before promoting individual
 procedures to standalone skills.
+
+## License
+
+[MIT](./LICENSE)
