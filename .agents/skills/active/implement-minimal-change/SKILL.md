@@ -91,7 +91,7 @@ next step is either verified or explicitly blocked by evidence.
 ## Graph
 
 ```yaml
-requires: [understand-and-plan-change]
+requires: [plan-code-change]
 may-trigger:
   [
     debug-systematically,
@@ -99,5 +99,5 @@ may-trigger:
     plan-migration,
     design-test-strategy,
   ]
-followed-by: [verify-change]
+followed-by: [verify-before-claiming]
 ```

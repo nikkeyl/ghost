@@ -16,17 +16,17 @@ for each host.
 
 | Skill                              | Use when                                                                        |
 | ---------------------------------- | ------------------------------------------------------------------------------- |
-| `understand-and-plan-change`       | a change needs scope, context, or sequencing                                    |
-| `understand-codebase`              | repository ownership, boundaries, or relevant flows are unclear                 |
+| `plan-code-change`                 | a change needs scope, context, or sequencing                                    |
+| `map-codebase`                     | repository ownership, boundaries, or relevant flows are unclear                 |
 | `clarify-engineering-task`         | the request, symptom, contract, or success criteria are materially ambiguous    |
-| `analyze-change-impact`            | a public/shared/cross-cutting contract may change                               |
+| `estimate-blast-radius`            | a public/shared/cross-cutting contract may change                               |
 | `implement-minimal-change`         | the scoped implementation is authorized                                         |
 | `analyze-build-pipeline`           | automation, hooks, dependency updates, or releases need configuration or review |
 | `debug-systematically`             | behavior is failing or unexpected                                               |
-| `verify-change`                    | a completion claim needs evidence                                               |
-| `review-component-anatomy`         | React component structure is in scope                                           |
-| `review-custom-control`            | a custom interactive control or its state contract is in scope                  |
-| `review-form-contract`             | a form or its submission lifecycle is in scope                                  |
+| `verify-before-claiming`           | a completion claim needs evidence                                               |
+| `review-component-boundaries`      | React component structure is in scope                                           |
+| `design-component-contract`        | a custom interactive control or its state contract is in scope                  |
+| `analyze-form-behavior`            | a form or its submission lifecycle is in scope                                  |
 | `review-metadata-strategy`         | page metadata, indexability, localized URLs, or structured data are in scope    |
 | `review-code-change`               | a scoped diff or received review feedback needs evidence-based assessment       |
 | `design-test-strategy`             | a change needs a risk-appropriate automated or manual verification plan         |
@@ -39,34 +39,34 @@ for each host.
 
 ## Passive
 
-| Detector                          | Signal                                                                   |
-| --------------------------------- | ------------------------------------------------------------------------ |
-| `detect-unrelated-diff`           | scope drift or formatting churn                                          |
-| `detect-breaking-change`          | incompatible public behavior or contract                                 |
-| `detect-missing-verification`     | claim broader than executed evidence                                     |
-| `detect-accessibility-regression` | semantics, focus, keyboard, media, or responsive risk                    |
-| `detect-performance-risk`         | plausible but unmeasured performance regression                          |
-| `detect-architecture-drift`       | ownership, layer, or abstraction drift                                   |
-| `detect-component-anatomy-drift`  | React convention drift in an adopting repository                         |
-| `detect-async-race`               | stale or uncancelled user-driven asynchronous work                       |
-| `detect-test-signal-weakness`     | tests can pass without exercising the claimed behavior                   |
-| `detect-overmocking`              | mocks bypass the boundary the test claims to verify                      |
-| `detect-leaky-abstraction`        | consumers depend on hidden details or bypass module contracts            |
-| `detect-complexity-creep`         | new surface lacks a demonstrated responsibility or requirement           |
-| `detect-build-impact`             | manifest, lockfile, generated output, or CI risk lacks relevant evidence |
+| Detector                       | Signal                                                                   |
+| ------------------------------ | ------------------------------------------------------------------------ |
+| `find-unnecessary-changes`     | scope drift or formatting churn                                          |
+| `detect-breaking-change`       | incompatible public behavior or contract                                 |
+| `check-task-completeness`      | claim broader than executed evidence                                     |
+| `review-for-accessibility`     | semantics, focus, keyboard, media, or responsive risk                    |
+| `review-for-performance`       | plausible but unmeasured performance regression                          |
+| `detect-architecture-drift`    | ownership, layer, or abstraction drift                                   |
+| `review-component-consistency` | React convention drift in an adopting repository                         |
+| `detect-stale-state`           | stale or uncancelled user-driven asynchronous work                       |
+| `improve-test-signal`          | tests can pass without exercising the claimed behavior                   |
+| `detect-overmocking`           | mocks bypass the boundary the test claims to verify                      |
+| `detect-leaky-abstraction`     | consumers depend on hidden details or bypass module contracts            |
+| `detect-complexity-creep`      | new surface lacks a demonstrated responsibility or requirement           |
+| `check-ci-impact`              | manifest, lockfile, generated output, or CI risk lacks relevant evidence |
 
 ## Default route
 
 ```text
-understand-and-plan-change
-  → clarify-engineering-task or understand-codebase (only when their triggers are present)
-  → analyze-change-impact (only if the risk surface warrants it)
+plan-code-change
+  → clarify-engineering-task or map-codebase (only when their triggers are present)
+  → estimate-blast-radius (only if the risk surface warrants it)
   → implement-minimal-change
-  → verify-change
+  → verify-before-claiming
 ```
 
 `debug-systematically` replaces the implementation stage when the task
-is primarily diagnostic. `review-component-anatomy` is conditional on
+is primarily diagnostic. `review-component-boundaries` is conditional on
 React work and repository fit. Read the referenced knowledge only after
 the selected skill establishes that its mental model is needed; the
 index and descriptions are routing metadata, not a request to preload
@@ -77,9 +77,9 @@ every file.
 | Dominant task                                 | Parent or procedure                | Optional follow-up                                |
 | --------------------------------------------- | ---------------------------------- | ------------------------------------------------- |
 | Review diff or feedback                       | `review-code-change`               | `design-test-strategy` for missing proof          |
-| Preserve behavior while restructuring         | `refactor-without-behavior-change` | `analyze-change-impact` for public boundaries     |
+| Preserve behavior while restructuring         | `refactor-without-behavior-change` | `estimate-blast-radius` for public boundaries     |
 | Change contracts across versions or consumers | `plan-migration`                   | authorized stage via `implement-minimal-change`   |
-| Configure automation or releases              | `analyze-build-pipeline`           | `verify-change` for execution evidence            |
+| Configure automation or releases              | `analyze-build-pipeline`           | `verify-before-claiming` for execution evidence   |
 | Resolve an API uncertainty                    | `research-unknown-api`             | experiment via `debug-systematically` when needed |
 | Draft technical prose                         | `update-documentation`             | `research-unknown-api` for uncertain claims       |
 | Hand a change to reviewers                    | `write-maintainer-notes`           | use existing verification evidence                |

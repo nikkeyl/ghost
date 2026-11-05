@@ -1,11 +1,11 @@
 ---
-name: detect-missing-verification
+name: check-task-completeness
 description: Detect completion claims whose verification does not cover the changed
   behavior or risk surface.
 kind: passive
 ---
 
-# Detect missing verification
+# Check task completeness
 
 Run before a completion claim. Compare the changed risk surface with
 executed checks. Raise a signal when tests, explicit type checks,
@@ -17,4 +17,4 @@ checking and no separate type check covers the changed type risk. A
 linter is not a replacement for TypeScript verification.
 
 Do not require every check for every change. Escalate only when the
-missing evidence is material to the claim, usually to `verify-change`.
+missing evidence is material to the claim, usually to `verify-before-claiming`.

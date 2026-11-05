@@ -1,11 +1,11 @@
 ---
-name: detect-async-race
+name: detect-stale-state
 description: Detect stale asynchronous UI updates, missing cancellation, and
   freshness or loading contracts in user-driven requests.
 kind: passive
 ---
 
-# Detect async race risk
+# Detect stale state
 
 Run alongside search, filtering, load-more, modal data fetching, or
 other user-driven asynchronous work.

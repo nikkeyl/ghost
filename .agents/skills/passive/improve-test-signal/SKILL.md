@@ -1,11 +1,11 @@
 ---
-name: detect-test-signal-weakness
+name: improve-test-signal
 description: "Notice changed behavior whose tests can pass without exercising the
   relevant failure mechanism."
 kind: passive
 ---
 
-# Detect weak test signal
+# Improve test signal
 
 During test changes or completion checks, look for missing assertions,
 swallowed failures, snapshots that miss the behavioral contract,

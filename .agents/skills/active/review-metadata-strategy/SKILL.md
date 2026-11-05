@@ -99,8 +99,8 @@ observed evidence.
 ## Graph
 
 ```yaml
-requires: [understand-and-plan-change]
-may-trigger: [analyze-change-impact]
-followed-by: [verify-change]
+requires: [plan-code-change]
+may-trigger: [estimate-blast-radius]
+followed-by: [verify-before-claiming]
 references: [web-document-metadata]
 ```

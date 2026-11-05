@@ -80,7 +80,7 @@ authorized.
 ## Graph
 
 ```yaml
-requires: [analyze-change-impact]
+requires: [estimate-blast-radius]
 may-trigger: [design-test-strategy]
-followed-by: [implement-minimal-change, verify-change]
+followed-by: [implement-minimal-change, verify-before-claiming]
 ```

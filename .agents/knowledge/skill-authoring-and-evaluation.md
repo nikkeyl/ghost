@@ -8,8 +8,9 @@ roadmap's promotion policy.
 ## Authoring contract
 
 - Use a stable kebab-case name and a concise, discriminating
-  description. Reuse a backlog name when it describes the actual
-  capability.
+  description. Use an existing name from `docs/planning/backlog.md`
+  for each skill. Keep its directory, metadata, index, graph targets,
+  and documentation references consistent with that name.
 
 - Include `name`, `description`, and `kind`. Active procedures use
   Trigger, Goal, Investigation / reasoning, Decision rules, Actions,

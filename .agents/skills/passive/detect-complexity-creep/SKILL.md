@@ -13,6 +13,6 @@ acceptance criteria and demonstrated variation.
 
 Name the added surface and missing purpose; line count alone is not
 evidence. A required boundary or reliability mechanism is not needless
-complexity. Escalate to `review-code-change` or `analyze-change-impact`
+complexity. Escalate to `review-code-change` or `estimate-blast-radius`
 only when the maintenance or contract cost is material; otherwise emit
 no material signal.

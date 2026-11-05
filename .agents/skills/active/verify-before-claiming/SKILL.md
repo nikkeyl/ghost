@@ -1,11 +1,11 @@
 ---
-name: verify-change
+name: verify-before-claiming
 description: Verify an implemented change with risk-appropriate evidence and keep
   completion claims within what was actually checked.
 kind: active
 ---
 
-# Verify a change
+# Verify before claiming
 
 ## Trigger
 
@@ -139,6 +139,6 @@ material risks are either checked, mitigated, or explicitly left open.
 ```yaml
 requires: [implement-minimal-change]
 may-trigger: [design-test-strategy]
-references: [analyze-change-impact]
+references: [estimate-blast-radius]
 followed-by: []
 ```

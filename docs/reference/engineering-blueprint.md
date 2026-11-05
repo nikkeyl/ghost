@@ -209,9 +209,9 @@ Examples:
 detect-unnecessary-complexity
 detect-breaking-change
 detect-security-risk
-detect-accessibility-regression
+review-for-accessibility
 detect-large-blast-radius
-detect-unrelated-diff
+find-unnecessary-changes
 detect-missing-tests
 detect-architecture-drift
 detect-effect-misuse
@@ -266,7 +266,7 @@ activate dedicated skill
 For example:
 
 ```text
-detect-performance-risk
+review-for-performance
         ↓
 possible expensive rerender
         ↓
@@ -316,8 +316,8 @@ reproduce
 Other active skills:
 
 ```text
-understand-codebase
-analyze-change-impact
+map-codebase
+estimate-blast-radius
 trace-data-flow
 plan-code-change
 debug-systematically
@@ -325,7 +325,7 @@ review-architecture
 diagnose-performance-problem
 design-public-api
 implement-minimal-change
-verify-change
+verify-before-claiming
 ```
 
 Active skills cost more than passive skills because they initiate a complete
@@ -455,10 +455,10 @@ For example:
       debug-systematically/
         SKILL.md
 
-      analyze-change-impact/
+      estimate-blast-radius/
         SKILL.md
 
-      verify-change/
+      verify-before-claiming/
         SKILL.md
 
     passive/
@@ -500,9 +500,9 @@ For example, the following skills:
 
 ```text
 debug-systematically
-analyze-change-impact
+estimate-blast-radius
 review-api-design
-verify-change
+verify-before-claiming
 ```
 
 can be used by different coding agents.
@@ -557,7 +557,7 @@ find-root-cause
 implement-minimal-change
  │
  ▼
-verify-change
+verify-before-claiming
 ```
 
 Rules constrain the entire system:
@@ -614,7 +614,7 @@ may-trigger:
 
 followed-by:
   - implement-minimal-change
-  - verify-change
+  - verify-before-claiming
 ```
 
 A relationship does not imply automatic execution.
@@ -780,7 +780,7 @@ What the agent can notice while doing other work.
 ```text
 detect-breaking-change
 detect-architecture-drift
-detect-performance-risk
+review-for-performance
 detect-unnecessary-complexity
 ```
 
@@ -790,10 +790,10 @@ What the agent can deliberately do.
 
 ```text
 debug-systematically
-analyze-change-impact
+estimate-blast-radius
 plan-code-change
 review-architecture
-verify-change
+verify-before-claiming
 ```
 
 ---

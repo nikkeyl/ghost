@@ -71,5 +71,5 @@ trialled guidance.
 ## Graph
 
 ```yaml
-references: [update-documentation, verify-change]
+references: [update-documentation, verify-before-claiming]
 ```

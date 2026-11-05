@@ -26,5 +26,5 @@ public contracts, and files designed for relocation are explicit
 exceptions.
 
 Report the violated convention and the smallest evidence-backed
-correction. Escalate to `analyze-change-impact` or
-`review-component-anatomy` when the drift changes a shared contract.
+correction. Escalate to `estimate-blast-radius` or
+`review-component-boundaries` when the drift changes a shared contract.

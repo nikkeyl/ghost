@@ -48,7 +48,7 @@ escalate: <active skill> because <reason>
 
 ## Routing policy
 
-Use `understand-and-plan-change` as the default routing point instead of
+Use `plan-code-change` as the default routing point instead of
 creating a standalone skill for every backlog item.
 
 1. Classify the request by its dominant nouns and verbs: understand,

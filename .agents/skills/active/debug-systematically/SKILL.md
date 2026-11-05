@@ -81,7 +81,7 @@ original failure no longer reproduces under the stated conditions.
 ## Graph
 
 ```yaml
-requires: [understand-and-plan-change]
-may-trigger: [analyze-change-impact, design-test-strategy, research-unknown-api]
-followed-by: [verify-change]
+requires: [plan-code-change]
+may-trigger: [estimate-blast-radius, design-test-strategy, research-unknown-api]
+followed-by: [verify-before-claiming]
 ```

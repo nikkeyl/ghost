@@ -1,11 +1,11 @@
 ---
-name: understand-and-plan-change
+name: plan-code-change
 description: Build a bounded context model and implementation plan before changing
   code or architecture.
 kind: active
 ---
 
-# Understand and plan a change
+# Plan code change
 
 ## Trigger
 
@@ -35,7 +35,7 @@ editing.
 
 1. Route the task to the smallest existing parent skill that covers its
    dominant capability and risk. Use `clarify-engineering-task` when the
-   contract is materially ambiguous and `understand-codebase` when
+   contract is materially ambiguous and `map-codebase` when
    repository ownership or boundaries are not established. Inspect the
    candidate backlog for coverage, but do not activate every matching
    leaf procedure.
@@ -101,8 +101,8 @@ structure.
 may-trigger:
   [
     clarify-engineering-task,
-    understand-codebase,
-    analyze-change-impact,
+    map-codebase,
+    estimate-blast-radius,
     review-code-change,
     design-test-strategy,
     refactor-without-behavior-change,
@@ -114,5 +114,5 @@ may-trigger:
     extract-engineering-lessons,
   ]
 followed-by: [implement-minimal-change]
-references: [verify-change]
+references: [verify-before-claiming]
 ```

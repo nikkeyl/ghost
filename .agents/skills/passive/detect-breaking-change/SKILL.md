@@ -14,4 +14,4 @@ incompatible serialization, changed keyboard semantics, or
 migration-free state changes.
 
 Do not decide that a change is breaking from naming alone. Escalate
-material signals to `analyze-change-impact`.
+material signals to `estimate-blast-radius`.

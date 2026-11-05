@@ -1,12 +1,12 @@
 ---
-name: detect-performance-risk
+name: review-for-performance
 description: Detect plausible performance regressions from client work, data
   loading, rendering, assets, effects, caching, or critical-path
   expansion.
 kind: passive
 ---
 
-# Detect performance risk
+# Review for performance
 
 Run alongside UI, data-loading, media, or rendering changes. Look for
 new client work, route-specific data or dependencies loaded from global

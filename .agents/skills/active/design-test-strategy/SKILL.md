@@ -87,5 +87,5 @@ reason.
 
 ```yaml
 may-trigger: [debug-systematically]
-followed-by: [verify-change]
+followed-by: [verify-before-claiming]
 ```

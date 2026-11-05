@@ -1,11 +1,11 @@
 ---
-name: detect-accessibility-regression
+name: review-for-accessibility
 description: Detect material accessibility regressions in semantics, focus,
   keyboard, media, responsive, and motion behavior.
 kind: passive
 ---
 
-# Detect accessibility regression
+# Review for accessibility
 
 Run when markup, interactive states, focus, keyboard behavior, media, or
 responsive layout changes. Look for lost semantics, missing names or
@@ -17,5 +17,5 @@ For carousels, check offscreen focusable content, current-position
 semantics, and whether automatic motion can be stopped.
 
 Raise a signal with the affected interaction and evidence. Escalate to
-an active review or `verify-change` only when the finding is material or
-the component is user-facing.
+an active review or `verify-before-claiming` only when the finding is
+material or the component is user-facing.

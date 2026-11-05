@@ -1,11 +1,11 @@
 ---
-name: review-component-anatomy
+name: review-component-boundaries
 description: Review React component boundaries, props, variants, effects, exports,
   and server/client placement against repository conventions.
 kind: active
 ---
 
-# Review React component anatomy
+# Review component boundaries
 
 ## Trigger
 
@@ -105,8 +105,8 @@ rather than copied blindly from a source article.
 ## Graph
 
 ```yaml
-requires: [understand-and-plan-change]
-may-trigger: [analyze-change-impact]
-followed-by: [verify-change]
+requires: [plan-code-change]
+may-trigger: [estimate-blast-radius]
+followed-by: [verify-before-claiming]
 references: [source-derived-patterns]
 ```

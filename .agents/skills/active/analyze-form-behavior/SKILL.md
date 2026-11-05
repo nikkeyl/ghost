@@ -1,11 +1,11 @@
 ---
-name: review-form-contract
+name: analyze-form-behavior
 description: Review a form's validation, submission lifecycle, state ownership,
   server boundary, and primary or secondary failure behavior.
 kind: active
 ---
 
-# Review a form contract
+# Analyze form behavior
 
 ## Trigger
 
@@ -122,8 +122,8 @@ each material state that was claimed as verified.
 ## Graph
 
 ```yaml
-requires: [understand-and-plan-change]
-may-trigger: [analyze-change-impact]
-followed-by: [verify-change]
+requires: [plan-code-change]
+may-trigger: [estimate-blast-radius]
+followed-by: [verify-before-claiming]
 references: [data-loading-and-failure-model, nextjs-server-actions]
 ```

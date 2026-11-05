@@ -1,11 +1,11 @@
 ---
-name: understand-codebase
+name: map-codebase
 description: Build an evidence-backed repository context model before changing an
   unfamiliar or cross-cutting codebase.
 kind: active
 ---
 
-# Understand a codebase
+# Map codebase
 
 ## Trigger
 
@@ -126,7 +126,7 @@ rediscovering the same structure during implementation.
 ## Graph
 
 ```yaml
-requires: [understand-and-plan-change]
-may-trigger: [analyze-change-impact]
-followed-by: [implement-minimal-change, verify-change]
+requires: [plan-code-change]
+may-trigger: [estimate-blast-radius]
+followed-by: [implement-minimal-change, verify-before-claiming]
 ```

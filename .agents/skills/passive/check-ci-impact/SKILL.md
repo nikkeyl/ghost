@@ -1,11 +1,11 @@
 ---
-name: detect-build-impact
+name: check-ci-impact
 description: "Notice dependency, lockfile, generated-output, and CI changes outside
   the verified change boundary."
 kind: passive
 ---
 
-# Detect build impact
+# Check CI impact
 
 During changes to manifests, lockfiles, generators, build configuration,
 or CI, compare their effect with the requested contract and verification
@@ -16,5 +16,5 @@ from checks.
 Confirm what changed before calling it broken. Report the affected
 boundary, consumers, and missing evidence. Escalate to
 `analyze-build-pipeline` when automation or release wiring needs revision, or
-`analyze-change-impact` or `verify-change` when the affected contract
+`estimate-blast-radius` or `verify-before-claiming` when the affected contract
 needs analysis or evidence; otherwise emit no material signal.

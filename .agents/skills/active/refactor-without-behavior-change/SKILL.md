@@ -67,6 +67,6 @@ preservation boundary.
 ## Graph
 
 ```yaml
-may-trigger: [analyze-change-impact, design-test-strategy, plan-migration]
-followed-by: [verify-change]
+may-trigger: [estimate-blast-radius, design-test-strategy, plan-migration]
+followed-by: [verify-before-claiming]
 ```

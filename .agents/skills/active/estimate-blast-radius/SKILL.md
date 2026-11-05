@@ -1,11 +1,11 @@
 ---
-name: analyze-change-impact
+name: estimate-blast-radius
 description: Analyze the blast radius of shared, public, data-flow, configuration,
   routing, security, and cross-cutting changes.
 kind: active
 ---
 
-# Analyze change impact
+# Estimate blast radius
 
 ## Trigger
 
@@ -69,7 +69,7 @@ unexamined public-contract or operational risk.
 ## Graph
 
 ```yaml
-requires: [understand-and-plan-change]
+requires: [plan-code-change]
 may-trigger: [debug-systematically, plan-migration]
-followed-by: [implement-minimal-change, verify-change]
+followed-by: [implement-minimal-change, verify-before-claiming]
 ```

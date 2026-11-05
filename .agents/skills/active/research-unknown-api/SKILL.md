@@ -77,5 +77,5 @@ gap.
 
 ```yaml
 may-trigger: [debug-systematically]
-references: [analyze-change-impact]
+references: [estimate-blast-radius]
 ```

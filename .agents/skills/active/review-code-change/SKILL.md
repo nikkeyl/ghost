@@ -80,6 +80,6 @@ mechanism or contract, and no publishing or implementation is implied.
 ## Graph
 
 ```yaml
-may-trigger: [design-test-strategy, analyze-change-impact]
+may-trigger: [design-test-strategy, estimate-blast-radius]
 references: [write-maintainer-notes]
 ```

@@ -1,11 +1,11 @@
 ---
-name: review-custom-control
+name: design-component-contract
 description: Review a custom interactive control through a state, accessibility,
   interaction, and loading-boundary matrix.
 kind: active
 ---
 
-# Review a custom interactive control
+# Design component contract
 
 ## Trigger
 
@@ -113,8 +113,8 @@ evidence for the relevant interaction and failure states.
 ## Graph
 
 ```yaml
-requires: [understand-and-plan-change]
-may-trigger: [analyze-change-impact]
-followed-by: [verify-change]
+requires: [plan-code-change]
+may-trigger: [estimate-blast-radius]
+followed-by: [verify-before-claiming]
 references: [data-loading-and-failure-model]
 ```

@@ -98,7 +98,7 @@ question is small, consequential, and clearly phrased.
 ## Graph
 
 ```yaml
-requires: [understand-and-plan-change]
-may-trigger: [analyze-change-impact]
-followed-by: [implement-minimal-change, verify-change]
+requires: [plan-code-change]
+may-trigger: [estimate-blast-radius]
+followed-by: [implement-minimal-change, verify-before-claiming]
 ```

@@ -74,5 +74,5 @@ implementation or verification.
 ## Graph
 
 ```yaml
-references: [verify-change, review-code-change, update-documentation]
+references: [verify-before-claiming, review-code-change, update-documentation]
 ```

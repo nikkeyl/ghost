@@ -1,7 +1,7 @@
 ---
 name: analyze-build-pipeline
 description: Analyze and improve CI/CD, repository hooks, dependency automation,
-  and release artifacts. Use verify-change to run existing checks alone.
+  and release artifacts. Use verify-before-claiming to run existing checks alone.
 kind: active
 ---
 
@@ -83,6 +83,6 @@ explicitly accounted for.
 ## Graph
 
 ```yaml
-may-trigger: [research-unknown-api, analyze-change-impact, design-test-strategy]
-followed-by: [verify-change]
+may-trigger: [research-unknown-api, estimate-blast-radius, design-test-strategy]
+followed-by: [verify-before-claiming]
 ```
