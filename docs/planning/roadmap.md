@@ -177,7 +177,7 @@ does not yet justify claiming complete independent workflows for them.
 
 ## Portable CI/CD checkpoint
 
-`rules/60-ci-cd.md` and `skills/active/configure-ci-cd` cover repository
+`rules/60-ci-cd.md` and `skills/active/analyze-build-pipeline` cover repository
 conventions, hooks, dependency automation, release gates, and artifact
 contracts. Route automation work through this parent; running existing
 checks alone remains the responsibility of `verify-change`.

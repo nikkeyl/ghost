@@ -1,11 +1,11 @@
 ---
-name: configure-ci-cd
-description: Configure or review CI/CD, repository hooks, dependency automation,
+name: analyze-build-pipeline
+description: Analyze and improve CI/CD, repository hooks, dependency automation,
   and release artifacts. Use verify-change to run existing checks alone.
 kind: active
 ---
 
-# Configure CI/CD
+# Analyze build pipeline
 
 ## Trigger
 
@@ -14,8 +14,9 @@ policy, release gates, or artifact contents.
 
 ## Goal
 
-Build the smallest pipeline that follows repository conventions and
-publishes the intended contents only after relevant verification.
+Analyze the pipeline and make scoped improvements that follow repository
+conventions. Publish the intended contents only after relevant
+verification.
 
 ## Investigation / reasoning
 

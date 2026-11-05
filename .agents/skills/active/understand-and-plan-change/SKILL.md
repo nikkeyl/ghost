@@ -51,7 +51,7 @@ Choose `review-code-change` for a review;
 `refactor-without-behavior-change` for structural work; `plan-migration`
 for overlapping contracts; `research-unknown-api` for material API
 uncertainty; and `design-test-strategy` when the proof is unclear.
-`configure-ci-cd` handles automation, hooks, and release contracts.
+`analyze-build-pipeline` handles automation, hooks, and release contracts.
 `update-documentation`, `write-maintainer-notes`, and
 `extract-engineering-lessons` handle requested artifacts or guidance.
 Select these conditionally, never as a full checklist to preload.
@@ -108,7 +108,7 @@ may-trigger:
     refactor-without-behavior-change,
     plan-migration,
     research-unknown-api,
-    configure-ci-cd,
+    analyze-build-pipeline,
     update-documentation,
     write-maintainer-notes,
     extract-engineering-lessons,

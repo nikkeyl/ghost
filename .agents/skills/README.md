@@ -21,7 +21,7 @@ for each host.
 | `clarify-engineering-task`         | the request, symptom, contract, or success criteria are materially ambiguous    |
 | `analyze-change-impact`            | a public/shared/cross-cutting contract may change                               |
 | `implement-minimal-change`         | the scoped implementation is authorized                                         |
-| `configure-ci-cd`                  | automation, hooks, dependency updates, or releases need configuration or review |
+| `analyze-build-pipeline`           | automation, hooks, dependency updates, or releases need configuration or review |
 | `debug-systematically`             | behavior is failing or unexpected                                               |
 | `verify-change`                    | a completion claim needs evidence                                               |
 | `review-component-anatomy`         | React component structure is in scope                                           |
@@ -79,7 +79,7 @@ every file.
 | Review diff or feedback                       | `review-code-change`               | `design-test-strategy` for missing proof          |
 | Preserve behavior while restructuring         | `refactor-without-behavior-change` | `analyze-change-impact` for public boundaries     |
 | Change contracts across versions or consumers | `plan-migration`                   | authorized stage via `implement-minimal-change`   |
-| Configure automation or releases              | `configure-ci-cd`                  | `verify-change` for execution evidence            |
+| Configure automation or releases              | `analyze-build-pipeline`           | `verify-change` for execution evidence            |
 | Resolve an API uncertainty                    | `research-unknown-api`             | experiment via `debug-systematically` when needed |
 | Draft technical prose                         | `update-documentation`             | `research-unknown-api` for uncertain claims       |
 | Hand a change to reviewers                    | `write-maintainer-notes`           | use existing verification evidence                |
