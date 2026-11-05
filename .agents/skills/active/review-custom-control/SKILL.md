@@ -1,7 +1,6 @@
 ---
 name: review-custom-control
-description:
-  Review a custom interactive control through a state, accessibility,
+description: Review a custom interactive control through a state, accessibility,
   interaction, and loading-boundary matrix.
 kind: active
 ---

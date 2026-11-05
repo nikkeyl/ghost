@@ -1,7 +1,6 @@
 ---
 name: design-test-strategy
-description:
-  "Choose focused automated or manual checks for changed behavior,
+description: "Choose focused automated or manual checks for changed behavior,
   regression risk, and affected boundaries."
 kind: active
 ---

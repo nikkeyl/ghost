@@ -1,7 +1,6 @@
 ---
 name: detect-complexity-creep
-description:
-  "Notice added configuration, indirection, or variants without a
+description: "Notice added configuration, indirection, or variants without a
   demonstrated requirement or responsibility."
 kind: passive
 ---

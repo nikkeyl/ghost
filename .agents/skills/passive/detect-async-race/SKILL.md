@@ -1,7 +1,6 @@
 ---
 name: detect-async-race
-description:
-  Detect stale asynchronous UI updates, missing cancellation, and
+description: Detect stale asynchronous UI updates, missing cancellation, and
   freshness or loading contracts in user-driven requests.
 kind: passive
 ---

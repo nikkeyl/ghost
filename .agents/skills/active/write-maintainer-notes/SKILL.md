@@ -1,7 +1,6 @@
 ---
 name: write-maintainer-notes
-description:
-  "Prepare a concise change handover or PR-description draft grounded in
+description: "Prepare a concise change handover or PR-description draft grounded in
   the actual diff, decisions, and verification."
 kind: active
 ---

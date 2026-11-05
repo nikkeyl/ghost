@@ -1,7 +1,6 @@
 ---
 name: verify-change
-description:
-  Verify an implemented change with risk-appropriate evidence and keep
+description: Verify an implemented change with risk-appropriate evidence and keep
   completion claims within what was actually checked.
 kind: active
 ---

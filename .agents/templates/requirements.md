@@ -13,8 +13,8 @@ implementation steps.
 
 ## Requirements and invariants
 
-| ID | Observable requirement | Source or rationale | Verification |
-| -- | ---------------------- | ------------------- | ------------ |
+| ID  | Observable requirement | Source or rationale | Verification |
+| --- | ---------------------- | ------------------- | ------------ |
 
 ## Decisions and open questions
 

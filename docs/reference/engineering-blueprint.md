@@ -2,8 +2,8 @@
 
 ## 1. Core principle
 
-The engineer defines the architectural foundation, key decisions and
-direction of the project.
+The engineer defines the architectural foundation, key decisions and direction
+of the project.
 
 An AI agent is used primarily for:
 
@@ -16,10 +16,10 @@ An AI agent is used primarily for:
 
 AI should not replace engineering judgment.
 
-Relying on AI for everything under the assumption that this
-automatically produces a large productivity gain is a mistake. AI does
-accelerate some work, but the benefit is limited when the engineer stops
-understanding the system and verifying the result.
+Relying on AI for everything under the assumption that this automatically
+produces a large productivity gain is a mistake. AI does accelerate some work,
+but the benefit is limited when the engineer stops understanding the system and
+verifying the result.
 
 ---
 
@@ -43,9 +43,8 @@ The scarce resources therefore become:
 - understanding consequences;
 - the ability to reject a poor solution.
 
-This creates the problem of human forwarding proxies: a person passes a
-request to AI and forwards its response with little intellectual
-scrutiny.
+This creates the problem of human forwarding proxies: a person passes a request
+to AI and forwards its response with little intellectual scrutiny.
 
 Such a workflow scales errors along with productivity.
 
@@ -92,8 +91,8 @@ feat(validation): add client-side email validation
 - add regression tests
 ```
 
-A commit should describe the meaningful scope of the work, as well as
-the change itself.
+A commit should describe the meaningful scope of the work, as well as the change
+itself.
 
 ---
 
@@ -110,8 +109,8 @@ A large PR:
 - reduces feedback quality;
 - increases the likelihood of a superficial review.
 
-Prefer small, coherent changes with one clear purpose and a bounded
-blast radius.
+Prefer small, coherent changes with one clear purpose and a bounded blast
+radius.
 
 ---
 
@@ -201,8 +200,8 @@ constrain every relevant decision
 
 ## 8. Passive Skills
 
-A passive skill operates in the background as part of other work,
-without usually becoming the primary task.
+A passive skill operates in the background as part of other work, without
+usually becoming the primary task.
 
 Examples:
 
@@ -329,8 +328,8 @@ implement-minimal-change
 verify-change
 ```
 
-Active skills cost more than passive skills because they initiate a
-complete reasoning workflow.
+Active skills cost more than passive skills because they initiate a complete
+reasoning workflow.
 
 Activate them only when they are needed.
 
@@ -478,8 +477,8 @@ For example:
     react-rendering.md
 ```
 
-This exact file structure is not mandatory, but the conceptual
-separation is useful.
+This exact file structure is not mandatory, but the conceptual separation is
+useful.
 
 ---
 
@@ -495,8 +494,7 @@ Treat `.agents` as a layer of reusable agent capabilities.
      Codex   Agent B   Agent C
 ```
 
-A skill should not be tied to Codex when its logic applies across
-runtimes.
+A skill should not be tied to Codex when its logic applies across runtimes.
 
 For example, the following skills:
 
@@ -509,8 +507,7 @@ verify-change
 
 can be used by different coding agents.
 
-The `.codex` directory remains the place for Codex-specific
-configuration.
+The `.codex` directory remains the place for Codex-specific configuration.
 
 Conceptually:
 

@@ -1,7 +1,6 @@
 ---
 name: clarify-engineering-task
-description:
-  Turn an ambiguous engineering request or symptom into a bounded
+description: Turn an ambiguous engineering request or symptom into a bounded
   contract with requirements, invariants, risks, and success criteria.
 kind: active
 ---

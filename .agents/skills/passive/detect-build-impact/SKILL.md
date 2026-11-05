@@ -1,7 +1,6 @@
 ---
 name: detect-build-impact
-description:
-  "Notice dependency, lockfile, generated-output, and CI changes outside
+description: "Notice dependency, lockfile, generated-output, and CI changes outside
   the verified change boundary."
 kind: passive
 ---

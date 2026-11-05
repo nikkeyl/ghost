@@ -1,7 +1,6 @@
 ---
 name: detect-accessibility-regression
-description:
-  Detect material accessibility regressions in semantics, focus,
+description: Detect material accessibility regressions in semantics, focus,
   keyboard, media, responsive, and motion behavior.
 kind: passive
 ---

@@ -1,7 +1,6 @@
 ---
 name: extract-engineering-lessons
-description:
-  "Turn a demonstrated failure or user correction into a scoped,
+description: "Turn a demonstrated failure or user correction into a scoped,
   evidence-backed proposal for durable engineering guidance."
 kind: active
 ---

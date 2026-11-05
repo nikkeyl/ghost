@@ -1,7 +1,6 @@
 ---
 name: detect-missing-verification
-description:
-  Detect completion claims whose verification does not cover the changed
+description: Detect completion claims whose verification does not cover the changed
   behavior or risk surface.
 kind: passive
 ---

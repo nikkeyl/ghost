@@ -1,7 +1,6 @@
 ---
 name: review-metadata-strategy
-description:
-  Review route-level document metadata, indexing directives, localized
+description: Review route-level document metadata, indexing directives, localized
   URL relationships, social previews, and structured data.
 kind: active
 ---

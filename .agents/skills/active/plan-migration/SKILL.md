@@ -1,7 +1,6 @@
 ---
 name: plan-migration
-description:
-  "Plan staged API, component, state, dependency, or configuration
+description: "Plan staged API, component, state, dependency, or configuration
   changes with compatibility, recovery, and preservation evidence."
 kind: active
 ---

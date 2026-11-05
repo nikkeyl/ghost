@@ -1,7 +1,6 @@
 ---
 name: detect-performance-risk
-description:
-  Detect plausible performance regressions from client work, data
+description: Detect plausible performance regressions from client work, data
   loading, rendering, assets, effects, caching, or critical-path
   expansion.
 kind: passive

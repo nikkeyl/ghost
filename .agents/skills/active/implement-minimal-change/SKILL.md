@@ -1,7 +1,6 @@
 ---
 name: implement-minimal-change
-description:
-  Implement an authorized change as the smallest coherent diff while
+description: Implement an authorized change as the smallest coherent diff while
   preserving existing contracts and local conventions.
 kind: active
 ---

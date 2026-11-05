@@ -1,7 +1,6 @@
 ---
 name: detect-leaky-abstraction
-description:
-  "Notice consumers that must know hidden implementation details or
+description: "Notice consumers that must know hidden implementation details or
   bypass a module contract."
 kind: passive
 ---

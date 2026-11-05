@@ -1,7 +1,6 @@
 ---
 name: understand-codebase
-description:
-  Build an evidence-backed repository context model before changing an
+description: Build an evidence-backed repository context model before changing an
   unfamiliar or cross-cutting codebase.
 kind: active
 ---

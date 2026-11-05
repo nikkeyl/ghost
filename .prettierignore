@@ -1,6 +1,4 @@
 # Files
-.editorconfig-checker.json
-*.md
 bun.lock
 
 # Ignores

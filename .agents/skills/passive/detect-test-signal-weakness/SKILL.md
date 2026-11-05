@@ -1,7 +1,6 @@
 ---
 name: detect-test-signal-weakness
-description:
-  "Notice changed behavior whose tests can pass without exercising the
+description: "Notice changed behavior whose tests can pass without exercising the
   relevant failure mechanism."
 kind: passive
 ---

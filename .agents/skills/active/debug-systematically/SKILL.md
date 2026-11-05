@@ -1,7 +1,6 @@
 ---
 name: debug-systematically
-description:
-  Investigate failures and regressions by reproducing behavior, testing
+description: Investigate failures and regressions by reproducing behavior, testing
   hypotheses, and identifying the violated invariant.
 kind: active
 ---
@@ -83,7 +82,6 @@ original failure no longer reproduces under the stated conditions.
 
 ```yaml
 requires: [understand-and-plan-change]
-may-trigger:
-  [analyze-change-impact, design-test-strategy, research-unknown-api]
+may-trigger: [analyze-change-impact, design-test-strategy, research-unknown-api]
 followed-by: [verify-change]
 ```

@@ -1,7 +1,6 @@
 ---
 name: detect-unrelated-diff
-description:
-  Detect scope drift, formatting churn, and changes without a credible
+description: Detect scope drift, formatting churn, and changes without a credible
   connection to the requested outcome.
 kind: passive
 ---

@@ -1,7 +1,6 @@
 ---
 name: understand-and-plan-change
-description:
-  Build a bounded context model and implementation plan before changing
+description: Build a bounded context model and implementation plan before changing
   code or architecture.
 kind: active
 ---

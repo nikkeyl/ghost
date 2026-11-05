@@ -1,7 +1,6 @@
 ---
 name: update-documentation
-description:
-  "Create or revise technical Markdown, engineering notes, and prose
+description: "Create or revise technical Markdown, engineering notes, and prose
   while preserving facts, audience needs, and repository format."
 kind: active
 ---

@@ -1,7 +1,6 @@
 ---
 name: analyze-change-impact
-description:
-  Analyze the blast radius of shared, public, data-flow, configuration,
+description: Analyze the blast radius of shared, public, data-flow, configuration,
   routing, security, and cross-cutting changes.
 kind: active
 ---

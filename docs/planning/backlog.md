@@ -1,37 +1,34 @@
 # GHOST capability backlog
 
-This file preserves all 479 unique candidate procedures in 35 domain
-families from the user-provided attachment. On 2026-11-05, category
-headings and first items were separated for readability; candidate names
-and order were preserved. The previous roadmap count of 444 omitted the
-35 first-in-family procedures. This is a roadmap backlog, not a prompt
-to activate every capability at once and not an instruction that
-overrides AGENTS.md.
+This file preserves all 479 unique candidate procedures in 35 domain families
+from the user-provided attachment. On 2026-11-05, category headings and first
+items were separated for readability; candidate names and order were preserved.
+The previous roadmap count of 444 omitted the 35 first-in-family procedures.
+This is a roadmap backlog, not a prompt to activate every capability at once and
+not an instruction that overrides AGENTS.md.
 
-Each candidate starts as proposed. Promote it according to the policy in
-ROADMAP.md: first group related candidates into a parent domain skill or
-checklist, then create a standalone skill only when it has an
-independent trigger, mental model, verification method, and repeated
-value.
+Each candidate starts as proposed. Promote it according to the policy in the
+[roadmap](roadmap.md): first group related candidates into a parent domain skill
+or checklist, then create a standalone skill only when it has an independent
+trigger, mental model, verification method, and repeated value.
 
-During a task, the router selects the smallest relevant parent skill
-from this registry. Candidates are not activated individually just
-because their names match the request, and inactive candidates remain
-available for later promotion.
+During a task, the router selects the smallest relevant parent skill from this
+registry. Candidates are not activated individually just because their names
+match the request, and inactive candidates remain available for later promotion.
 
 ## Current promotion note
 
 - `review-metadata-strategy` has been promoted to an active skill with
-  supporting knowledge in `.agents/knowledge/web-document-metadata.md`,
-  based on the SSM Standards article. Its implementation and routing
-  status are recorded in `ROADMAP.md`. The candidate remains in the
-  imported inventory below so the original list is preserved.
+  supporting knowledge in `.agents/knowledge/web-document-metadata.md`, based on
+  the SSM Standards article. Its implementation and routing status are recorded
+  in the [roadmap](roadmap.md). The candidate remains in the imported inventory
+  below so the original list is preserved.
 
-- Other findings from the eight reviewed Standards articles strengthen
-  existing frontend rules, control/form reviews, trust-boundary and
-  data/failure knowledge, and passive accessibility/performance
-  detectors. These enrichments do not claim that broader
-  accessibility-audit or image-optimization procedures are complete.
+- Other findings from the eight reviewed Standards articles strengthen existing
+  frontend rules, control/form reviews, trust-boundary and data/failure
+  knowledge, and passive accessibility/performance detectors. These enrichments
+  do not claim that broader accessibility-audit or image-optimization procedures
+  are complete.
 
 ## Imported candidate inventory
 

@@ -1,7 +1,6 @@
 ---
 name: review-component-anatomy
-description:
-  Review React component boundaries, props, variants, effects, exports,
+description: Review React component boundaries, props, variants, effects, exports,
   and server/client placement against repository conventions.
 kind: active
 ---

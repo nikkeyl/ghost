@@ -1,7 +1,6 @@
 ---
 name: review-form-contract
-description:
-  Review a form's validation, submission lifecycle, state ownership,
+description: Review a form's validation, submission lifecycle, state ownership,
   server boundary, and primary or secondary failure behavior.
 kind: active
 ---
