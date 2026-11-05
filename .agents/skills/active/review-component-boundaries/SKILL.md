@@ -1,7 +1,7 @@
 ---
 name: review-component-boundaries
-description: Review React component boundaries, props, variants, effects, exports,
-  and server/client placement against repository conventions.
+description: Review React component responsibilities, state ownership, public
+  props, composition, dependencies, and client/server boundaries.
 kind: active
 ---
 
@@ -9,104 +9,75 @@ kind: active
 
 ## Trigger
 
-Use when creating or editing a React/TSX component and the repository
-has, or is explicitly adopting, the GHOST component convention.
+Use when a React component mixes responsibilities, its ownership or
+public surface is unclear, or a split, merge, extraction, or dependency
+move could affect consumers. A formatting-only edit is not a trigger.
 
 ## Goal
 
-Make the component's contract and local logic predictable without
-forcing a style convention that the repository does not use.
+Determine whether responsibilities and dependencies belong together and
+identify the smallest boundary correction supported by actual use.
 
 ## Investigation / reasoning
 
-1. Check the repository's existing component layout, export style,
-   styling utility, TypeScript flags, server/client boundaries, and
-   generated types.
+1. Read the component, callers, children, hooks, and data dependencies.
+   Map rendering, interaction, domain decisions, data access, and state
+   ownership. Identify public props and exports relied on by consumers.
 
-1. Decide whether the props contract should be separate and whether it
-   can be assembled from native or schema-generated types.
+1. Trace which state changes together, which values are derived, and
+   which consumers need each value. Look for duplicated sources of
+   truth, unnecessary lifting, and effects that conceal data flow.
 
-1. Check for unrelated optional fields that should be separate component
-   contracts or explicit variants.
+1. Compare reasons to change and reuse patterns. Identify flags for
+   unrelated scenarios, children coupled through hidden assumptions,
+   or a split that would add more cross-boundary coordination.
 
-1. Check whether variants are better represented by a typed lookup
-   object and whether shared markup is truly identical in ownership and
-   evolution.
-
-1. Check whether finite value mappings, variants, or strategies are data
-   that should be represented by a typed map instead of a conditional
-   chain. Keep conditionals when they express control flow, predicates,
-   sequencing, or dependencies between operations.
-
-1. Inspect global CSS, existing component styles, native browser
-   behavior, and the repository's class-composition utility before
-   adding Tailwind classes.
-
-1. Review accessibility, state, effects, and JSX readability.
+1. Inspect imports and runtime placement. Determine what requires a
+   browser, what can stay on the server in supported frameworks, and
+   whether route-specific data or dependencies became global.
 
 ## Decision rules
 
-- `Props` in a separate file is a convention, not a requirement for tiny
-  components.
+- Component size, hook order, file count, and a preferred props-file
+  layout do not establish a bad boundary. Use responsibility, ownership,
+  change coupling, and consumer contracts as evidence.
 
-- `cn` is required only when the repository uses it and override
-  semantics are intentional.
+- Extract when independent responsibility or useful isolation outweighs
+  coordination cost. Keep cohesive one-use logic local when splitting
+  would merely move complexity between files.
 
-- A low Tailwind class count is not evidence of missing styling.
-  Preserve global, component-level, token-based, and native behavior
-  when it already satisfies the visual contract.
+- Prefer composition for independently owned content; avoid exposing
+  internal implementation details just to make an extraction possible.
 
-- If values and types come from the same module, prefer one named import
-  with an inline `type` modifier, following the repository's import
-  ordering.
-
-- Slots/composition are preferable to consumer-specific boolean flags
-  when the layout is genuinely shared.
-
-- Keep a reusable component's props focused on its stable core. Extend
-  it from the outside instead of adding a prop for every
-  consumer-specific case.
-
-- Use semantic list elements when the rendered content is a list, even
-  when the component provides interaction or custom visual styling.
-
-- Treat animation as an enhancement rather than the component's core
-  behavior. Verify the non-animated path and reduced-motion behavior.
-
-- `aria-disabled` must be paired with behavior that actually prevents
-  the disabled interaction; ARIA state alone does not disable a control.
-
-- Keeping effects last may aid scanning, but dependency correctness and
-  React lifecycle semantics win.
-
-- Named exports are preferred only when consistent with the repository's
-  public API and tooling.
+- Follow existing runtime conventions. A review does not authorize a
+  rewrite or impose a particular framework or component style.
 
 ## Actions
 
-Review or restructure the component in this order when it helps
-readability: props destructuring → hooks → computed values → handlers →
-effects → return. Keep static variant configuration at module scope when
-it is independent of props/state. Keep external `className` last when
-merge semantics require it.
+Report the current responsibility and dependency map, each material
+boundary issue, affected consumers, and keep/split/merge/move options
+with trade-offs. Use `design-component-contract` for a changed public
+contract and `refactor-without-behavior-change` for an authorized move.
+Read `.agents/knowledge/engineering-patterns.md` only for relevant local
+structure conventions.
 
 ## Verification
 
-Run type checking, relevant tests, and a focused accessibility or
-browser check for interactive components. Confirm that server/client
-boundaries and public exports still work.
+Check each finding against callers, state transitions, and imports.
+For an applied correction, compare behavior before and after, including
+public props, effects, render placement, and relevant interaction paths.
+A review without edits ends with findings and evidence limits.
 
 ## Completion criteria
 
-The component is locally predictable, its contract is narrow and
-accurate, and the chosen conventions are justified by repository context
-rather than copied blindly from a source article.
+The review explains ownership and coupling, identifies defensible
+boundary issues or reasons to retain the structure, and accounts for
+consumer compatibility. It does not equate style conformity with sound
+component design.
 
 ## Graph
 
 ```yaml
-requires: [plan-code-change]
-may-trigger: [estimate-blast-radius]
-followed-by: [verify-before-claiming]
-references: [source-derived-patterns]
+may-trigger: [estimate-blast-radius, design-component-contract]
+references: [refactor-without-behavior-change, verify-before-claiming]
 ```

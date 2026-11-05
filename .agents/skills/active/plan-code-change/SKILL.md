@@ -51,7 +51,12 @@ Choose `review-code-change` for a review;
 `refactor-without-behavior-change` for structural work; `plan-migration`
 for overlapping contracts; `research-unknown-api` for material API
 uncertainty; and `design-test-strategy` when the proof is unclear.
-`analyze-build-pipeline` handles automation, hooks, and release contracts.
+Choose `analyze-build-pipeline` to trace source-to-artifact stages;
+`design-component-contract` for a public component API;
+`review-component-boundaries` for React ownership and coupling; and
+`review-component-consistency` for design-system alignment.
+`review-for-accessibility` and `review-for-performance` handle requested
+scoped reviews; `improve-test-signal` strengthens an existing test.
 `update-documentation`, `write-maintainer-notes`, and
 `extract-engineering-lessons` handle requested artifacts or guidance.
 Select these conditionally, never as a full checklist to preload.
@@ -109,6 +114,12 @@ may-trigger:
     plan-migration,
     research-unknown-api,
     analyze-build-pipeline,
+    design-component-contract,
+    review-component-boundaries,
+    review-component-consistency,
+    review-for-accessibility,
+    review-for-performance,
+    improve-test-signal,
     update-documentation,
     write-maintainer-notes,
     extract-engineering-lessons,

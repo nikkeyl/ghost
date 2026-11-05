@@ -12,6 +12,12 @@ roadmap's promotion policy.
   for each skill. Keep its directory, metadata, index, graph targets,
   and documentation references consistent with that name.
 
+- Match the backlog domain and intended result, not only its name.
+  A skill must have a discriminating trigger, an actual procedure, and
+  completion evidence for the named capability. Keep domain examples
+  conditional; do not rename a detector into a review or improvement
+  procedure without supplying that procedure.
+
 - Include `name`, `description`, and `kind`. Active procedures use
   Trigger, Goal, Investigation / reasoning, Decision rules, Actions,
   Verification, Completion criteria, and Graph. Passive detectors stay

@@ -23,14 +23,14 @@ procedure produces the expected behavior in a named runtime. None establishes
 the author's independent proficiency. Historical trials retain their original
 scope; rerun them when a relevant artifact or runtime changes.
 
-| Workstream          | Current evidence                                                         | Next gate                                                                      | Checklist |
-| ------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | --------- |
-| Core catalog        | 7 rules, 16 knowledge files, 20 active skills, 13 detectors, 8 templates | Review skill contracts during changes; keep individual linters green           | —         |
-| Phase 1/2 behavior  | Phase 1 trial recorded; Phase 2 procedures authored                      | Representative positive, non-trigger and failure cases on one host             | C03       |
-| Runtime portability | Six targets named; AGENTS/CLAUDE loaders present                         | Versioned discovery, routing and passive-detector matrix, one host at a time   | C04–C05   |
-| Platform depth      | Narrow frontend guidance exists; broader procedures proposed             | JS predictions and browser/network experiments before framework recipes        | C07–C10   |
-| Quality / packaging | Existing review cues and historical package-audit leads                  | Consumer, accessibility, performance and trust-boundary evidence               | C11–C12   |
-| Systemic judgment   | Reasoning/evidence rules and candidate inventory                         | Apply alternatives, team cost, reversibility and adoption to current decisions | C13–C14   |
+| Workstream          | Current evidence                                                        | Next gate                                                                      | Checklist |
+| ------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------- |
+| Core catalog        | 7 rules, 16 knowledge files, 24 active skills, 9 detectors, 8 templates | Review skill contracts during changes; keep individual linters green           | —         |
+| Phase 1/2 behavior  | Phase 1 trial recorded; Phase 2 procedures authored                     | Representative positive, non-trigger and failure cases on one host             | C03       |
+| Runtime portability | Six targets named; AGENTS/CLAUDE loaders present                        | Versioned discovery, routing and passive-detector matrix, one host at a time   | C04–C05   |
+| Platform depth      | Narrow frontend guidance exists; broader procedures proposed            | JS predictions and browser/network experiments before framework recipes        | C07–C10   |
+| Quality / packaging | Existing review cues and historical package-audit leads                 | Consumer, accessibility, performance and trust-boundary evidence               | C11–C12   |
+| Systemic judgment   | Reasoning/evidence rules and candidate inventory                        | Apply alternatives, team cost, reversibility and adoption to current decisions | C13–C14   |
 
 CI runs EditorConfig, Prettier and remark as separate workflows. Python
 utilities and aggregate validation workflows were removed in favor of the
@@ -74,17 +74,16 @@ Already implemented in `.agents/`:
   engineering patterns, plus behavior preservation, research, writing, skill
   authoring, personal preferences, context hygiene, and optional integrations.
 
-- 20 active skills for planning, impact analysis, minimal implementation,
+- 24 active skills for planning, impact analysis, minimal implementation,
   debugging, verification, codebase understanding, task clarification, React
-  component review, custom-control review, form-contract review, and metadata
-  strategy review, plus diff review, test strategy, behavior-preserving
-  refactoring, migration planning, API research, handover, prose, and lesson
-  capture, plus CI/CD configuration.
+  boundary, contract and consistency review, browser form behavior, metadata,
+  accessibility and performance review, plus diff review, test strategy,
+  test-signal improvement, behavior-preserving refactoring, migration planning,
+  API research, handover, prose, lesson capture, and build-pipeline analysis.
 
-- 13 passive detectors for scope drift, breaking changes, missing verification,
-  accessibility, performance, architecture, component drift, async races, weak
-  test signal, overmocking, abstraction leaks, complexity creep, and build
-  impact.
+- 9 passive detectors for unnecessary changes, breaking contracts, task
+  completeness, architecture drift, stale state, overmocking, abstraction
+  leaks, complexity creep, and CI impact.
 
 - Progressive activation limits: 5 active skills by default, 2 graph hops.
 
@@ -148,27 +147,27 @@ The following backlog candidates are now represented in GHOST. `covered` means
 the candidate is implemented by an existing rule, parent skill, detector, or
 knowledge file; it is intentionally not a new standalone skill.
 
-| Backlog candidates                                                                                                                                                                | GHOST artifact                                                                                                     | Kind                      | Status      | Routing                                                                         |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------- | ----------- | ------------------------------------------------------------------------------- |
-| `review-metadata-strategy`                                                                                                                                                        | `skills/active/review-metadata-strategy`, `knowledge/web-document-metadata.md`                                     | active + knowledge        | implemented | page metadata, indexability, locale, social preview, or structured data changes |
-| `implement-cancellation`                                                                                                                                                          | `knowledge/async-ui-state-and-cancellation.md`, `skills/passive/detect-stale-state`                                | knowledge + passive       | covered     | `debug-systematically` or async signal                                          |
-| `analyze-module-loading`                                                                                                                                                          | `knowledge/data-loading-and-failure-model.md`, `skills/passive/review-for-performance`                             | knowledge + passive       | covered     | a dependency or renderer may be loaded too broadly                              |
-| `analyze-async-control-flow`, `review-state-transitions`, `detect-stale-state`                                                                                                    | `knowledge/async-ui-state-and-cancellation.md`, `skills/passive/detect-stale-state`                                | knowledge + passive       | covered     | user-driven async state can become obsolete                                     |
-| `choose-server-vs-client-component`, `review-server-component-boundaries`, `identify-client-server-boundaries`                                                                    | `rules/40-frontend-contracts.md`, `skills/active/review-component-boundaries`                                      | rule + active             | covered     | React/Next.js boundary is in scope                                              |
-| `analyze-server-actions`                                                                                                                                                          | `knowledge/nextjs-server-actions.md`, `rules/40-frontend-contracts.md`                                             | knowledge + rule          | covered     | Next.js mutation is in scope                                                    |
-| `review-data-fetching-strategy`, `optimize-data-fetching`, `optimize-caching`                                                                                                     | `rules/50-data-and-failure-contracts.md`, `knowledge/data-loading-and-failure-model.md`                            | rule + knowledge          | covered     | data boundary or freshness risk                                                 |
-| `design-layer-boundaries`, `design-domain-boundaries`                                                                                                                             | `rules/20-change-scope.md`, `skills/passive/detect-architecture-drift`                                             | rule + passive            | covered     | ownership or FSD layer is uncertain                                             |
-| `identify-state-owner`, `identify-state-ownership`, `classify-state`, `separate-server-and-client-state`, `design-state-architecture`                                             | `knowledge/data-loading-and-failure-model.md`, `knowledge/engineering-patterns.md`                                 | knowledge                 | covered     | state ownership is uncertain                                                    |
-| `design-error-model`, `design-failure-isolation`, `review-partial-failure`, `implement-fallback-behavior`                                                                         | `rules/50-data-and-failure-contracts.md`, `knowledge/data-loading-and-failure-model.md`                            | rule + knowledge          | covered     | primary/partial/secondary outcome exists                                        |
-| `review-user-generated-content`, `identify-trust-boundaries`                                                                                                                      | `knowledge/content-trust-boundaries.md`                                                                            | knowledge                 | covered     | external content reaches a rendering or behavior sink                           |
-| `design-data-flow`, `design-cache-strategy`, `design-concurrency-model`                                                                                                           | `knowledge/data-loading-and-failure-model.md`, `knowledge/async-ui-state-and-cancellation.md`                      | knowledge                 | covered     | data, freshness, or race behavior needs a model                                 |
-| `review-data-shape`, `normalize-api-data`, `design-view-model`, `separate-domain-and-transport-model`                                                                             | `knowledge/data-loading-and-failure-model.md`, `knowledge/engineering-patterns.md`                                 | knowledge                 | covered     | transport and UI ownership need an explicit boundary                            |
-| `review-form-accessibility`, `test-error-paths`, `test-concurrency`                                                                                                               | `skills/active/analyze-form-behavior`                                                                              | active                    | covered     | form or submit pipeline is in scope                                             |
-| `design-component-api`, `design-extension-points`, `review-component-boundaries`, `review-hook-design`, `review-variant-model`, `design-slot-api`, `separate-ui-and-domain-logic` | `rules/40-frontend-contracts.md`, `skills/active/review-component-boundaries`, `knowledge/engineering-patterns.md` | rule + active + knowledge | covered     | component or UI/domain contract is in scope                                     |
-| `extract-domain-logic`, `remove-duplication`, `reduce-complexity`, `improve-module-cohesion`, `incremental-refactor`                                                              | `rules/20-change-scope.md`, `skills/active/implement-minimal-change`                                               | rule + active             | covered     | duplication or complexity is demonstrated                                       |
-| `split-commit`, `prepare-clean-commit`, `review-commit-history`                                                                                                                   | `rules/30-git-and-review.md`                                                                                       | rule                      | covered     | commit or review boundary is in scope                                           |
-| `review-design-token-usage`, `design-token-architecture`                                                                                                                          | `rules/40-frontend-contracts.md`, `skills/active/review-component-boundaries`                                      | rule + active             | covered     | repeated visual meaning is demonstrated                                         |
-| `define-verification-plan`, `design-minimal-change`                                                                                                                               | `skills/active/plan-code-change`, `skills/active/verify-before-claiming`                                           | active                    | covered     | a change needs a bounded plan or risk-appropriate check                         |
+| Backlog candidates                                                                                                                                                                | GHOST artifact                                                                                                                                                | Kind                      | Status      | Routing                                                                         |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ----------- | ------------------------------------------------------------------------------- |
+| `review-metadata-strategy`                                                                                                                                                        | `skills/active/review-metadata-strategy`, `knowledge/web-document-metadata.md`                                                                                | active + knowledge        | implemented | page metadata, indexability, locale, social preview, or structured data changes |
+| `implement-cancellation`                                                                                                                                                          | `knowledge/async-ui-state-and-cancellation.md`, `skills/passive/detect-stale-state`                                                                           | knowledge + passive       | covered     | `debug-systematically` or async signal                                          |
+| `analyze-module-loading`                                                                                                                                                          | `knowledge/data-loading-and-failure-model.md`, `skills/active/review-for-performance`                                                                         | knowledge + active        | covered     | a dependency or renderer may be loaded too broadly                              |
+| `analyze-async-control-flow`, `review-state-transitions`, `detect-stale-state`                                                                                                    | `knowledge/async-ui-state-and-cancellation.md`, `skills/passive/detect-stale-state`                                                                           | knowledge + passive       | covered     | user-driven async state can become obsolete                                     |
+| `choose-server-vs-client-component`, `review-server-component-boundaries`, `identify-client-server-boundaries`                                                                    | `rules/40-frontend-contracts.md`, `skills/active/review-component-boundaries`                                                                                 | rule + active             | covered     | React/Next.js boundary is in scope                                              |
+| `analyze-server-actions`                                                                                                                                                          | `knowledge/nextjs-server-actions.md`, `rules/40-frontend-contracts.md`                                                                                        | knowledge + rule          | covered     | Next.js mutation is in scope                                                    |
+| `review-data-fetching-strategy`, `optimize-data-fetching`, `optimize-caching`                                                                                                     | `rules/50-data-and-failure-contracts.md`, `knowledge/data-loading-and-failure-model.md`                                                                       | rule + knowledge          | covered     | data boundary or freshness risk                                                 |
+| `design-layer-boundaries`, `design-domain-boundaries`                                                                                                                             | `rules/20-change-scope.md`, `skills/passive/detect-architecture-drift`                                                                                        | rule + passive            | covered     | ownership or FSD layer is uncertain                                             |
+| `identify-state-owner`, `identify-state-ownership`, `classify-state`, `separate-server-and-client-state`, `design-state-architecture`                                             | `knowledge/data-loading-and-failure-model.md`, `knowledge/engineering-patterns.md`                                                                            | knowledge                 | covered     | state ownership is uncertain                                                    |
+| `design-error-model`, `design-failure-isolation`, `review-partial-failure`, `implement-fallback-behavior`                                                                         | `rules/50-data-and-failure-contracts.md`, `knowledge/data-loading-and-failure-model.md`                                                                       | rule + knowledge          | covered     | primary/partial/secondary outcome exists                                        |
+| `review-user-generated-content`, `identify-trust-boundaries`                                                                                                                      | `knowledge/content-trust-boundaries.md`                                                                                                                       | knowledge                 | covered     | external content reaches a rendering or behavior sink                           |
+| `design-data-flow`, `design-cache-strategy`, `design-concurrency-model`                                                                                                           | `knowledge/data-loading-and-failure-model.md`, `knowledge/async-ui-state-and-cancellation.md`                                                                 | knowledge                 | covered     | data, freshness, or race behavior needs a model                                 |
+| `review-data-shape`, `normalize-api-data`, `design-view-model`, `separate-domain-and-transport-model`                                                                             | `knowledge/data-loading-and-failure-model.md`, `knowledge/engineering-patterns.md`                                                                            | knowledge                 | covered     | transport and UI ownership need an explicit boundary                            |
+| `review-form-accessibility`, `test-error-paths`, `test-concurrency`                                                                                                               | `skills/active/analyze-form-behavior`                                                                                                                         | active                    | covered     | form or submit pipeline is in scope                                             |
+| `design-component-api`, `design-extension-points`, `review-component-boundaries`, `review-hook-design`, `review-variant-model`, `design-slot-api`, `separate-ui-and-domain-logic` | `rules/40-frontend-contracts.md`, `skills/active/review-component-boundaries`, `skills/active/design-component-contract`, `knowledge/engineering-patterns.md` | rule + active + knowledge | covered     | component or UI/domain contract is in scope                                     |
+| `extract-domain-logic`, `remove-duplication`, `reduce-complexity`, `improve-module-cohesion`, `incremental-refactor`                                                              | `rules/20-change-scope.md`, `skills/active/implement-minimal-change`                                                                                          | rule + active             | covered     | duplication or complexity is demonstrated                                       |
+| `split-commit`, `prepare-clean-commit`, `review-commit-history`                                                                                                                   | `rules/30-git-and-review.md`                                                                                                                                  | rule                      | covered     | commit or review boundary is in scope                                           |
+| `review-design-token-usage`, `design-token-architecture`                                                                                                                          | `rules/40-frontend-contracts.md`, `skills/active/review-component-boundaries`                                                                                 | rule + active             | covered     | repeated visual meaning is demonstrated                                         |
+| `define-verification-plan`, `design-minimal-change`                                                                                                                               | `skills/active/plan-code-change`, `skills/active/verify-before-claiming`                                                                                      | active                    | covered     | a change needs a bounded plan or risk-appropriate check                         |
 
 Broader platform, security, and production families remain planned.
 `map-codebase` is implemented in the Phase 1 slice described above. The
@@ -179,19 +178,44 @@ does not yet justify claiming complete independent workflows for them.
 
 All skill identifiers use existing names from the original 479-candidate
 [backlog](backlog.md). The [skill index](../../.agents/skills/README.md)
-records the current 20 active procedures and 13 passive detectors.
+records the current 24 active procedures and 9 passive detectors.
 Directories, metadata, graph targets, and references use the same names.
-A passive detector remains signal-oriented even when its backlog name
-starts with `review`, `check`, or `improve`; `kind` controls its role.
-Naming alignment does not expand procedure scope or establish behavioral
-verification of the full candidate capability.
+Reviews and improvements have active procedures with their own output
+and verification. Passive checks remain lightweight signals; `kind`
+reflects actual execution rather than compensating for a mismatched
+name. Naming alignment alone does not establish capability coverage.
+
+## Skill semantics checkpoint
+
+All 33 skills were reviewed against their names, backlog domains,
+triggers, procedures, and completion criteria. Fourteen needed content
+or contract corrections: build analysis, component boundaries and
+contracts, browser form behavior, four active review/improvement
+procedures, CI impact, completeness, stale state, blast radius,
+claim verification, and test-strategy completion. The remaining 19
+retain their existing scoped procedures.
+
+Build analysis now traces inputs and stages before recommending changes;
+component contract design covers static and interactive consumers;
+component boundaries concern responsibility and state ownership rather
+than formatting. Accessibility, performance, component consistency, and
+test-signal improvement are active procedures rather than renamed
+passive warnings. Browser forms and stale state cover native and
+synchronous behavior as well as enhanced or asynchronous paths.
+
+Evidence is content inspection, author walkthroughs of representative
+positive, non-trigger, and failure cases, and structural/lint checks.
+This is not an independent evaluation or cross-host behavioral trial.
+The original candidate inventory remains unchanged.
 
 ## Portable CI/CD checkpoint
 
 `rules/60-ci-cd.md` and `skills/active/analyze-build-pipeline` cover repository
-conventions, hooks, dependency automation, release gates, and artifact
-contracts. Route automation work through this parent; running existing
-checks alone remains the responsibility of `verify-before-claiming`.
+inputs, build stages, local/CI differences, release gates, and artifact
+contracts. Hooks and dependency automation are inspected when relevant
+to that build path. Route pipeline analysis through this parent;
+running existing checks alone remains the responsibility of
+`verify-before-claiming`.
 
 This provides bounded coverage for `analyze-build-pipeline`,
 `check-ci-impact`, and `review-release-diff`. It does not implement a
@@ -211,7 +235,7 @@ pending.
 | Backlog candidates                                                                                                                                                                                           | GHOST artifact                                                                                                                                             | Kind               | Status      | Routing                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- | ---------------------------------------------- |
 | `review-code-change`, `review-pull-request`, `review-diff-not-files`, `review-for-correctness`, `review-for-overengineering`                                                                                 | `skills/active/review-code-change`                                                                                                                         | active             | implemented | scoped review or received feedback             |
-| `design-test-strategy`, `choose-test-level`, `write-regression-test`, `test-edge-cases`, `test-error-paths`, `test-concurrency`, `reduce-test-brittleness`, `improve-test-signal`, `review-mocking-strategy` | `skills/active/design-test-strategy`, `templates/manual-test.md`                                                                                           | active + template  | covered     | unclear proof or material regression risk      |
+| `design-test-strategy`, `choose-test-level`, `write-regression-test`, `test-edge-cases`, `test-error-paths`, `test-concurrency`, `reduce-test-brittleness`, `improve-test-signal`, `review-mocking-strategy` | `skills/active/design-test-strategy`, `skills/active/improve-test-signal`, `templates/manual-test.md`                                                      | active + template  | covered     | unclear proof or material regression risk      |
 | `refactor-without-behavior-change`, `incremental-refactor`, `reduce-coupling`, `reduce-complexity`                                                                                                           | `skills/active/refactor-without-behavior-change`                                                                                                           | active             | implemented | authorized structural change                   |
 | `plan-migration`, `design-backward-compatible-migration`, `track-migration-progress`, `write-migration-guide`, `write-runbook`                                                                               | `skills/active/plan-migration`, `templates/migration-plan.md`                                                                                              | active + template  | covered     | overlap, state preservation, or recovery needs |
 | `research-unknown-api`, `read-library-source`, `compare-docs-with-runtime`, `create-minimal-reproduction`, `verify-library-api`                                                                              | `skills/active/research-unknown-api`, `knowledge/web-research-and-source-evaluation.md`                                                                    | active + knowledge | covered     | decision-relevant API uncertainty              |

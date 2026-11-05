@@ -1,20 +1,25 @@
 ---
 name: check-ci-impact
-description: "Notice dependency, lockfile, generated-output, and CI changes outside
-  the verified change boundary."
+description: Check whether a change affects CI triggers, job dependencies,
+  tools, permissions, required checks, caches, or artifact publication.
 kind: passive
 ---
 
 # Check CI impact
 
-During changes to manifests, lockfiles, generators, build configuration,
-or CI, compare their effect with the requested contract and verification
-scope. Look for unexplained lockfile churn, generated output without its
-source, new required environment inputs, and affected packages omitted
-from checks.
+During changes to source paths, scripts, manifests, lockfiles, generated
+files, build configuration, or workflows, trace whether CI still runs
+the relevant commands for the affected revision and events.
 
-Confirm what changed before calling it broken. Report the affected
-boundary, consumers, and missing evidence. Escalate to
-`analyze-build-pipeline` when automation or release wiring needs revision, or
-`estimate-blast-radius` or `verify-before-claiming` when the affected contract
-needs analysis or evidence; otherwise emit no material signal.
+Inspect path and branch filters, working directories, renamed commands,
+runtime/tool versions, environment inputs, job dependencies, required
+status names, cache inputs, permissions, and artifact paths. A source
+rename can bypass a path filter even when no workflow file changed.
+Distinguish local build impact from an actual CI execution consequence.
+
+Report the changed input, affected event/job/check, consequence, and
+missing or observed evidence. Escalate to `analyze-build-pipeline` for
+an unclear pipeline path, `estimate-blast-radius` for affected consumers,
+or `verify-before-claiming` for missing execution evidence. A lockfile
+diff alone is not a CI defect; emit no material signal when the pipeline
+contract remains covered.

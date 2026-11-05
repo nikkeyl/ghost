@@ -1,7 +1,7 @@
 ---
 name: verify-before-claiming
-description: Verify an implemented change with risk-appropriate evidence and keep
-  completion claims within what was actually checked.
+description: Check engineering claims against current evidence, execution scope,
+  and known limits before reporting them as established or complete.
 kind: active
 ---
 
@@ -9,8 +9,9 @@ kind: active
 
 ## Trigger
 
-Use after implementation, debugging, configuration changes, or any
-report that claims completion.
+Use before reporting a technical conclusion or completion claim after
+implementation, research, review, diagnosis, or configuration work.
+Verification does not require an implementation to have occurred.
 
 ## Goal
 
@@ -18,7 +19,9 @@ Establish what is actually verified and prevent false completion claims.
 
 ## Investigation / reasoning
 
-1. Read the diff and compare it with the requested contract and plan.
+1. State the claim, relevant source state, environment, and evidence
+   needed to support it. For a change, compare the diff with the task
+   and plan; for research or review, inspect sources and observations.
 
 1. Select checks by risk: type/build, unit/integration, browser
    behavior, accessibility, performance, security, migration, or
@@ -137,7 +140,6 @@ material risks are either checked, mitigated, or explicitly left open.
 ## Graph
 
 ```yaml
-requires: [implement-minimal-change]
 may-trigger: [design-test-strategy]
 references: [estimate-blast-radius]
 followed-by: []

@@ -1,7 +1,7 @@
 ---
 name: design-component-contract
-description: Review a custom interactive control through a state, accessibility,
-  interaction, and loading-boundary matrix.
+description: Define a component's consumer-facing inputs, events, state
+  ownership, composition, semantics, and compatibility guarantees.
 kind: active
 ---
 
@@ -9,112 +9,79 @@ kind: active
 
 ## Trigger
 
-Use when creating, replacing, or materially changing a custom select,
-menu, dialog, combobox, checkbox, picker, disclosure, tabs, slider,
-carousel, or other interactive control.
+Use when designing or changing a component's public contract, including
+presentational components and interactive controls. Internal refactoring
+with an unchanged contract belongs to `review-component-boundaries` or
+`refactor-without-behavior-change`.
 
 ## Goal
 
-Make the control's behavior, semantics, loading boundary, and failure
-states explicit before implementation so that custom UI does not lose
-platform capabilities.
+Define the smallest complete contract that consumers can use without
+knowing the component's implementation.
 
 ## Investigation / reasoning
 
-1. Identify whether a native element already satisfies the contract and
-   record why a custom control is necessary if it does not.
+1. Identify consumers, user tasks, supported scenarios, non-goals, and
+   existing APIs. Distinguish product requirements from one caller's
+   incidental markup or framework choice.
 
-1. Build a state matrix for the relevant states: idle, hover or pointer,
-   keyboard focus, active, selected, expanded or open, disabled,
-   loading, validation error, success, empty, and responsive/mobile
-   variations.
+1. Define inputs, defaults, valid combinations, events and payloads,
+   slots or children, refs when required, and styling extension points.
+   State which behavior is guaranteed and which remains caller-owned.
 
-1. Trace mouse/touch and keyboard paths, focus entry and return, escape
-   and outside-click behavior, screen-reader name/role/state, and
-   visible feedback.
+1. Assign state ownership. For controlled and uncontrolled use, define
+   initialization, updates, reset, and switching constraints. Avoid two
+   independent owners for the same value.
 
-1. Identify the smallest server/client boundary. Keep data and expensive
-   control-specific dependencies local to the route or component that
-   needs them.
+1. Describe rendering semantics, responsive constraints, and relevant
+   loading, empty, error, disabled, and interaction states. Specify
+   keyboard, focus, and accessible naming for interactive components;
+   do not invent interaction requirements for a static component.
 
-1. Classify missing data and side effects as essential, partial, or
-   secondary before defining fallback and error behavior.
-
-1. For tabs, carousel navigation, or sliders, identify whether the
-   interaction is same-page selection or navigation, whether positions
-   are finite or cyclic, and how the current position and offscreen
-   content are represented.
+1. Compare composition, variants, and separate components. Identify
+   compatibility consequences for existing callers and runtime or data
+   dependencies exposed through the proposed contract.
 
 ## Decision rules
 
-- Prefer native platform behavior before recreating it with JavaScript
-  or ARIA.
+- Prefer native semantics and existing repository primitives. Do not
+  introduce custom controls merely to demonstrate an API.
 
-- A custom control is incomplete if any relevant state in the matrix has
-  no intentional visual or semantic behavior.
+- Keep props focused on supported scenarios. Use explicit variants or
+  composition instead of unrelated booleans and hidden combinations.
 
-- The server is the default boundary; add client behavior only for
-  required interaction, browser APIs, or a material UX improvement.
+- Keep internal fetching, caching, and framework details out of the
+  public surface unless consumers need that responsibility explicitly.
 
-- Do not make a route-specific renderer, parser, data request, or heavy
-  library global when the control or page is the only consumer.
-
-- Do not surface a secondary pipeline failure as a primary user-facing
-  failure after the main operation has succeeded.
-
-- Use the tabs pattern only when controls switch same-page panels. Keep
-  tablist/tab/tabpanel roles, ids and references, selected state, roving
-  focus, and keyboard behavior synchronized. Automatic activation is
-  appropriate only when panel changes have no noticeable delay;
-  otherwise use manual activation. If selection is reflected in the URL,
-  support direct loading and Back/Forward, and deliberately choose
-  history replacement or push behavior rather than assuming a history
-  API call emits hashchange.
-
-- For carousels, provide an accessible name and useful slide-position
-  information. Use polite live announcements for user-triggered changes
-  and turn them off during automatic rotation. Expose only navigation
-  that can move the content. Recompute overflow when the container or
-  slide content changes, and keep focusable content from remaining
-  reachable in visually hidden slides. If slides rotate automatically,
-  provide an explicit stop/start control and stop rotation on focus or
-  hover; do not resume it without a user action.
-
-- Align arrow meaning, movement, and visual direction with RTL reading
-  order. Do not let a horizontal gesture prevent ordinary vertical page
-  scrolling.
+- Define behavior before implementation. Contract design does not
+  authorize a rewrite or require client-side rendering or server use.
 
 ## Actions
 
-Produce the state matrix and interaction contract before editing.
-Implement the smallest control boundary that satisfies it, using native
-semantics where possible. Add only the data and dependencies required by
-that boundary.
+Produce a compact contract: purpose, props/defaults/constraints, events,
+state ownership, composition and styling boundaries, semantics, failure
+states, compatibility, and representative consumer examples. Cover a
+static example and an interactive example only when both are required.
+For custom control patterns, load the relevant guidance from
+`.agents/knowledge/source-derived-patterns.md`.
 
 ## Verification
 
-Check every applicable matrix state with mouse/touch, keyboard, focus,
-screen reader semantics, mobile layout, and validation/error behavior.
-Run a focused browser or accessibility check for interactive controls.
-If a dependency or data request changed scope, inspect its route/import
-boundary and verify that unrelated routes do not load it. For tabs,
-verify activation mode, focus and selection synchronization, direct URL
-loading, Back/Forward behavior when URL state is used, and RTL. For
-carousels, verify finite/cyclic boundaries, overflow changes after
-resize or content updates, hidden-slide focus behavior, stop/restart
-behavior, and vertical scrolling during horizontal gestures.
+Check examples against real consumers and required scenarios. Ensure
+invalid combinations are rejected or documented, event payloads and
+ownership are unambiguous, and consumers need no private internals.
+For implemented contracts, verify types and relevant behavior, including
+controlled updates, reset, keyboard, and focus when applicable.
 
 ## Completion criteria
 
-The control has an explicit state matrix, an intentional semantic and
-focus contract, a justified server/client boundary, and verification
-evidence for the relevant interaction and failure states.
+The contract is usable and testable by consumers, its supported states
+and extension points are explicit, and compatibility is addressed.
+Design completion is separate from implementation or runtime proof.
 
 ## Graph
 
 ```yaml
-requires: [plan-code-change]
-may-trigger: [estimate-blast-radius]
-followed-by: [verify-before-claiming]
-references: [data-loading-and-failure-model]
+may-trigger: [estimate-blast-radius, design-test-strategy]
+references: [review-component-boundaries, source-derived-patterns]
 ```

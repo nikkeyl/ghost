@@ -68,6 +68,11 @@ the current project before applying them.
 - Provide captions, transcript/description, poster, and fallback content
   for meaningful video.
 
+- Align directional controls and movement with the supported RTL reading
+  order. A horizontal gesture should preserve ordinary vertical page
+  scrolling; verify the actual touch behavior rather than assuming a
+  gesture library guarantees it.
+
 ## Performance and platform
 
 - Choose image alternatives by meaning and context: empty alt for

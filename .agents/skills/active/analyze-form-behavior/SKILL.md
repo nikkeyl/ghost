@@ -1,7 +1,7 @@
 ---
 name: analyze-form-behavior
-description: Review a form's validation, submission lifecycle, state ownership,
-  server boundary, and primary or secondary failure behavior.
+description: Analyze native form ownership, validation, submitted data, browser
+  navigation, reset, and enhanced submission behavior.
 kind: active
 ---
 
@@ -25,9 +25,20 @@ universal component.
    domain validation, consent requirements, and server-side trust
    boundary.
 
+1. Establish the browser baseline: form owner, action, method,
+   submitter, implicit submission, native constraint validation, and
+   the submitted data. Inspect control names, disabled or unchecked
+   controls, duplicate names, and submitter-specific behavior rather
+   than assuming UI state equals the request payload.
+
+1. Trace the submit and reset paths, event handlers, default behavior,
+   navigation, and progressive enhancement. Distinguish a browser
+   submission from a programmatic or framework interception; verify
+   the actual path before attributing validation or event behavior.
+
 1. Build a state matrix covering idle, editing, invalid, consent
-   missing, submitting, duplicate submission, primary success, primary
-   failure, retry, and any relevant mobile or keyboard behavior.
+   missing when required, submitting, duplicate submission, primary
+   success, primary failure, retry, and relevant mobile/keyboard behavior.
 
 1. Separate the primary user-visible operation from secondary effects
    such as notifications, analytics, logging, or enrichment.
@@ -93,19 +104,23 @@ universal component.
   lifecycle. Keep business-specific fields and rules outside the shared
   core.
 
-- Prefer a suitable Server Action for a Next.js server-side mutation,
-  but do not move browser-only interaction or high-frequency input
-  handling there.
+- Evaluate a Server Action only when the Next.js architecture and
+  mutation contract support it. Keep browser-only interaction and
+  high-frequency input at the boundary that owns them.
 
 ## Actions
 
-Produce a compact form contract with field constraints, state
-transitions, primary and secondary outcomes, chosen server boundary, and
-the smallest implementation change needed to preserve it.
+Produce a form behavior trace from user action through validation,
+submitted data, transport or navigation, response, and reset. Include
+field ownership, enhancement boundaries, state transitions, and failure
+outcomes. Recommend a correction from this trace; implement it only when
+the task includes a fix.
 
 ## Verification
 
-Check native and custom validation, missing consent, invalid fields,
+Inspect actual submitted data and browser navigation using relevant
+submitters, Enter-key submission, reset, and enhanced versus native
+paths. Check native and custom validation, missing consent, invalid fields,
 pending and duplicate submission, primary success and reset, primary
 failure and preserved input, secondary side-effect failure, keyboard
 behavior, associated and announced error/status messages, autocomplete,
@@ -115,9 +130,10 @@ shared abstraction has no consumer-specific prop accumulation.
 
 ## Completion criteria
 
-The form has an explicit validation and state contract, a justified
-server boundary, correct reset and failure behavior, and evidence for
-each material state that was claimed as verified.
+The analysis explains the browser and enhancement paths, actual payload,
+validation and reset behavior, and failure outcomes. Findings have
+observed evidence or explicit limits; server/framework advice is
+conditional on the repository rather than the core of the procedure.
 
 ## Graph
 

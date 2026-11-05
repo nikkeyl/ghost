@@ -1,20 +1,31 @@
 ---
 name: check-task-completeness
-description: Detect completion claims whose verification does not cover the changed
-  behavior or risk surface.
+description: Compare requested outcomes and acceptance criteria with delivered
+  artifacts, performed actions, verification, and unresolved work.
 kind: passive
 ---
 
 # Check task completeness
 
-Run before a completion claim. Compare the changed risk surface with
-executed checks. Raise a signal when tests, explicit type checks,
-focused browser checks, accessibility checks, performance evidence, or
-operational validation are missing for the claimed behavior.
+Run before a completion report or handover. Reconstruct the requested
+outcomes and acceptance criteria from the current task, including later
+corrections. Map each requirement to its delivered file, behavior, or
+external action and mark it done, partial, blocked, or explicitly
+excluded by the user.
 
-Raise an additional signal when a production build bypasses type
-checking and no separate type check covers the changed type risk. A
-linter is not a replacement for TypeScript verification.
+Look for omitted deliverables, placeholders, disconnected wiring,
+missing error paths, stale documentation, and actions described but
+never performed. Distinguish a completed plan from an implemented
+change, a local fix from a pushed one, and a workflow definition from a
+successful publication when those outcomes were requested.
 
-Do not require every check for every change. Escalate only when the
-missing evidence is material to the claim, usually to `verify-before-claiming`.
+Compare claimed verification with the changed risk surface. Passing
+lint cannot stand in for a required type check or observed behavior.
+Do not demand every possible check or add unstated requirements.
+
+Report the unmet criterion, current evidence, and smallest remaining
+step. Route missing implementation to `implement-minimal-change`,
+missing proof to `verify-before-claiming`, and material scope ambiguity
+to `clarify-engineering-task`. Emit no material signal only when the
+requested outcomes and evidence are accounted for; never silently mark
+partial or blocked work complete.

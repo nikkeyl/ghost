@@ -79,13 +79,14 @@ unavailable checks remain visible.
 
 ## Completion criteria
 
-Every material acceptance criterion has proportionate evidence or an
-explicit limitation; extra tests and broad builds have a task-relevant
-reason.
+Every material acceptance criterion maps to a proportionate planned
+check or an explicit limitation. The strategy states expected signals
+and execution order; checks are reported as performed only when run.
+Extra tests and broad builds have a task-relevant reason.
 
 ## Graph
 
 ```yaml
-may-trigger: [debug-systematically]
+may-trigger: [debug-systematically, improve-test-signal]
 followed-by: [verify-before-claiming]
 ```

@@ -1,7 +1,7 @@
 ---
 name: analyze-build-pipeline
-description: Analyze and improve CI/CD, repository hooks, dependency automation,
-  and release artifacts. Use verify-before-claiming to run existing checks alone.
+description: Analyze how source, dependencies, configuration, and build stages
+  produce artifacts locally and in CI; propose scoped improvements.
 kind: active
 ---
 
@@ -9,80 +9,76 @@ kind: active
 
 ## Trigger
 
-Use when a request changes automation, hook behavior, dependency-update
-policy, release gates, or artifact contents.
+Use when build stages, inputs, generated outputs, local/CI differences,
+or release gates need explanation or assessment. Running an existing
+check alone belongs to `verify-before-claiming`.
 
 ## Goal
 
-Analyze the pipeline and make scoped improvements that follow repository
-conventions. Publish the intended contents only after relevant
-verification.
+Explain the actual path from source to artifact, identify unsupported
+assumptions, and recommend only changes justified by the requested task.
 
 ## Investigation / reasoning
 
-1. Read `.agents/rules/60-ci-cd.md`. Inspect existing configuration,
-   manifests, lockfiles, hooks, branch policies, and user-selected
-   references. Identify the actual provider, runtime, and consumers.
+1. Inspect entry commands, manifests, lockfiles, build configuration,
+   generators, environment inputs, and workflow triggers. Identify
+   runtime versions and package or workspace boundaries.
 
-1. Map events to checks and publication. Identify required checks, the
-   revision each step evaluates, permission boundaries, and retry
-   behavior. Resolve uncertain provider semantics through primary
-   documentation or a bounded experiment before changing the gate.
+1. Trace the dependency graph from install through generation, compile,
+   bundle, tests, packaging, and publication where those stages exist.
+   Record each stage's inputs, outputs, prerequisites, and consumers.
 
-1. Identify the effective formatter and linter configuration, shared
-   commands, and generated files. Separate portable conventions from
-   application-specific steps in reference repositories.
+1. Compare local and CI execution: working directory, installed tools,
+   environment, secrets, cache keys, restored outputs, path filters,
+   concurrency, and selected revision. Identify undeclared inputs and
+   stale or partial outputs that could explain a difference.
 
-1. Define the artifact contract: included paths, required layout,
-   naming, license notices, and the verified source revision.
+1. Inspect logs and artifact contents. Measure stage duration or repeat
+   a clean build only when correctness, reproducibility, or build cost
+   is part of the question. Do not infer cache safety from a fast run.
+
+1. For publication, read `.agents/rules/60-ci-cd.md` and trace required
+   checks, immutable revision, artifact selection, trust, and retries.
+   Hook and dependency-update wiring matter when they feed this path.
 
 ## Decision rules
 
-- Adapt established configuration before inventing a new mechanism.
-  Do not migrate providers or package managers merely to match an
-  example. Install only tooling relevant to the repository's files.
+- An analysis request produces a model and findings; it does not by
+  itself authorize configuration edits, a new provider, or publication.
 
-- Prefer native dependencies and events. Treat fan-in, skipped checks,
-  retries, and privileged triggers as behavior to verify rather than
-  infer from workflow names.
+- Separate build correctness, verification coverage, reproducibility,
+  and speed. A successful cached build cannot establish all four.
 
-- Keep rules in their owning configuration and make content comply.
-  Do not disable a rule or add an exception merely to retain existing
-  formatting. Follow explicit repository exceptions when present.
-
-- Respect current authorization for remote changes. Preparing a
-  workflow does not itself authorize deployment or publication.
+- Prefer native orchestration and existing repository conventions.
+  Resolve uncertain provider or tool semantics through primary sources
+  before relying on them. Do not add stages absent from the product.
 
 ## Actions
 
-Implement the bounded configuration and connect it to existing local
-commands. Keep linter workflows separate and hooks compatible with
-staged edits. Configure update and merge automation only when requested.
-Preserve unrelated user changes and avoid project-specific names,
-versions, or publishing targets in reusable guidance.
+Produce a source-to-artifact stage map with commands, inputs, outputs,
+revision, observed failures or costs, and the smallest recommended
+correction. Apply a correction through `implement-minimal-change` only
+when included in the task. Preserve the selected toolchain and explicit
+artifact contract.
 
 ## Verification
 
-Run relevant formatters, linters, and configuration validators. For
-changed release logic, exercise successful, missing, pending, and failed
-check outcomes for the same revision, plus a retry or duplicate event.
-Inspect the built artifact's paths and contents when packaging changes.
-
-Within the authorized scope, inspect actual remote checks and published
-artifacts. Report local validation separately when remote execution or
-publication was not performed. Do not claim portability across providers
-or agent hosts from structural validation alone.
+Cross-check graph edges against scripts, configuration, logs, and files.
+For an authorized change, exercise the affected stage and consumer. If
+release gating changes, cover missing, pending, failed, and successful
+checks plus a duplicate event. Inspect packaged contents when changed.
+Report execution unavailable locally or remotely as a limitation.
 
 ## Completion criteria
 
-The configuration follows repository conventions, required checks gate
-the intended revision, and verification evidence covers the changed
-contract. Artifact contents and any unexecuted remote behavior are
-explicitly accounted for.
+The build path and material inputs are accounted for, each finding has
+evidence, and recommendations distinguish observed behavior from
+unverified assumptions. Applied changes have scoped proof; analysis
+alone does not imply a build or publication occurred.
 
 ## Graph
 
 ```yaml
-may-trigger: [research-unknown-api, estimate-blast-radius, design-test-strategy]
-followed-by: [verify-before-claiming]
+may-trigger: [research-unknown-api, estimate-blast-radius]
+references: [implement-minimal-change, verify-before-claiming]
 ```

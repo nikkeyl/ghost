@@ -27,6 +27,11 @@ Predict what can break and reduce surprises before implementation.
 1. Search for tests, schemas, generated types, adapters, and
    documentation that encode the existing behavior.
 
+1. Enumerate direct consumers and follow shared dependencies to
+   indirect consumers, routes, packages, environments, and deployments
+   when relevant. Separate known affected paths from plausible paths
+   and explain where dynamic behavior limits enumeration.
+
 1. Classify effects as compile-time, runtime, visual, accessibility,
    performance, security, operational, and migration impact.
 
@@ -63,8 +68,9 @@ or rollback step, and that the proposed diff matches the impact map.
 
 ## Completion criteria
 
-The change has a bounded blast radius, named affected consumers, and no
-unexamined public-contract or operational risk.
+The estimate names affected consumers and propagation paths, ranks
+material consequences, and records uncertainty or excluded areas. It
+does not present an incomplete consumer search as a guarantee of safety.
 
 ## Graph
 
