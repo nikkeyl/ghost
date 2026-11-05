@@ -4,6 +4,12 @@ GHOST runtime instructions live in [`.agents/`](../.agents/skills/README.md).
 This directory contains maintainer documentation and is excluded from release
 archives.
 
+## Contributing
+
+Run `bun run init` to install dependencies and enable Husky. The pre-commit
+hook formats staged files and lints Markdown; the commit-msg hook checks
+Conventional Commits.
+
 ## Planning
 
 - [Roadmap](planning/roadmap.md): capability phases, sequencing and promotion

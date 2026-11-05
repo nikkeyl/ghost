@@ -1,10 +1,7 @@
 name: Commit Lint
 
 on:
-  workflow_call:
   push:
-    branches-ignore:
-      - main
 
 permissions:
   contents: read

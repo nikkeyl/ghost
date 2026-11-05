@@ -1,8 +1,10 @@
 name: Pre Commit
 
 on:
-  workflow_call:
   pull_request:
+    branches:
+      - main
+  push:
     branches:
       - main
 
@@ -27,5 +29,8 @@ jobs:
         with:
           python-version: 3.13
 
+      - name: Install Dependencies
+        run: python -m pip install pre-commit
+
       - name: Lint
-        uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd
+        run: pre-commit run --all-files --show-diff-on-failure

@@ -1,8 +1,10 @@
 name: Remark
 
 on:
-  workflow_call:
   pull_request:
+    branches:
+      - main
+  push:
     branches:
       - main
 
@@ -27,4 +29,4 @@ jobs:
         run: bun ci
 
       - name: Lint
-        run: bun remark . .agents --quiet --frail
+        run: bun remark . --quiet --frail

@@ -1,23 +1,23 @@
-import { defineConfig } from "@archoleat/commitlint-define-config";
+import { defineConfig } from '@archoleat/commitlint-define-config';
 
 export default defineConfig({
-  extends: ["@commitlint/config-conventional"],
+  extends: ['@commitlint/config-conventional'],
   rules: {
-    "type-enum": [
+    'type-enum': [
       2,
-      "always",
+      'always',
       [
-        "build",
-        "chore",
-        "ci",
-        "docs",
-        "feat",
-        "fix",
-        "perf",
-        "refactor",
-        "revert",
-        "spec",
-        "style",
+        'build',
+        'chore',
+        'ci',
+        'docs',
+        'feat',
+        'fix',
+        'perf',
+        'refactor',
+        'revert',
+        'spec',
+        'style',
       ],
     ],
   },

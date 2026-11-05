@@ -1,63 +1,83 @@
 name: Release
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - Editorconfig
+      - Prettier
+      - Remark
+      - Commit Lint
+      - Pre Commit
+    types:
+      - completed
     branches:
       - main
 
 permissions:
-  contents: read
+  actions: read
+  contents: write
+
+concurrency:
+  group: release-${{ github.event.workflow_run.head_sha }}
+  cancel-in-progress: false
 
 jobs:
-  editorconfig:
-    uses: ./.github/workflows/editorconfig.yaml
-
-  prettier:
-    uses: ./.github/workflows/prettier.yaml
-
-  remark:
-    uses: ./.github/workflows/remark.yaml
-
-  commitlint:
-    uses: ./.github/workflows/commitlint.yaml
-
-  pre-commit:
-    uses: ./.github/workflows/pre-commit.yaml
-
   release:
     name: Release
 
-    needs:
-      - editorconfig
-      - prettier
-      - remark
-      - commitlint
-      - pre-commit
-
-    permissions:
-      contents: write
+    if: >-
+      ${{ github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' }}
 
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+    env:
+      COMMIT: ${{ github.event.workflow_run.head_sha }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
 
-      - name: Build
+    steps:
+      - name: Check Linters
+        id: linters
         run: |
-          VERSION="ghost-${GITHUB_SHA::7}"
+          VERSION="ghost-${COMMIT::7}"
 
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
 
-          git archive --format=zip --prefix="$VERSION/" \
-            --output="$RUNNER_TEMP/$VERSION.zip" \
-            HEAD -- .agents AGENTS.md CLAUDE.md LICENSE
+          RUNS="repos/$GITHUB_REPOSITORY/actions/runs"
+
+          READY=$(gh api "$RUNS?head_sha=$COMMIT&event=push&per_page=100" --jq '
+            .workflow_runs
+            | map(select(.head_branch == "main" and .event == "push"))
+            | group_by(.name) | map(max_by(.id))
+            | map(select(.name as $name | [
+                "Editorconfig", "Prettier", "Remark", "Commit Lint", "Pre Commit"
+              ] | index($name)))
+            | length == 5 and all(.conclusion == "success")
+          ')
+
+          if [ "$READY" = true ] && gh release view "$VERSION" >/dev/null 2>&1; then
+            READY=false
+          fi
+
+          echo "ready=$READY" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout Repository
+        if: steps.linters.outputs.ready == 'true'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Build
+        if: steps.linters.outputs.ready == 'true'
+        run: >-
+          git archive --format=zip --prefix="$VERSION/"
+          --output="$RUNNER_TEMP/$VERSION.zip"
+          HEAD -- .agents AGENTS.md CLAUDE.md LICENSE
 
       - name: Create Release
-        env:
-          GH_TOKEN: ${{ github.token }}
+        if: steps.linters.outputs.ready == 'true'
         run: >-
-          gh release create "$VERSION"
-          "$RUNNER_TEMP/$VERSION.zip"
-          --target "$GITHUB_SHA" --generate-notes
+          gh release create "$VERSION" "$RUNNER_TEMP/$VERSION.zip"
+          --target "$COMMIT" --generate-notes
