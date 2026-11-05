@@ -1,14 +1,16 @@
 # Skill index
 
-Every skill has a non-empty `description` for routing. Descriptions are an index, not
-the skill body: load the body only after the task has matched it.
+Every skill has a non-empty `description` for routing. Descriptions are
+an index, not the skill body: load the body only after the task has
+matched it.
 
 ## P0 runtime scope
 
-GHOST is designed first for Codex, Claude Code, Cursor, GitHub Copilot, Gemini CLI,
-and OpenCode. Keep skill bodies portable and add a host-specific projection only when
-that runtime cannot discover the canonical `.agents` location. Do not create separate
-engineering rules for each host.
+GHOST is designed first for Codex, Claude Code, Cursor, GitHub Copilot,
+Gemini CLI, and OpenCode. Keep skill bodies portable and add a
+host-specific projection only when that runtime cannot discover the
+canonical `.agents` location. Do not create separate engineering rules
+for each host.
 
 ## Active
 
@@ -62,11 +64,12 @@ understand-and-plan-change
   → verify-change
 ```
 
-`debug-systematically` replaces the implementation stage when the task is primarily
-diagnostic. `review-component-anatomy` is conditional on React work and repository
-fit. Read the referenced knowledge only after the selected skill establishes that its
-mental model is needed; the index and descriptions are routing metadata, not a
-request to preload every file.
+`debug-systematically` replaces the implementation stage when the task
+is primarily diagnostic. `review-component-anatomy` is conditional on
+React work and repository fit. Read the referenced knowledge only after
+the selected skill establishes that its mental model is needed; the
+index and descriptions are routing metadata, not a request to preload
+every file.
 
 ## Conditional routes
 
@@ -80,15 +83,17 @@ request to preload every file.
 | Hand a change to reviewers                    | `write-maintainer-notes`           | use existing verification evidence                |
 | Capture a durable correction                  | `extract-engineering-lessons`      | edit the appropriate owner within authorization   |
 
-These are alternatives and conditional relations, not an expanded default route. The
-five-active-skill and two-hop limits remain unchanged. Passive signals do not
-activate all parents; stop escalation at the material risk and avoid re-entering a
-completed stage without new evidence.
+These are alternatives and conditional relations, not an expanded
+default route. The five-active-skill and two-hop limits remain
+unchanged. Passive signals do not activate all parents; stop escalation
+at the material risk and avoid re-entering a completed stage without new
+evidence.
 
 ## Authoring and maintenance
 
 For a requested guidance change, read
-`.agents/knowledge/skill-authoring-and-evaluation.md`. For a context audit, read
-`.agents/knowledge/agent-context-hygiene.md`. Keep metadata, the index, graph
-targets, references, and roadmap coverage in sync. Structural validation does not
-imply behavioral validation on the six target runtimes.
+`.agents/knowledge/skill-authoring-and-evaluation.md`. For a context
+audit, read `.agents/knowledge/agent-context-hygiene.md`. Keep metadata,
+the index, graph targets, references, and roadmap coverage in sync.
+Structural validation does not imply behavioral validation on the six
+target runtimes.

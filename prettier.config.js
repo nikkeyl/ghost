@@ -1,9 +1,9 @@
-import { defineConfig } from '@archoleat/prettier-define-config';
+import { defineConfig } from "@archoleat/prettier-define-config";
 
 export default defineConfig({
   overrides: [
     {
-      files: ['*.js', '*.yaml'],
+      files: ["*.yaml"],
       options: {
         singleQuote: true,
       },

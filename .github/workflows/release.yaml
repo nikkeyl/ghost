@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    tags:
-      - 'v[0-9]*'
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -20,15 +20,19 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
       - name: Build
-        run: >-
-          git archive --format=zip --prefix="ghost-$GITHUB_REF_NAME/"
-          --output="$RUNNER_TEMP/ghost-$GITHUB_REF_NAME.zip"
-          HEAD -- .agents AGENTS.md CLAUDE.md LICENSE
+        run: |
+          VERSION="main-${GITHUB_SHA::7}"
+
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+          git archive --format=zip --prefix="ghost-$VERSION/" \
+            --output="$RUNNER_TEMP/ghost-$VERSION.zip" \
+            HEAD -- .agents AGENTS.md CLAUDE.md LICENSE
 
       - name: Create Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: >-
-          gh release create "$GITHUB_REF_NAME"
-          "$RUNNER_TEMP/ghost-$GITHUB_REF_NAME.zip"
-          --verify-tag --generate-notes
+          gh release create "$VERSION"
+          "$RUNNER_TEMP/ghost-$VERSION.zip"
+          --target "$GITHUB_SHA" --generate-notes

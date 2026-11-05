@@ -1,8 +1,8 @@
 # Repository context checkpoint
 
-Use this template for the smallest repository model needed to plan a change. Replace
-placeholders with evidence; omit sections that are genuinely out of scope, but do not
-omit an unresolved risk silently.
+Use this template for the smallest repository model needed to plan a
+change. Replace placeholders with evidence; omit sections that are
+genuinely out of scope, but do not omit an unresolved risk silently.
 
 ## Scope and desired outcome
 
@@ -46,11 +46,16 @@ Evidence:
 ## Path semantics
 
 - Established file and directory naming convention:
+
 - Does the parent path communicate domain, layer, or slice ownership?
-- Does any filename redundantly repeat context already supplied by its path?
+
+- Does any filename redundantly repeat context already supplied by its
+  path?
+
 - Does the repository use FSD or an equivalent layer/slice convention?
-- Naming exceptions required by a framework, generator, public contract, or existing
-  repository layout:
+
+- Naming exceptions required by a framework, generator, public contract,
+  or existing repository layout:
 
 ## Unknowns, assumptions, and risks
 

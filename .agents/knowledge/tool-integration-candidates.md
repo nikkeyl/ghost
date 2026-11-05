@@ -1,8 +1,8 @@
 # Tool integration candidates
 
-This is an on-demand inventory derived from a supplied setup, not evidence that these
-tools are installed, current, or compatible in an adopting host. The engineering core
-must continue to work without them.
+This is an on-demand inventory derived from a supplied setup, not
+evidence that these tools are installed, current, or compatible in an
+adopting host. The engineering core must continue to work without them.
 
 | Candidate         | Potential role                                                     | Evidence needed before adoption                                                       |
 | ----------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
@@ -14,17 +14,28 @@ must continue to work without them.
 
 ## Adoption checklist
 
-1. Name the problem and compare the tool with existing host or project capability.
-2. Inspect the current version, license, support matrix, and configuration contract.
-3. Define the smallest integration, permitted effects, and reversal procedure.
-4. Verify the relevant operation, not merely installation or written settings.
-5. Report active, configured but awaiting activation, unavailable, or failed.
+1. Name the problem and compare the tool with existing host or project
+   capability.
 
-Hooks, MCP transport, deferred tools, and projections belong in runtime adapters.
-They do not replace evidence-based engineering decisions or an OS-enforced isolation
-boundary. An integration's security claim needs its own verification.
+1. Inspect the current version, license, support matrix, and
+   configuration contract.
 
-Do not import account state, permission-bypass settings, fixed model choices,
-container paths, credentials, or runtime databases as portable defaults. Copied
-self-healing hooks need a separately reviewed state and failure model; their presence
-in a setup is not reason to patch a plugin automatically.
+1. Define the smallest integration, permitted effects, and reversal
+   procedure.
+
+1. Verify the relevant operation, not merely installation or written
+   settings.
+
+1. Report active, configured but awaiting activation, unavailable, or
+   failed.
+
+Hooks, MCP transport, deferred tools, and projections belong in runtime
+adapters. They do not replace evidence-based engineering decisions or an
+OS-enforced isolation boundary. An integration's security claim needs
+its own verification.
+
+Do not import account state, permission-bypass settings, fixed model
+choices, container paths, credentials, or runtime databases as portable
+defaults. Copied self-healing hooks need a separately reviewed state and
+failure model; their presence in a setup is not reason to patch a plugin
+automatically.

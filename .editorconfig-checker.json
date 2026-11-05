@@ -1,3 +1,6 @@
 {
-  "exclude": ["bun.lock"]
+  "exclude": [
+    "\\.md$",
+    "bun.lock"
+  ]
 }
