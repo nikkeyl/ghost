@@ -80,6 +80,23 @@ These are persistent rules for relevant engineering work.
 - Do not claim a test, profile, review, browser check, or deployment
   check that was not actually performed.
 
+## Code style and formatting
+
+- Follow the repository's effective EditorConfig, formatter, and linter
+  configuration. Keep formatting decisions in those tools instead of
+  duplicating their settings in prose, hooks, or CI.
+
+- Adapt code and documents to the selected configuration. Do not weaken
+  rules merely to preserve existing formatting. An explicit user
+  instruction to adopt reference configuration takes precedence over
+  preserving the old style.
+
+- Use established names and file structure. Keep responsibilities clear,
+  prefer readable control flow, and avoid abstractions that do not serve
+  the current contract. Read
+  `.agents/knowledge/engineering-patterns.md` when the rationale or tool
+  ownership is relevant.
+
 ## Decision language
 
 Use precise labels in plans and reports:

@@ -15,5 +15,6 @@ from checks.
 
 Confirm what changed before calling it broken. Report the affected
 boundary, consumers, and missing evidence. Escalate to
-`analyze-change-impact` or `verify-change` when the build or release
-guarantee is materially affected; otherwise emit no material signal.
+`configure-ci-cd` when automation or release wiring needs revision, or
+`analyze-change-impact` or `verify-change` when the affected contract
+needs analysis or evidence; otherwise emit no material signal.

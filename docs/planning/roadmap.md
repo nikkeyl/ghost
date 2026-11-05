@@ -25,7 +25,7 @@ scope; rerun them when a relevant artifact or runtime changes.
 
 | Workstream          | Current evidence                                                         | Next gate                                                                      | Checklist |
 | ------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | --------- |
-| Core catalog        | 6 rules, 16 knowledge files, 19 active skills, 13 detectors, 8 templates | Review skill contracts during changes; keep individual linters green           | —         |
+| Core catalog        | 7 rules, 16 knowledge files, 20 active skills, 13 detectors, 8 templates | Review skill contracts during changes; keep individual linters green           | —         |
 | Phase 1/2 behavior  | Phase 1 trial recorded; Phase 2 procedures authored                      | Representative positive, non-trigger and failure cases on one host             | C03       |
 | Runtime portability | Six targets named; AGENTS/CLAUDE loaders present                         | Versioned discovery, routing and passive-detector matrix, one host at a time   | C04–C05   |
 | Platform depth      | Narrow frontend guidance exists; broader procedures proposed             | JS predictions and browser/network experiments before framework recipes        | C07–C10   |
@@ -64,8 +64,9 @@ candidate list.
 
 Already implemented in `.agents/`:
 
-- 6 persistent rules for scope, evidence, Git/review, frontend contracts,
-  disagreement, and data/failure contracts.
+- 7 persistent rules for scope, evidence, Git/review, frontend contracts,
+  disagreement, data/failure contracts, and CI/CD. Code style follows the
+  adopting repository's effective tool configuration.
 
 - 16 knowledge files covering activation, source-derived frontend patterns, web
   document metadata, data loading and failure, async UI state, Next.js Server
@@ -73,12 +74,12 @@ Already implemented in `.agents/`:
   engineering patterns, plus behavior preservation, research, writing, skill
   authoring, personal preferences, context hygiene, and optional integrations.
 
-- 19 active skills for planning, impact analysis, minimal implementation,
+- 20 active skills for planning, impact analysis, minimal implementation,
   debugging, verification, codebase understanding, task clarification, React
   component review, custom-control review, form-contract review, and metadata
   strategy review, plus diff review, test strategy, behavior-preserving
   refactoring, migration planning, API research, handover, prose, and lesson
-  capture.
+  capture, plus CI/CD configuration.
 
 - 13 passive detectors for scope drift, breaking changes, missing verification,
   accessibility, performance, architecture, component drift, async races, weak
@@ -173,6 +174,19 @@ Broader platform, security, and production families remain planned.
 `understand-codebase` is implemented in the Phase 1 slice described above. The
 remaining families have candidate names in the backlog, but the current evidence
 does not yet justify claiming complete independent workflows for them.
+
+## Portable CI/CD checkpoint
+
+`rules/60-ci-cd.md` and `skills/active/configure-ci-cd` cover repository
+conventions, hooks, dependency automation, release gates, and artifact
+contracts. Route automation work through this parent; running existing
+checks alone remains the responsibility of `verify-change`.
+
+This provides bounded coverage for `analyze-build-pipeline`,
+`check-ci-impact`, and `review-release-diff`. It does not implement a
+provider adapter or a production deployment strategy. The guidance is
+authored and structurally checked; cross-host behavioral trials remain
+pending.
 
 ## Scoped source import checkpoint
 
