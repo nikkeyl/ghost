@@ -1,0 +1,32 @@
+{
+  "name": "ghost",
+  "description": "Portable engineering rules and skills for coding agents",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "bun@1.4.4",
+  "engines": {
+    "bun": ">=1.4.4"
+  },
+  "scripts": {
+    "lint": "bun run editorconfig:check && bun run prettier:check && bun run remark:check && bun run docs:check && bun run release:test",
+    "docs:check": "python3 utilities/check-docs.py",
+    "editorconfig:check": "EC_VERSION=v4.0.2 editorconfig-checker",
+    "prettier:check": "prettier . --check",
+    "prettier:fix": "prettier . --write",
+    "remark:check": "remark . .agents --quiet --frail --no-stdout",
+    "release:archive": "python3 utilities/build-release.py",
+    "release:test": "python3 utilities/test-release.py"
+  },
+  "devDependencies": {
+    "@archoleat/prettier-define-config": "^1.2.3",
+    "editorconfig-checker": "^7.0.0",
+    "prettier": "^3.9.10",
+    "remark-cli": "^12.0.1",
+    "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-preset-lint-consistent": "^6.0.1",
+    "remark-preset-lint-markdown-style-guide": "^6.0.1",
+    "remark-preset-lint-recommended": "^7.0.1"
+  }
+}

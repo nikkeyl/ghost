@@ -1,6 +1,8 @@
 ---
 name: plan-migration
-description: "Plan staged API, component, state, dependency, or configuration changes with compatibility, recovery, and preservation evidence."
+description:
+  "Plan staged API, component, state, dependency, or configuration changes with
+  compatibility, recovery, and preservation evidence."
 kind: active
 ---
 
@@ -19,10 +21,10 @@ Define a bounded transition with explicit compatibility and recovery conditions.
 
 1. Map current readers, writers, consumers, versions, data, and operational owners.
 2. Identify the overlap window and which old/new combinations must remain valid.
-3. Define the forward path, restart behavior, preserved invariants, and rollback
-   or recovery path. Read `.agents/knowledge/behavior-preservation-and-migration.md`.
-4. Sequence expand, migrate, verify, and contract where appropriate. Give each
-   stage its own entry conditions, evidence, and stop condition.
+3. Define the forward path, restart behavior, preserved invariants, and rollback or
+   recovery path. Read `.agents/knowledge/behavior-preservation-and-migration.md`.
+4. Sequence expand, migrate, verify, and contract where appropriate. Give each stage
+   its own entry conditions, evidence, and stop condition.
 5. Define how partial failure is detected and retries avoid duplicate effects.
 6. State when rollback becomes impossible and what recovery then requires.
 
@@ -32,27 +34,27 @@ Define a bounded transition with explicit compatibility and recovery conditions.
   Apply only the stage and effects included in the user's authorization.
 - Validate both old and new consumers during the required compatibility window.
   Removing an old path needs evidence that its consumers have migrated.
-- A backup alone is not a rollback plan; name how restoration or forward
-  recovery is verified and who owns it.
+- A backup alone is not a rollback plan; name how restoration or forward recovery is
+  verified and who owns it.
 - Do not promise reversibility after irreversible external effects or data loss.
 
 ## Actions
 
 Use `.agents/templates/migration-plan.md` to record stages, consumer matrix,
-ownership, observability, preservation proof, rollback triggers, and recovery
-steps. For an authorized implementation, route to `implement-minimal-change`
-for the selected stage and checkpoint before further contraction.
+ownership, observability, preservation proof, rollback triggers, and recovery steps.
+For an authorized implementation, route to `implement-minimal-change` for the
+selected stage and checkpoint before further contraction.
 
 ## Verification
 
-Check the plan against actual consumers and configuration. Ensure each stage
-has evidence that can detect loss or incompatibility, and recovery is feasible
-under its stated assumptions. Report untested recovery explicitly.
+Check the plan against actual consumers and configuration. Ensure each stage has
+evidence that can detect loss or incompatibility, and recovery is feasible under its
+stated assumptions. Report untested recovery explicitly.
 
 ## Completion criteria
 
-The requested transition stage is defined, compatibility and recovery have
-named evidence, and later destructive stages are not implicitly authorized.
+The requested transition stage is defined, compatibility and recovery have named
+evidence, and later destructive stages are not implicitly authorized.
 
 ## Graph
 

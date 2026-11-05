@@ -1,0 +1,8 @@
+# Dependencies
+node_modules/
+
+# Release artifacts
+dist/
+
+# Generated files
+bun.lock

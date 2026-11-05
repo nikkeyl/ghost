@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]*'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Release
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+
+      - name: Set Up Bun
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6
+
+      - name: Install Dependencies
+        run: bun ci
+
+      - name: Lint
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: bun run lint
+
+      - name: Build Markdown Archive
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: bun run release:archive "$RELEASE_TAG"
+
+      - name: Create Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          flags=()
+          if [[ "$RELEASE_TAG" == *-* ]]; then
+            flags+=(--prerelease)
+          fi
+          gh release create "$RELEASE_TAG" \
+            "dist/ghost-$RELEASE_TAG.zip" dist/SHA256SUMS \
+            --verify-tag --generate-notes "${flags[@]}"

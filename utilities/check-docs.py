@@ -9,8 +9,10 @@ skills = sorted((root / ".agents/skills").rglob("SKILL.md"))
 for path in skills:
     text = path.read_text()
     frontmatter = re.match(r"^---\n(.*?)\n---(?:\n|$)", text, re.S)
-    fields = dict(re.findall(r"^(name|description|kind):\s*(.+)$",
-                             frontmatter[1] if frontmatter else "", re.M))
+    fields = dict(re.findall(
+        r"^(name|description|kind):\s*(.+)$",
+        frontmatter[1] if frontmatter else "", re.M
+    ))
     for key in ("name", "description", "kind"):
         if not fields.get(key, "").strip().strip("\"'"):
             errors.append(f"{path.relative_to(root)}: missing {key}")

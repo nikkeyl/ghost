@@ -1,35 +1,38 @@
 # GHOST capability backlog
 
-This file preserves the complete candidate inventory from the user-provided
-attachment. It is a roadmap backlog, not a prompt to activate every capability
-at once and not an instruction that overrides AGENTS.md.
+This file preserves all 479 unique candidate procedures in 35 domain families from
+the user-provided attachment. On 2026-11-05, category headings and first items were
+separated for readability; candidate names and order were preserved. The previous
+roadmap count of 444 omitted the 35 first-in-family procedures. This is a roadmap
+backlog, not a prompt to activate every capability at once and not an instruction
+that overrides AGENTS.md.
 
-Each candidate starts as proposed. Promote it according to the policy in
-ROADMAP.md: first group related candidates into a parent
-domain skill or checklist, then create a standalone skill only when it has an
-independent trigger, mental model, verification method, and repeated value.
+Each candidate starts as proposed. Promote it according to the policy in ROADMAP.md:
+first group related candidates into a parent domain skill or checklist, then create a
+standalone skill only when it has an independent trigger, mental model, verification
+method, and repeated value.
 
 During a task, the router selects the smallest relevant parent skill from this
-registry. Candidates are not activated individually just because their names
-match the request, and inactive candidates remain available for later
-promotion.
+registry. Candidates are not activated individually just because their names match
+the request, and inactive candidates remain available for later promotion.
 
 ## Current promotion note
 
-- `review-metadata-strategy` has been promoted to an active skill with
-  supporting knowledge in `.agents/knowledge/web-document-metadata.md`, based
-  on the SSM Standards article. Its implementation and routing status are
-  recorded in `ROADMAP.md`. The candidate remains in the imported inventory
-  below so the original list is preserved.
-- Other findings from the eight reviewed Standards articles strengthen
-  existing frontend rules, control/form reviews, trust-boundary and
-  data/failure knowledge, and passive accessibility/performance detectors.
-  These enrichments do not claim that broader accessibility-audit or
-  image-optimization procedures are complete.
+- `review-metadata-strategy` has been promoted to an active skill with supporting
+  knowledge in `.agents/knowledge/web-document-metadata.md`, based on the SSM
+  Standards article. Its implementation and routing status are recorded in
+  `ROADMAP.md`. The candidate remains in the imported inventory below so the original
+  list is preserved.
+- Other findings from the eight reviewed Standards articles strengthen existing
+  frontend rules, control/form reviews, trust-boundary and data/failure knowledge,
+  and passive accessibility/performance detectors. These enrichments do not claim
+  that broader accessibility-audit or image-optimization procedures are complete.
 
 ## Imported candidate inventory
 
-Codebase understanding- map-codebase
+### Codebase understanding
+
+- map-codebase
 - identify-module-boundaries
 - trace-data-flow
 - trace-control-flow
@@ -49,7 +52,9 @@ Codebase understanding- map-codebase
 - summarize-subsystem
 - build-system-mental-model
 
-Problem framing- clarify-engineering-task
+### Problem framing
+
+- clarify-engineering-task
 - extract-requirements
 - separate-symptom-from-problem
 - identify-invariants
@@ -64,7 +69,9 @@ Problem framing- clarify-engineering-task
 - reframe-problem
 - identify-source-of-truth
 
-Planning- plan-code-change
+### Planning
+
+- plan-code-change
 - plan-refactor
 - plan-migration
 - plan-feature-implementation
@@ -79,7 +86,9 @@ Planning- plan-code-change
 - define-verification-plan
 - design-minimal-change
 
-Debugging- debug-systematically
+### Debugging
+
+- debug-systematically
 - reproduce-bug
 - isolate-failure
 - form-debugging-hypotheses
@@ -100,7 +109,9 @@ Debugging- debug-systematically
 - debug-test-failure
 - debug-production-only-issue
 
-Implementation- implement-minimal-change
+### Implementation
+
+- implement-minimal-change
 - implement-feature-safely
 - preserve-existing-contracts
 - follow-local-conventions
@@ -115,7 +126,9 @@ Implementation- implement-minimal-change
 - implement-error-boundaries
 - implement-fallback-behavior
 
-Refactoring- refactor-without-behavior-change
+### Refactoring
+
+- refactor-without-behavior-change
 - extract-module
 - extract-domain-logic
 - reduce-coupling
@@ -133,7 +146,9 @@ Refactoring- refactor-without-behavior-change
 - refactor-legacy-code
 - incremental-refactor
 
-Architecture- review-architecture
+### Architecture
+
+- review-architecture
 - design-module-boundaries
 - design-layer-boundaries
 - design-domain-boundaries
@@ -154,7 +169,9 @@ Architecture- review-architecture
 - detect-leaky-abstraction
 - assess-architectural-debt
 
-API design- review-api-design
+### API design
+
+- review-api-design
 - design-function-api
 - design-component-api
 - design-hook-api
@@ -169,7 +186,9 @@ API design- review-api-design
 - improve-api-consistency
 - design-error-contract
 
-TypeScript- model-domain-types
+### TypeScript
+
+- model-domain-types
 - improve-type-safety
 - remove-unsafe-any
 - replace-type-assertions
@@ -185,7 +204,9 @@ TypeScript- model-domain-types
 - debug-type-inference
 - improve-library-types
 
-JavaScript fundamentals- analyze-event-loop
+### JavaScript fundamentals
+
+- analyze-event-loop
 - analyze-microtask-ordering
 - analyze-closure-behavior
 - analyze-prototype-behavior
@@ -198,7 +219,9 @@ JavaScript fundamentals- analyze-event-loop
 - reason-about-mutation
 - reason-about-referential-equality
 
-Browser platform- analyze-browser-rendering-pipeline
+### Browser platform
+
+- analyze-browser-rendering-pipeline
 - analyze-layout
 - analyze-paint
 - analyze-compositing
@@ -214,7 +237,9 @@ Browser platform- analyze-browser-rendering-pipeline
 - analyze-resize-observer
 - analyze-worker-architecture
 
-React- analyze-react-rendering
+### React
+
+- analyze-react-rendering
 - trace-react-rerenders
 - find-state-colocation-opportunities
 - review-component-boundaries
@@ -231,7 +256,9 @@ React- analyze-react-rendering
 - separate-ui-and-domain-logic
 - review-react-key-usage
 
-Next.js- analyze-next-rendering-model
+### Next.js
+
+- analyze-next-rendering-model
 - choose-server-vs-client-component
 - review-server-component-boundaries
 - review-route-architecture
@@ -247,7 +274,9 @@ Next.js- analyze-next-rendering-model
 - review-metadata-strategy
 - analyze-edge-runtime-fit
 
-State management- identify-state-owner
+### State management
+
+- identify-state-owner
 - classify-state
 - reduce-global-state
 - separate-server-and-client-state
@@ -260,7 +289,9 @@ State management- identify-state-owner
 - design-event-driven-state
 - review-cache-as-state
 
-Performance- profile-before-optimizing
+### Performance
+
+- profile-before-optimizing
 - find-performance-bottleneck
 - analyze-main-thread-work
 - analyze-long-tasks
@@ -281,7 +312,9 @@ Performance- profile-before-optimizing
 - analyze-memory-usage
 - verify-performance-regression
 
-Networking- analyze-http-request
+### Networking
+
+- analyze-http-request
 - analyze-cache-headers
 - analyze-cors
 - analyze-cookies
@@ -296,7 +329,9 @@ Networking- analyze-http-request
 - analyze-browser-cache
 - analyze-service-worker-cache
 
-Security- review-frontend-security
+### Security
+
+- review-frontend-security
 - review-xss-risk
 - review-csrf-risk
 - review-cors-policy
@@ -312,7 +347,9 @@ Security- review-frontend-security
 - identify-trust-boundaries
 - review-client-side-secrets
 
-Testing- design-test-strategy
+### Testing
+
+- design-test-strategy
 - choose-test-level
 - write-unit-test
 - write-integration-test
@@ -329,7 +366,9 @@ Testing- design-test-strategy
 - detect-overmocking
 - design-contract-test
 
-Code review- review-code-change
+### Code review
+
+- review-code-change
 - review-pull-request
 - review-for-correctness
 - review-for-maintainability
@@ -344,7 +383,9 @@ Code review- review-code-change
 - review-for-regression-risk
 - review-diff-not-files
 
-Git / change management- analyze-git-diff
+### Git / change management
+
+- analyze-git-diff
 - split-commit
 - prepare-clean-commit
 - review-commit-history
@@ -355,7 +396,9 @@ Git / change management- analyze-git-diff
 - prepare-backport
 - review-release-diff
 
-Dependency management- review-dependency-addition
+### Dependency management
+
+- review-dependency-addition
 - evaluate-library
 - compare-library-options
 - assess-dependency-risk
@@ -367,7 +410,9 @@ Dependency management- review-dependency-addition
 - reduce-dependency-footprint
 - evaluate-build-vs-buy
 
-Build tooling- analyze-build-pipeline
+### Build tooling
+
+- analyze-build-pipeline
 - analyze-bundler-output
 - debug-build-configuration
 - debug-module-resolution
@@ -379,7 +424,9 @@ Build tooling- analyze-build-pipeline
 - review-environment-variables
 - review-monorepo-build-graph
 
-CSS / UI engineering- review-css-architecture
+### CSS / UI engineering
+
+- review-css-architecture
 - debug-layout
 - debug-stacking-context
 - debug-overflow
@@ -392,7 +439,9 @@ CSS / UI engineering- review-css-architecture
 - design-component-layout-contract
 - detect-layout-fragility
 
-Accessibility- audit-accessibility
+### Accessibility
+
+- audit-accessibility
 - review-semantic-html
 - review-keyboard-navigation
 - review-focus-order
@@ -404,7 +453,9 @@ Accessibility- audit-accessibility
 - review-color-independent-state
 - test-accessibility-flow
 
-Design systems- review-design-system-component
+### Design systems
+
+- review-design-system-component
 - design-component-contract
 - design-token-architecture
 - review-variant-model
@@ -415,7 +466,9 @@ Design systems- review-design-system-component
 - design-deprecation-path
 - design-component-migration
 
-Observability- design-frontend-observability
+### Observability
+
+- design-frontend-observability
 - review-error-logging
 - review-client-metrics
 - design-structured-events
@@ -426,7 +479,9 @@ Observability- design-frontend-observability
 - design-debuggable-feature
 - review-log-signal-to-noise
 
-Reliability- design-graceful-degradation
+### Reliability
+
+- design-graceful-degradation
 - design-fallback-path
 - design-recovery-path
 - review-failure-modes
@@ -437,7 +492,9 @@ Reliability- design-graceful-degradation
 - review-partial-failure
 - design-offline-behavior
 
-Data modeling- model-frontend-domain
+### Data modeling
+
+- model-frontend-domain
 - review-data-shape
 - normalize-api-data
 - design-view-model
@@ -448,7 +505,9 @@ Data modeling- model-frontend-domain
 - model-state-transition
 - detect-data-duplication
 
-Migration- plan-api-migration
+### Migration
+
+- plan-api-migration
 - plan-component-migration
 - plan-state-management-migration
 - plan-framework-migration
@@ -460,7 +519,9 @@ Migration- plan-api-migration
 - design-backward-compatible-migration
 - track-migration-progress
 
-Technical debt- identify-technical-debt
+### Technical debt
+
+- identify-technical-debt
 - classify-technical-debt
 - estimate-debt-impact
 - prioritize-technical-debt
@@ -470,8 +531,9 @@ Technical debt- identify-technical-debt
 - quantify-maintenance-cost
 - detect-complexity-creep
 
-Principal-level decision making
-Вот здесь начинается наиболее ценный слой.- challenge-requirements
+### Principal-level decision making
+
+- challenge-requirements
 - evaluate-systemic-impact
 - evaluate-long-term-cost
 - evaluate-organizational-impact
@@ -494,8 +556,9 @@ Principal-level decision making
 - choose-boring-technology
 - minimize-system-complexity
 
-Agent self-critique
-Особенно важная категория для Codex.- critique-own-solution
+### Agent self-critique
+
+- critique-own-solution
 - challenge-own-assumptions
 - find-counterexample
 - search-for-missed-edge-case
@@ -511,7 +574,9 @@ Agent self-critique
 - find-missing-changes
 - identify-confidence-level
 
-Repository hygiene- follow-repository-conventions
+### Repository hygiene
+
+- follow-repository-conventions
 - inspect-project-guidelines
 - preserve-public-contracts
 - avoid-unrelated-changes
@@ -523,7 +588,9 @@ Repository hygiene- follow-repository-conventions
 - check-lockfile-impact
 - check-ci-impact
 
-Documentation- write-architecture-note
+### Documentation
+
+- write-architecture-note
 - write-adr
 - document-public-api
 - document-complex-behavior
@@ -534,8 +601,9 @@ Documentation- write-architecture-note
 - write-maintainer-notes
 - document-invariants
 
-Learning / knowledge acquisition
-Это полезно, если хочешь агента, который не просто пишет код, а исследует неизвестное.- research-unknown-api
+### Learning / knowledge acquisition
+
+- research-unknown-api
 - read-library-source
 - read-framework-internals
 - compare-docs-with-runtime

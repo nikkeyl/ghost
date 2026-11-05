@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Release artifacts
+dist/
+
+# Python
+__pycache__/
+
+# Repository configuration
+!.gitignore

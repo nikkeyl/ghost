@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    "remark-frontmatter",
+    "remark-gfm",
+    "remark-preset-lint-consistent",
+    "remark-preset-lint-markdown-style-guide",
+    "remark-preset-lint-recommended",
+    ["remark-lint-maximum-line-length", false],
+    ["remark-lint-ordered-list-marker-value", "ordered"],
+    ["remark-lint-list-item-spacing", false],
+    ["remark-lint-no-file-name-mixed-case", false],
+    ["remark-lint-no-file-name-irregular-characters", false],
+    ["remark-lint-no-duplicate-headings", false],
+    ["remark-lint-maximum-heading-length", 85]
+  ]
+}
