@@ -23,7 +23,7 @@ jobs:
         run: >-
           git archive --format=zip --prefix="ghost-$GITHUB_REF_NAME/"
           --output="$RUNNER_TEMP/ghost-$GITHUB_REF_NAME.zip"
-          HEAD -- '*.md' LICENSE
+          HEAD -- .agents AGENTS.md CLAUDE.md LICENSE
 
       - name: Create Release
         env:

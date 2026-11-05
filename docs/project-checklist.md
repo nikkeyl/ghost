@@ -10,8 +10,8 @@ candidates are a registry, not a target number of files to create.
       should each report their own result for pushes and pull requests, including
       configuration changes. Do not add an aggregate lint or validate workflow.
 - [ ] **C02 — Verify a tagged archive release when a release is requested.** Confirm
-      the GitHub Release contains all committed Markdown, including hidden skill
-      paths, and LICENSE. No custom archive builder or Python dependency is needed.
+      the GitHub Release contains `.agents/`, root `AGENTS.md` and `CLAUDE.md`,
+      plus LICENSE, with no roadmaps, audit reports or repository tooling. No custom archive builder or Python dependency is needed.
 - [ ] **C03 — Run a representative single-host behavioral trial.** Pin repository
       state, runtime version, task input and permitted effects. Exercise
       understanding, diff review, form/component review, bounded change and
