@@ -1,7 +1,10 @@
 name: Commit Lint
 
 on:
+  workflow_call:
   push:
+    branches-ignore:
+      - main
 
 permissions:
   contents: read
@@ -10,7 +13,7 @@ jobs:
   commit-lint:
     name: Commit Lint
 
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: ${{ github.actor != 'dependabot[bot]' || github.ref == 'refs/heads/main' }}
 
     runs-on: ubuntu-latest
     timeout-minutes: 10

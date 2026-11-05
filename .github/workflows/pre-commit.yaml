@@ -1,6 +1,7 @@
 name: Pre Commit
 
 on:
+  workflow_call:
   pull_request:
     branches:
       - main
@@ -12,7 +13,7 @@ jobs:
   pre-commit:
     name: Pre Commit
 
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: ${{ github.actor != 'dependabot[bot]' || github.ref == 'refs/heads/main' }}
 
     runs-on: ubuntu-latest
     timeout-minutes: 10

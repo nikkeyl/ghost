@@ -6,11 +6,36 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
+  editorconfig:
+    uses: ./.github/workflows/editorconfig.yaml
+
+  prettier:
+    uses: ./.github/workflows/prettier.yaml
+
+  remark:
+    uses: ./.github/workflows/remark.yaml
+
+  commitlint:
+    uses: ./.github/workflows/commitlint.yaml
+
+  pre-commit:
+    uses: ./.github/workflows/pre-commit.yaml
+
   release:
     name: Release
+
+    needs:
+      - editorconfig
+      - prettier
+      - remark
+      - commitlint
+      - pre-commit
+
+    permissions:
+      contents: write
 
     runs-on: ubuntu-latest
     timeout-minutes: 10
