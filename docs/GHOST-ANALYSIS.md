@@ -309,7 +309,7 @@ selection, Git publication, or external account changes.
 ## 2026-11-05 audit and personal-context checkpoint
 
 The [audit](./audit-2026-11-05.md) distinguishes historical source-import checks from
-the narrower current CI command and records five demonstrated detection gaps. It also
+the then-current CI command and records five demonstrated detection gaps. It also
 corrects the roadmap inventory to 479 candidates across 35 domains; candidate names
 and order are preserved.
 
@@ -321,6 +321,6 @@ become universal core rules. Original public sources were not successfully retri
 during this audit; the earlier source inventory above remains a historical record.
 
 The [checklist](./project-checklist.md) and [roadmap](./ROADMAP.md) prioritize
-checker contracts, runtime trials and platform-depth work. This checkpoint adds
+individual linter workflows, runtime trials and platform-depth work. This checkpoint adds
 planning and evidence documentation; it does not promote new active skills or claim
 additional runtime support.

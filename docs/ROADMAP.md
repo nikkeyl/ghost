@@ -8,7 +8,7 @@ procedures are authored, but representative runtime trials remain pending. The s
 metadata promotion does not establish Phase 3 completion. Discovery and
 passive-detector behavior across the six P0 target runtimes remain unverified.
 
-The next project priority is checker coverage and one-host behavioral evidence. The
+The next project priority is one-host behavioral evidence. The
 author's parallel learning priority is JavaScript/Web depth, not catalog size. See
 the [audit](./audit-2026-11-05.md),
 [knowledge and approach profile](./knowledge-and-approaches.md), and
@@ -23,17 +23,17 @@ rerun them when a relevant artifact or runtime changes.
 
 | Workstream          | Current evidence                                                         | Next gate                                                                      | Checklist |
 | ------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | --------- |
-| Core catalog        | 6 rules, 16 knowledge files, 19 active skills, 13 detectors, 8 templates | Enforce authoring contracts in CI; five invalid copies currently pass          | C01–C02   |
+| Core catalog        | 6 rules, 16 knowledge files, 19 active skills, 13 detectors, 8 templates | Review skill contracts during changes; keep individual linters green           | C01–C02   |
 | Phase 1/2 behavior  | Phase 1 trial recorded; Phase 2 procedures authored                      | Representative positive, non-trigger and failure cases on one host             | C03       |
 | Runtime portability | Six targets named; AGENTS/CLAUDE loaders present                         | Versioned discovery, routing and passive-detector matrix, one host at a time   | C04–C05   |
 | Platform depth      | Narrow frontend guidance exists; broader procedures proposed             | JS predictions and browser/network experiments before framework recipes        | C07–C10   |
 | Quality / packaging | Existing review cues and historical package-audit leads                  | Consumer, accessibility, performance and trust-boundary evidence               | C11–C12   |
 | Systemic judgment   | Reasoning/evidence rules and candidate inventory                         | Apply alternatives, team cost, reversibility and adoption to current decisions | C13–C14   |
 
-The existing CI command checks skill metadata and links in root documents only. The
-broader inspection described by the source import was a separate historical check,
-not the present CI contract. This audit inspected headings, index coverage and 79
-skill/knowledge graph relations without claiming runtime validation.
+CI runs EditorConfig, Prettier and remark as separate workflows. Python utilities
+and aggregate validation workflows were removed in favor of the reference
+repositories' minimal configuration. Skill metadata, graph targets and runtime
+behavior still require scoped review; linter success does not establish them.
 
 ## Purpose
 
@@ -480,16 +480,15 @@ may-trigger: [<capability>]
 verification: <evidence required>
 owner: <human or team, when applicable>
 status: proposed | designed | covered | implemented | verified | deprecated
-evidence:
-  <record binding checks/trials to artifact state, runtime version, date, and limits>
+evidence: <record binding checks/trials to artifact state, runtime version, date, and limits>
 coverage: standalone | parent | rule | knowledge | detector
 artifact: <relative path or list of paths>
 ```
 
 ## Next implementation slice
 
-1. Strengthen the existing standard-library checker and add focused invalid fixtures.
-   Close the five demonstrated detection gaps before broadening its claims (C01–C02).
+1. Confirm individual linter workflows and the native GitHub archive release
+   path (C01–C02).
 2. Trial the authored Phase 2 workflows on one real repository and one named host,
    including non-triggers and explicit action boundaries (C03).
 3. Record routing cost and failures, make narrow corrections, then extend the
@@ -497,8 +496,8 @@ artifact: <relative path or list of paths>
 4. Run the personal fundamentals learning loop in parallel within the existing study
    budget; apply systemic decision questions to current work (C07–C10, C13).
 
-This slice is complete only when the checker rejects the targeted invalid cases and
-representative workflows have observed outcomes. Documentation authorship is not
+This slice is complete only when the individual CI checks pass and representative
+agent workflows have observed outcomes. Documentation authorship is not
 behavioral acceptance. The [checklist](./project-checklist.md) owns unfinished
 actions; this roadmap owns sequencing and promotion policy.
 

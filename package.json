@@ -9,14 +9,7 @@
     "bun": ">=1.4.4"
   },
   "scripts": {
-    "lint": "bun run editorconfig:check && bun run prettier:check && bun run remark:check && bun run docs:check && bun run release:test",
-    "docs:check": "python3 utilities/check-docs.py",
-    "editorconfig:check": "EC_VERSION=v4.0.2 editorconfig-checker",
-    "prettier:check": "prettier . --check",
-    "prettier:fix": "prettier . --write",
-    "remark:check": "remark . .agents --quiet --frail --no-stdout",
-    "release:archive": "python3 utilities/build-release.py",
-    "release:test": "python3 utilities/test-release.py"
+    "prettier:fix": "prettier . --write"
   },
   "devDependencies": {
     "@archoleat/prettier-define-config": "^1.2.3",

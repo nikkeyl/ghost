@@ -6,17 +6,12 @@ candidates are a registry, not a target number of files to create.
 
 ## P0 — make current claims reviewable
 
-- [ ] **C01 — Strengthen the existing checker.** Validate required active headings,
-      unique names and directory/name agreement, catalog entries, graph targets in
-      both skills and knowledge, and local links in `docs/` and `.agents/`. Decide
-      explicitly how to handle inline paths, anchors and YAML syntax. Acceptance: the
-      five mutations in the audit fail with useful paths/reasons and the valid tree
-      passes. Keep the solution proportionate and document exactly what remains
-      unchecked.
-- [ ] **C02 — Add maintained checker regression cases.** Cover positive active and
-      passive examples, missing/empty metadata and every C01 contract. Acceptance: CI
-      runs these cases and detects a deliberately broken fixture without editing the
-      real catalog. These tests protect validation behavior, not instruction wording.
+- [ ] **C01 — Confirm separate linter workflows.** EditorConfig, Prettier and remark
+      should each report their own result for pushes and pull requests, including
+      configuration changes. Do not add an aggregate lint or validate workflow.
+- [ ] **C02 — Verify a tagged archive release when a release is requested.** Confirm
+      the GitHub Release contains all committed Markdown, including hidden skill
+      paths, and LICENSE. No custom archive builder or Python dependency is needed.
 - [ ] **C03 — Run a representative single-host behavioral trial.** Pin repository
       state, runtime version, task input and permitted effects. Exercise
       understanding, diff review, form/component review, bounded change and

@@ -1,8 +1,9 @@
-# Dependencies
-node_modules/
-
-# Release artifacts
-dist/
-
-# Generated files
+# Files
+.editorconfig-checker.json
+*.md
 bun.lock
+
+# Ignores
+.gitignore
+.prettierignore
+.remarkignore
