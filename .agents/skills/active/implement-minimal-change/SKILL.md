@@ -21,6 +21,11 @@ Change only the smallest coherent unit that satisfies the contract.
 1. Re-read the target file and its local conventions immediately before
    editing.
 
+1. Check the effective formatter and linter rules against
+   `.agents/rules/00-operating-principles.md`: function form, quotes,
+   statement spacing, naming, and explicit repository exceptions. Do not
+   assume a successful formatter run enforces every style convention.
+
 1. Select the narrowest extension point.
 
 1. Preserve existing naming, exports, error behavior, and public

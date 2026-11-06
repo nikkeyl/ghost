@@ -42,7 +42,10 @@ The 479 backlog candidates remain a registry, not a target file count.
 
 - [x] **C19 — Capture portable guidance and clean documentation.** General
       CI/CD and code-style rules, build analysis, and skill-authoring
-      contracts are in `.agents`. English documentation is organized as
+      contracts are in `.agents`. Arrow functions, single quotes and
+      statement spacing are now explicit JavaScript/TypeScript defaults,
+      with language/contract exceptions and formatter/linter ownership.
+      English documentation is organized as
       planning, reference and history. The main README covers purpose
       and usage. The intentionally deleted image was removed in
       `82af2d6`. These changes do not close the preference review in C06

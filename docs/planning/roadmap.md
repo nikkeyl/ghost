@@ -208,6 +208,17 @@ Broader platform, security, and production families remain planned.
 remaining families have candidate names in the backlog, but the current evidence
 does not yet justify claiming complete independent workflows for them.
 
+## Code-style clarification
+
+The operating rules now explicitly state the GHOST defaults for
+JavaScript/TypeScript: `const` arrow functions, single quotes, and blank
+lines between logical statement groups and control-flow boundaries.
+`implement-minimal-change` checks those defaults against effective
+formatter/linter configuration and repository exceptions. Hoisting,
+`this`, overload and generator contracts must survive a style rewrite.
+This closes an instruction gap found in the task-app demonstration;
+it does not close the broader preference-versus-invariant review C06.
+
 ## Skill naming
 
 All skill identifiers use existing names from the original 479-candidate
