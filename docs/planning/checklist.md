@@ -43,8 +43,10 @@ The 479 backlog candidates remain a registry, not a target file count.
 - [x] **C19 — Capture portable guidance and clean documentation.** General
       CI/CD and code-style rules, build analysis, and skill-authoring
       contracts are in `.agents`. Arrow functions, single quotes and
-      statement spacing are now explicit JavaScript/TypeScript defaults,
-      with language/contract exceptions and formatter/linter ownership.
+      statement spacing are explicit defaults. A 60-view Playwright review
+      also captured module, TypeScript, JSX and CSS/SCSS conventions in
+      `rules/70-code-style.md`; implementation/review share that owner.
+      Project-specific overrides retain their scope.
       English documentation is organized as
       planning, reference and history. The main README covers purpose
       and usage. The intentionally deleted image was removed in
@@ -88,7 +90,10 @@ The 479 backlog candidates remain a registry, not a target file count.
       no-`switch`, constant naming, component structure and unconditional form
       reset. Already improved: component ownership/contract separation,
       conditional browser/framework form analysis and preservation of
-      input after primary failure. Remaining acceptance: each retained
+      input after primary failure. Shared style defaults and reference
+      configuration differences have also been reviewed; no IDE setup
+      or framework-specific paths were imported. Remaining acceptance: each
+      retained
       global rule has a reason and exception boundary;
       search/autosave/multi-step forms and adopting team conventions
       remain valid.

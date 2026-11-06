@@ -15,6 +15,10 @@
 - Use Conventional Commits when the repository uses them:
   `type(scope): imperative description`.
 
+- Apply the adopted title convention consistently to pull requests and
+  issues when the repository requests it. A source template's title
+  format does not authorize opening, posting or modifying those items.
+
 - Keep the diff explainable: every changed line should have a
   task-relevant reason.
 

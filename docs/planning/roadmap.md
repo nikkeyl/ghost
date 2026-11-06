@@ -4,7 +4,7 @@ Reviewed: 2026-11-06 against repository baseline `82af2d6`.
 
 Repository tooling, separate push checks, gated releases, English docs,
 portable CI/CD guidance, and skill naming/content alignment are
-implemented. The catalog contains 7 rules, 16 knowledge files, 24 active
+implemented. The catalog contains 8 rules, 16 knowledge files, 24 active
 skills, 9 passive checks and 8 templates. All 33 skill names belong to
 the original 479-candidate backlog.
 
@@ -98,9 +98,10 @@ exhaustive candidate list.
 
 Already implemented in `.agents/`:
 
-- 7 persistent rules for scope, evidence, Git/review, frontend contracts,
-  disagreement, data/failure contracts, and CI/CD. Code style follows the
-  adopting repository's effective tool configuration.
+- 8 persistent rules for scope, evidence, Git/review, frontend contracts,
+  disagreement, data/failure contracts, CI/CD and source-code style.
+  The code-style owner records portable authoring defaults and explicit
+  adopting-repository exceptions.
 
 - 16 knowledge files covering activation, source-derived frontend patterns, web
   document metadata, data loading and failure, async UI state, Next.js Server
@@ -210,14 +211,25 @@ does not yet justify claiming complete independent workflows for them.
 
 ## Code-style clarification
 
-The operating rules now explicitly state the GHOST defaults for
-JavaScript/TypeScript: `const` arrow functions, single quotes, and blank
-lines between logical statement groups and control-flow boundaries.
-`implement-minimal-change` checks those defaults against effective
-formatter/linter configuration and repository exceptions. Hoisting,
-`this`, overload and generator contracts must survive a style rewrite.
-This closes an instruction gap found in the task-app demonstration;
-it does not close the broader preference-versus-invariant review C06.
+The earlier function/quote/spacing clarification is now part of
+`rules/70-code-style.md`. A Playwright review of 60 file/profile views across 16
+public reference repositories compared configuration, source examples,
+editor settings and profile principles. General agreements now include
+file formatting, modules and type-only imports, grouped exports,
+destructuring, TypeScript safety, JSX, and CSS/SCSS conventions.
+
+The core contains no reference-project names, paths, aliases, versions,
+IDE settings or copied framework configuration. Contradictory JSX quote,
+side-effect import, selector and animation overrides remain contextual.
+Implementation and review procedures point to the same style owner.
+See the [source review](../history/source-analysis.md#repository-code-style-review)
+for provenance and transfer boundaries. This is source inspection and
+instruction validation, not proof of host discovery or a completed C06.
+
+The catalog remains 33 skills with 24 active/9 passive roles. The new
+rule adds one distributed Markdown file; the next runtime archive has
+69 intended files. Previous archive observations retain their original
+68-file scope and source revision.
 
 ## Skill naming
 

@@ -417,3 +417,106 @@ The [checklist](../planning/checklist.md) and [roadmap](../planning/roadmap.md)
 prioritize individual linter workflows, runtime trials and platform-depth work.
 This checkpoint adds planning and evidence documentation; it does not promote
 new active skills or claim additional runtime support.
+
+## Repository code-style review
+
+Reviewed on 2026-11-06 through the browser's Playwright interface.
+Sixty file/profile views were recorded across 16 public source repositories.
+The original 479-candidate inventory, existing application repositories,
+and GHOST's dependency/workflow configuration were not changed by this
+review. Runtime instructions live in `rules/70-code-style.md`; this
+section records where the defaults came from, not a second rule set.
+
+### Sources
+
+| Source                                                                               | Material reviewed                                                                | Role                                                                  |
+| ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [Next template](https://github.com/archoleat/next-template)                          | EditorConfig, Prettier, ESLint, TypeScript, Remark, attributes and staged checks | App/tooling defaults                                                  |
+| [npm template](https://github.com/archoleat/npm-template)                            | ESLint, Prettier and TypeScript                                                  | Library/module comparison                                             |
+| [Next Accordion](https://github.com/archoleat/next-accordion)                        | ESLint and Prettier                                                              | Typed React library comparison                                        |
+| [RegLib](https://github.com/archoleat/reglib)                                        | ESLint, Prettier, TypeScript and public entry source                             | Library imports and grouped exports                                   |
+| [SCSS config](https://github.com/archoleat/stylelint-config-extended-scss)           | ESLint, TypeScript, root config, plugins, CSS/SCSS rules and property order      | Stylesheet policy and ordering                                        |
+| [Chillofi](https://github.com/nikkeyl/chillofi)                                      | ESLint, Prettier, TypeScript and Stylelint overrides                             | App-specific differences                                              |
+| [Shared GitHub repo](https://github.com/archoleat/.github)                           | EditorConfig, Remark and contribution guidance                                   | File hygiene, Markdown and titles                                     |
+| [Helpers](https://github.com/archoleat/.helpers)                                     | Editor settings                                                                  | Formatting/type-import intent; personal setup excluded                |
+| [Author profile](https://github.com/nikkeyl/nikkeyl)                                 | Engineering-preference prose                                                     | Confirms data flow, ownership, accessibility and measurement          |
+| [Notifier](https://github.com/archoleat/notifier)                                    | EditorConfig, ESLint, Prettier and TypeScript                                    | Shared library baseline; console use is explicitly allowed            |
+| [Font filename validator](https://github.com/archoleat/validate-font-file-name)      | EditorConfig, ESLint, Prettier and TypeScript                                    | Confirms common library configuration                                 |
+| [Slugger](https://github.com/archoleat/slugger)                                      | EditorConfig, ESLint, Prettier and TypeScript                                    | Confirms common library configuration                                 |
+| [Prettier config helper](https://github.com/archoleat/prettier-define-config)        | EditorConfig, ESLint, Prettier and TypeScript                                    | Same baseline; installed helper implementation is an identity wrapper |
+| [Next config helper](https://github.com/archoleat/next-define-config)                | EditorConfig, ESLint, Prettier and TypeScript                                    | Same baseline; framework config remains contextual                    |
+| [Release config helper](https://github.com/archoleat/semantic-release-define-config) | EditorConfig, ESLint, Prettier and TypeScript                                    | Same baseline without importing release targets                       |
+| [Commit config helper](https://github.com/archoleat/commitlint-define-config)        | EditorConfig, ESLint, Prettier and TypeScript                                    | Same baseline without imposing one package's allowed types            |
+
+The complete visible inventories contained 16 organization repositories
+and 11 personal repositories. All 14 active organization repositories
+have source coverage above. The personal profile has five active repos:
+GHOST is the target, Chillofi and the profile README are sources, while
+DNA and DTF Frieren Finder expose no comparable style configuration in
+their root listings. They do not add a missing formatter/linter policy.
+Two organization and six personal archives were classified separately;
+they were not promoted as the current coding standard.
+
+The additional seven active organization repositories repeat the same
+four-file EditorConfig/ESLint/Prettier/TypeScript baseline. Their
+EditorConfig bodies match the template baseline. No new general style
+family was discovered; Notifier's disabled console restriction is an
+explicit context difference, not a universal ban or mandate to log.
+
+The profile inventories were also inspected. A public repository without
+style configuration, or an archived/AI-generated example, was not treated
+as evidence of a universal tool policy. Source links identify reviewed
+paths; mutable main-branch links describe the dated observation. Some
+file views exposed per-file commit links; others did not. This is not a
+claim that every repository currently enforces every GHOST default.
+
+### Transfer decisions
+
+| Observed convention                           | Portable result                                                                                           | Boundary                                                                             |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Shared EditorConfig and attributes            | UTF-8, LF, two spaces, final newline, whitespace hygiene and 85-character source guidance                 | File-specific constraints and Markdown presets still apply                           |
+| Prettier overrides and output                 | Single-quoted source strings, formatter-owned punctuation/wrapping                                        | JSX attribute options differ; JSON requires double quotes                            |
+| Identity defineConfig wrapper                 | Read actual formatter options and version                                                                 | The helper itself adds no hidden formatting preset                                   |
+| Import/export sorting and source entry points | Ordered imports, named bindings and grouped exports after definitions                                     | Preserve initialization; config/framework default exports remain valid               |
+| Explicit library source extensions            | Keep extension policy consistent with the resolver and published output                                   | Do not impose NodeNext extensions on every bundler app                               |
+| Side-effect import rule differences           | Deliberate side effects and preserved order                                                               | Libraries may ban them; apps may require stylesheet imports                          |
+| Destructuring and object shorthand            | Predictable independent key order and shorthand properties                                                | Preserve defaults, getters, spreads, public names and evaluation order               |
+| TypeScript and explicit-any/comment rules     | Strict checks, narrowing, no unchecked error suppression                                                  | Runtime/emit/alias settings and justified directives are contextual                  |
+| React/JSX rules                               | Destructured props, arrow components, self-closing syntax and meaningful Hook dependencies                | Syntax sorting must preserve spread and expression semantics                         |
+| Stylelint property groups                     | Stable responsibility-based declaration and nested-rule order                                             | Not a blanket alphabetical CSS sort; preserve fallback/cascade order                 |
+| CSS/SCSS rules and plugins                    | Logical layout, scalable units, clear colors/weights/keyframes, selector restraint and variable ownership | Exact limits, BEM patterns and feature requirements follow the effective preset      |
+| Disabled app selector/animation checks        | Record overrides as overrides                                                                             | Do not turn disabled rules into a global preference or infer performance from syntax |
+| Editor settings                               | Keep editor, hooks and CI aligned on source tooling                                                       | No themes, keybindings, trust changes, auto-sync or local paths become core rules    |
+| Shared contribution guide                     | Adopted commit-style titles and evidence-backed reports                                                   | No copying identities, opening issues or posting messages is authorized              |
+
+The inspected stylesheet baseline uses nesting depth 3, up to 4
+combinators, up to 3 compound selectors, no ID selectors and at most one
+universal selector. Its property groups run common/content/interaction,
+positioning/box model/layout, appearance/typography/image/SVG/transitions;
+unspecified properties go at the bottom alphabetically. These are
+profile settings, not browser laws or unconditional requirements for
+all adopting repositories. Full preset details stay in their owner;
+GHOST carries the portable decision and exception boundaries.
+
+Existing user-confirmed defaults for const arrows, blank lines,
+no-switch control flow and named shared constants are retained even
+when a reference linter does not encode them. Formatter defaults and
+observed source style are distinguished from explicitly configured
+rules; missing enforcement is not evidence that a convention is absent.
+
+### Validation scope
+
+The review checks source-to-guidance coverage, rule ownership, example
+countercases, Markdown lint, metadata and references. No source
+application was modified, and no claim of running its full linter,
+TypeScript build or stylesheet plugins follows from reading its files.
+The separate runtime trial and preference-review gates remain open.
+
+The author review also checked concrete non-universal cases against the
+new owner: a destructuring default depending on an earlier binding,
+JSX props overridden after a spread, CSS shorthand/longhand fallbacks,
+intentional app stylesheet imports, NodeNext versus bundler extensions,
+and type-test directives allowed by local policy. The resulting
+instructions retain evaluation/cascade/contract order and inspect the
+effective override instead of blindly applying a source preset. These
+are static reasoning checks, not executed runtime acceptance tests.

@@ -82,42 +82,11 @@ These are persistent rules for relevant engineering work.
 
 ## Code style and formatting
 
-- Declare named JavaScript/TypeScript functions and components as
-  `const` arrow functions; use arrow functions for callbacks. Retain a
-  different form only when required by the language or a contract, such
-  as overload declarations, generators, constructors, dynamic `this`, or
-  an intentional hoisting dependency. Check initialization order before
-  converting declarations; do not introduce a temporal-dead-zone error.
-
-- Use single quotes for JavaScript and TypeScript strings. Let the
-  formatter handle escaping and required syntax; JSON and JSX attribute
-  quoting follow their own syntax and effective formatter settings.
-
-- Separate logical statement groups with one blank line. Keep a blank
-  line before `return`, `throw`, control-flow statements and loops, and
-  after completed blocks before the next statement. Separate declaration
-  groups from executable statements and multi-line declarations from
-  adjacent groups. Consecutive short declarations for one purpose may
-  stay together; do not add empty padding inside an otherwise empty or
-  single-statement block.
-
-- These defaults apply when adopting the GHOST authoring style. Preserve
-  an explicit adopting repository requirement or a contrary user choice;
-  name the conflict instead of silently mixing conventions. Encode quote
-  style in the formatter and function/statement-spacing rules in the
-  linter when configuring JavaScript/TypeScript tooling. A Prettier pass
-  alone does not verify those lint conventions.
-
-- Adapt code and documents to the selected configuration. Do not weaken
-  rules merely to preserve existing formatting. An explicit user
-  instruction to adopt reference configuration takes precedence over
-  preserving the old style.
-
-- Use established names and file structure. Keep responsibilities clear,
-  prefer readable control flow, and avoid abstractions that do not serve
-  the current contract. Read
-  `.agents/knowledge/engineering-patterns.md` when the rationale or tool
-  ownership is relevant.
+For source-code changes, read the applicable sections of
+`.agents/rules/70-code-style.md`. It owns the GHOST defaults for file
+formatting, functions, names, modules, types, JSX, CSS and SCSS, including
+repository and language-contract exceptions. Keep the detailed rules in
+that owner rather than creating conflicting copies in other files.
 
 ## Decision language
 

@@ -3,7 +3,9 @@
 This document records reusable engineering patterns confirmed through
 source analysis and user review. It is knowledge and rationale, not an
 additional instruction layer. Normative constraints belong in
-`.agents/rules`, and procedures belong in `.agents/skills`.
+`.agents/rules`, and procedures belong in `.agents/skills`. The shared
+source-code style owner is `.agents/rules/70-code-style.md`; read its
+applicable sections when implementing or reviewing source files.
 
 ## Confirmed engineering patterns
 
@@ -116,6 +118,10 @@ order:
    formatted code: imports, exports, naming, destructuring, JSX props,
    component form, unsafe TypeScript escapes, and GraphQL operations.
 
+1. **Stylelint** owns stylesheet conventions, selector/declaration
+   checks, and ordering. Its effective preset and overrides determine
+   the CSS/SCSS policy; property sorting must preserve cascade intent.
+
 1. **Hooks and CI** enforce the applicable checks at change and
    integration boundaries. They are verification gates, not a second
    formatting style.
@@ -125,6 +131,13 @@ When two tools overlap, follow the repository's effective configuration
 and use the narrowest owner for the decision. A formatter should not
 silently override a semantic lint rule, and a lint warning should not
 justify broad unrelated reformatting.
+
+The shared formatting helper used by reference repositories is an
+identity wrapper, not a hidden preset. The active formatter version,
+EditorConfig and explicit options determine output. Configured rules,
+formatter defaults, repeated code patterns and user-specified defaults
+are different evidence; do not claim a linter enforces an unconfigured
+convention. Inspect overrides and inherited presets for the actual file.
 
 ## Contextual boundaries
 
