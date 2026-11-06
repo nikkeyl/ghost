@@ -1,0 +1,4 @@
+interface:
+  display_name: 'review-code-change'
+  short_description: 'Review diffs for defects, risk and scope drift'
+  default_prompt: 'Use $review-code-change for the current task.'

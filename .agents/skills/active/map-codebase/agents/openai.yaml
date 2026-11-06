@@ -1,0 +1,4 @@
+interface:
+  display_name: 'map-codebase'
+  short_description: 'Map repository ownership and execution paths'
+  default_prompt: 'Use $map-codebase for the current task.'

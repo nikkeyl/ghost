@@ -1,0 +1,4 @@
+interface:
+  display_name: 'plan-code-change'
+  short_description: 'Plan bounded changes before implementation'
+  default_prompt: 'Use $plan-code-change for the current task.'

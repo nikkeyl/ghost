@@ -111,6 +111,46 @@ The ladder is a decision aid, not permission to golf code. Stop at the
 first adequate rung while preserving the material failure modes and the
 verification required by the task.
 
+## Release profiles
+
+The repository keeps active procedures in `.agents/skills/active/` and
+passive signals in `.agents/skills/passive/`. Those are authoring paths.
+Each release projects this source into six independent ZIP archives.
+Install one profile per project; do not combine profiles.
+
+| Profile        | Native procedures   | Instruction entry                 |
+| -------------- | ------------------- | --------------------------------- |
+| Codex          | `.agents/skills/`   | `AGENTS.md`                       |
+| Claude Code    | `.claude/skills/`   | `CLAUDE.md` imports `AGENTS.md`   |
+| Cursor         | `.cursor/skills/`   | `.cursor/rules/ghost.mdc`         |
+| GitHub Copilot | `.github/skills/`   | `.github/copilot-instructions.md` |
+| Gemini CLI     | `.gemini/skills/`   | `GEMINI.md` imports `AGENTS.md`   |
+| OpenCode       | `.opencode/skills/` | `AGENTS.md`                       |
+
+Every profile contains ordinary files, a flat native active catalog,
+shared rules/knowledge/templates under `.agents`, an index at
+`.agents/skills.md` and passive references at `.agents/detectors/`.
+The build rewrites authoring paths in operational files to installed
+paths. This cross-host reference retains its authoring examples.
+Codex alone receives `agents/openai.yaml` UI metadata. UI appearance
+and skill execution remain host behavior, not a guarantee from YAML.
+
+In a checkout, Claude's per-skill symlinks point to the canonical active
+folders. Update those links when adding/removing an active procedure;
+never edit a second copy of its body. Release builds use the immutable
+Git commit and materialize fresh ordinary files, so ZIP extraction does
+not require symlink support. Upgrades replace the selected profile's
+previous GHOST-owned files; preserve unrelated local skills and merge
+existing instruction entries. Remove the installed GHOST skill folders
+and loader entries to uninstall; retain other project instructions.
+
+A host must list the intended skills before activation is claimed.
+Explicit selection and automatic description matching need separate
+observations. A file read, status text or archive inspection does not
+prove a native UI badge or correct execution. Maintainer evidence lives
+in `docs/history/runtime-discovery-2026-11-06.md`; full C03/C04 trials
+remain separate gates.
+
 ## Codex adapter
 
 Codex discovers `AGENTS.md` by scope and applies closer guidance later.

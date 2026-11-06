@@ -38,7 +38,7 @@ scope; rerun them when a relevant artifact or runtime changes.
 | ------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------- |
 | Core catalog        | 33 skills aligned with backlog names and intended outcomes; 24 active/9 passive | Fresh host trial of corrected procedures                                       | C18; C03  |
 | Phase 1/2 behavior  | Phase 1 trial recorded; Phase 2 procedures authored                             | Representative positive, non-trigger and failure cases on one host             | C03       |
-| Runtime portability | Six targets named; AGENTS/CLAUDE loaders present                                | Versioned discovery, routing and passive-detector matrix, one host at a time   | C04–C05   |
+| Runtime portability | Six native release profiles; Codex and Claude discovery observed                | Versioned discovery, routing and passive-detector matrix, one host at a time   | C04–C05   |
 | Platform depth      | Narrow frontend guidance exists; broader procedures proposed                    | JS predictions and browser/network experiments before framework recipes        | C07–C10   |
 | Quality / packaging | Scoped reviews authored; runtime ZIP inspected; package leads remain historical | Consumer, accessibility, performance and trust-boundary evidence               | C11–C12   |
 | Systemic judgment   | Reasoning/evidence rules and candidate inventory                                | Apply alternatives, team cost, reversibility and adoption to current decisions | C13–C14   |

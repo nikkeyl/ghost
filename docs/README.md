@@ -37,6 +37,9 @@ the author's proficiency.
 
 ## History
 
+- [Native discovery trial](history/runtime-discovery-2026-11-06.md): host
+  versions, archive profiles, observed discovery and execution limits.
+
 - [Source analysis](history/source-analysis.md): provenance and adaptation
   decisions.
 

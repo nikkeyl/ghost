@@ -1,0 +1,4 @@
+interface:
+  display_name: 'refactor-without-behavior-change'
+  short_description: 'Restructure code while preserving behavior'
+  default_prompt: 'Use $refactor-without-behavior-change for the current task.'

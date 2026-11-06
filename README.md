@@ -10,13 +10,14 @@ agent's engineering approach more consistent.
 
 ## Usage
 
-1. Download the archive from the [latest release](https://github.com/nikkeyl/ghost/releases/latest).
+1. Download your agent's archive from the
+   [latest release](https://github.com/nikkeyl/ghost/releases/latest).
 
-1. Copy `.agents/` into your project. Add `AGENTS.md` or `CLAUDE.md` for your
-   agent, merging the instructions if your project already has that file.
+1. Copy the archive contents into your project, including hidden folders.
+   Merge instruction files if your project already has them.
 
-1. Ask the agent to read the project instructions and use the relevant skills
-   for your task.
+1. Open that project in your agent and select a skill, or describe a matching
+   task. Check the agent's skill list before relying on automatic selection.
 
 Created with AI assistance from Nikkeyl's writing and the supplied engineering
 blueprint. See the [documentation](docs/README.md) for the design, roadmap and

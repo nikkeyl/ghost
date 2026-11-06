@@ -1,0 +1,4 @@
+interface:
+  display_name: 'analyze-form-behavior'
+  short_description: 'Analyze native form behavior and ownership'
+  default_prompt: 'Use $analyze-form-behavior for the current task.'

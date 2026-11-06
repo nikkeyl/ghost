@@ -1,0 +1,4 @@
+interface:
+  display_name: 'review-component-consistency'
+  short_description: 'Review shared component behavior and contracts'
+  default_prompt: 'Use $review-component-consistency for the current task.'

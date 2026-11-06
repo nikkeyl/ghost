@@ -76,7 +76,11 @@ The 479 backlog candidates remain a registry, not a target file count.
       not the first host. Check nested skill discovery and passive/active
       separation. Acceptance: a dated matrix distinguishes observed support,
       unsupported behavior and unavailable tests; thin adapters have one source
-      of truth and a refresh/removal procedure.
+      of truth and a refresh/removal procedure. Initial native discovery and
+      per-agent archive work is recorded in
+      `docs/history/runtime-discovery-2026-11-06.md`. Codex invocation and
+      Claude discovery are scoped evidence; Claude execution requires an
+      authenticated account, and the other host runtimes remain untested.
 
 - [ ] **C05 — Measure activation cost and routing quality.** Record active
       skills, graph hops, loaded text and routing failures for C03/C04.

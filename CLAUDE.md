@@ -1,27 +1,12 @@
 # GHOST Claude Code adapter
 
-GHOST's portable engineering layer lives in `.agents/`; this file is
-only a short discovery adapter for Claude Code.
+@AGENTS.md
 
-## Loading order
+Use the native Skill tool for matching procedures exposed in
+`.claude/skills/`. The portable source is `.agents/skills/active/` in a
+checkout; the Claude release contains ordinary skill directories at the
+native path. Keep passive detectors outside the native procedure catalog.
 
-1. Read only the `.agents/rules/` files relevant to the task.
-
-1. Use `.agents/skills/README.md` and skill descriptions to select the
-   smallest active parent skill.
-
-1. Load at most five active skills and traverse at most two graph hops
-   by default.
-
-1. Read linked `.agents/knowledge/` files only when the selected
-   workflow needs their mental model.
-
-1. Keep passive detectors lightweight and escalate only on a material
-   signal.
-
-1. Finish with evidence-backed verification and an explicit uncertainty
-   report.
-
-Do not copy the contents of `.agents/` into this always-loaded file.
-Runtime behavior belongs in the adapter; engineering rules and
-procedures belong in the portable core.
+If the native catalog is unavailable, report the missing integration
+before using direct file reads as a fallback. Do not claim a native
+activation or interface badge from a manual read.

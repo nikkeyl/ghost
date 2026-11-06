@@ -10,10 +10,23 @@ copy of the engineering rules.
 
 ## Loading order
 
-1. Read the rules relevant to the task.
+1. Read `.agents/rules/00-operating-principles.md` and
+   `.agents/rules/20-change-scope.md` before substantive work. Read other
+   rules when their scope matches; source edits also require
+   `.agents/rules/70-code-style.md`.
+
 1. Select at most five active skills and traverse at most two skill-graph hops.
+   Prefer the host's native skill invocation when available. Read the selected
+   body before applying it; merely listing a skill is not activation.
+
+1. Name the selected skills and the requirements they add. Before completion,
+   compare the result with those requirements, including module ownership;
+   successful formatting alone does not prove architectural compliance.
+
 1. Keep passive detectors lightweight; escalate only on a material finding.
+
 1. Read knowledge files only when the task needs the corresponding mental model.
+
 1. Finish with evidence-backed verification and an explicit uncertainty report.
 
 ## Directory contract

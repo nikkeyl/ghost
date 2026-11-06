@@ -1,0 +1,4 @@
+interface:
+  display_name: 'clarify-engineering-task'
+  short_description: 'Define requirements, scope and success criteria'
+  default_prompt: 'Use $clarify-engineering-task for the current task.'

@@ -1,0 +1,4 @@
+interface:
+  display_name: 'plan-migration'
+  short_description: 'Plan compatible transitions and rollback'
+  default_prompt: 'Use $plan-migration for the current task.'

@@ -1,0 +1,4 @@
+interface:
+  display_name: 'debug-systematically'
+  short_description: 'Reproduce failures and test root-cause hypotheses'
+  default_prompt: 'Use $debug-systematically for the current task.'

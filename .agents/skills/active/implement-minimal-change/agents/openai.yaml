@@ -1,0 +1,4 @@
+interface:
+  display_name: 'implement-minimal-change'
+  short_description: 'Implement the smallest authorized coherent change'
+  default_prompt: 'Use $implement-minimal-change for the current task.'

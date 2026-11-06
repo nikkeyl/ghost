@@ -71,13 +71,61 @@ jobs:
 
       - name: Build
         if: steps.linters.outputs.ready == 'true'
-        run: >-
-          git archive --format=zip --prefix="$VERSION/"
-          --output="$RUNNER_TEMP/$VERSION.zip"
-          HEAD -- .agents AGENTS.md CLAUDE.md LICENSE
+        run: |
+          for AGENT in codex claude cursor copilot gemini opencode; do
+            NAME="ghost-$AGENT-${COMMIT::7}"
+            DIRECTORY="$RUNNER_TEMP/$NAME"
+
+            mkdir -p "$DIRECTORY"
+            git archive HEAD -- .agents AGENTS.md LICENSE |
+              tar -x -C "$DIRECTORY"
+            mv "$DIRECTORY/.agents/skills/README.md" "$DIRECTORY/.agents/skills.md"
+            mv "$DIRECTORY/.agents/skills/passive" "$DIRECTORY/.agents/detectors"
+            mv "$DIRECTORY/.agents/skills/active" "$DIRECTORY/skills"
+            rmdir "$DIRECTORY/.agents/skills"
+
+            case "$AGENT" in
+              codex) SKILLS=".agents/skills"; LOADER="AGENTS.md" ;;
+              claude) SKILLS=".claude/skills"; LOADER="CLAUDE.md" ;;
+              cursor)
+                SKILLS=".cursor/skills"
+                LOADER=".cursor/rules/ghost.mdc" ;;
+              copilot)
+                SKILLS=".github/skills"
+                LOADER=".github/copilot-instructions.md" ;;
+              gemini) SKILLS=".gemini/skills"; LOADER="GEMINI.md" ;;
+              opencode) SKILLS=".opencode/skills"; LOADER="AGENTS.md" ;;
+            esac
+
+            mkdir -p "$DIRECTORY/$(dirname "$SKILLS")" \
+              "$DIRECTORY/$(dirname "$LOADER")"
+            mv "$DIRECTORY/skills" "$DIRECTORY/$SKILLS"
+            git show "HEAD:$LOADER" > "$DIRECTORY/$LOADER"
+
+            if [ "$AGENT" != codex ]; then
+              find "$DIRECTORY/$SKILLS" -name openai.yaml -delete
+              find "$DIRECTORY/$SKILLS" -type d -empty -delete
+            fi
+
+            find "$DIRECTORY" -type f \( -name '*.md' -o -name '*.mdc' \) \
+              ! -name runtime-adapters-and-context-budget.md -exec \
+              sed -i.bak \
+                -e "s|.agents/skills/active/|$SKILLS/|g" \
+                -e 's|.agents/skills/passive/|.agents/detectors/|g' \
+                -e 's|.agents/skills/README.md|.agents/skills.md|g' \
+                -e "s|\.agents/skills/|$SKILLS/|g" \
+                -e "s|\.agents/skills\([^./a-zA-Z0-9_-]\)|$SKILLS\1|g" \
+                -e "s|\.agents/skills$|$SKILLS|g" \
+                -e 's|skills/active/|skills/|g'  \
+                -e 's|skills/passive/|detectors/|g' {} +
+
+            find "$DIRECTORY" -name '*.bak' -delete
+
+            (cd "$RUNNER_TEMP" && zip -qr "$NAME.zip" "$NAME")
+          done
 
       - name: Create Release
         if: steps.linters.outputs.ready == 'true'
         run: >-
-          gh release create "$VERSION" "$RUNNER_TEMP/$VERSION.zip"
+          gh release create "$VERSION" "$RUNNER_TEMP"/ghost-*-${COMMIT::7}.zip
           --target "$COMMIT" --generate-notes
