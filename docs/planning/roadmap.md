@@ -1,20 +1,31 @@
 # GHOST roadmap
 
-Reviewed: 2026-11-05. The capability audit used baseline `6ad5f08`. Separate
-linters and runtime-only archive publication were verified at `d490a08`; current
-open work is tracked in the checklist.
+Reviewed: 2026-11-06 against repository baseline `82af2d6`.
 
-Status: the Phase 0 artifacts are authored. The first Phase 1 slice has a
-historically recorded repository trial; this audit did not rerun it. Phase 2
-procedures are authored, but representative runtime trials remain pending. The
-scoped metadata promotion does not establish Phase 3 completion. Discovery and
-passive-detector behavior across the six P0 target runtimes remain unverified.
+Repository tooling, separate push checks, gated releases, English docs,
+portable CI/CD guidance, and skill naming/content alignment are
+implemented. The catalog contains 7 rules, 16 knowledge files, 24 active
+skills, 9 passive checks and 8 templates. All 33 skill names belong to
+the original 479-candidate backlog.
 
-The next project priority is one-host behavioral evidence. The author's parallel
-learning priority is JavaScript/Web depth, not catalog size. See the
-[audit](../history/audit-2026-11-05.md),
-[knowledge and approach profile](../reference/author-profile.md), and
-[actionable checklist](checklist.md) for evidence and acceptance criteria.
+All five push checks passed on `82af2d6`. Its published runtime archive
+was inspected against the source: exactly 68 files, with matching bytes
+and no technical docs or obsolete passive copies. Skill structure was
+checked after the content corrections in `1477694`, including index
+roles, metadata, 107 graph edges and local references.
+
+Phase 0 artifacts and repository delivery are complete at that scope.
+The recorded Phase 1 repository trial remains historical; current
+procedures have not passed a fresh representative host trial. The
+33-skill content audit and author walkthroughs do not establish host
+discovery, routing quality, independent judgment or personal proficiency.
+
+The next project gate is C03: one named host running the current skill
+contracts. The author's parallel learning priority is JavaScript/Web
+depth. See the [checklist](checklist.md) for completed work and remaining
+acceptance gates, the [historical audit](../history/audit-2026-11-05.md)
+for its original baseline, and the
+[author profile](../reference/author-profile.md) for personal context.
 
 ## Evidence gates and current priorities
 
@@ -23,20 +34,43 @@ procedure produces the expected behavior in a named runtime. None establishes
 the author's independent proficiency. Historical trials retain their original
 scope; rerun them when a relevant artifact or runtime changes.
 
-| Workstream          | Current evidence                                                        | Next gate                                                                      | Checklist |
-| ------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------- |
-| Core catalog        | 7 rules, 16 knowledge files, 24 active skills, 9 detectors, 8 templates | Review skill contracts during changes; keep individual linters green           | —         |
-| Phase 1/2 behavior  | Phase 1 trial recorded; Phase 2 procedures authored                     | Representative positive, non-trigger and failure cases on one host             | C03       |
-| Runtime portability | Six targets named; AGENTS/CLAUDE loaders present                        | Versioned discovery, routing and passive-detector matrix, one host at a time   | C04–C05   |
-| Platform depth      | Narrow frontend guidance exists; broader procedures proposed            | JS predictions and browser/network experiments before framework recipes        | C07–C10   |
-| Quality / packaging | Existing review cues and historical package-audit leads                 | Consumer, accessibility, performance and trust-boundary evidence               | C11–C12   |
-| Systemic judgment   | Reasoning/evidence rules and candidate inventory                        | Apply alternatives, team cost, reversibility and adoption to current decisions | C13–C14   |
+| Workstream          | Current evidence                                                                | Next gate                                                                      | Checklist |
+| ------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | --------- |
+| Core catalog        | 33 skills aligned with backlog names and intended outcomes; 24 active/9 passive | Fresh host trial of corrected procedures                                       | C18; C03  |
+| Phase 1/2 behavior  | Phase 1 trial recorded; Phase 2 procedures authored                             | Representative positive, non-trigger and failure cases on one host             | C03       |
+| Runtime portability | Six targets named; AGENTS/CLAUDE loaders present                                | Versioned discovery, routing and passive-detector matrix, one host at a time   | C04–C05   |
+| Platform depth      | Narrow frontend guidance exists; broader procedures proposed                    | JS predictions and browser/network experiments before framework recipes        | C07–C10   |
+| Quality / packaging | Scoped reviews authored; runtime ZIP inspected; package leads remain historical | Consumer, accessibility, performance and trust-boundary evidence               | C11–C12   |
+| Systemic judgment   | Reasoning/evidence rules and candidate inventory                                | Apply alternatives, team cost, reversibility and adoption to current decisions | C13–C14   |
 
-CI runs EditorConfig, Prettier and remark as separate workflows. Python
-utilities and aggregate validation workflows were removed in favor of the
-reference repositories' minimal configuration. Skill metadata, graph targets and
-runtime behavior still require scoped review; linter success does not establish
-them.
+Repository delivery is completed under C01–C02 and C17–C19. CI uses
+separate Editorconfig, Prettier, Remark, Commit Lint and Pre Commit
+workflows. Remark includes `.agents`. Husky runs staged formatting and
+Markdown linting plus commit-message validation. The standard
+pre-commit CLI uses Python; no custom Python utility or aggregate
+lint/validate workflow remains.
+
+Semantic PR title checks, Dependabot updates and actor-scoped auto-merge
+are configured; their PR-specific outcomes remain unverified (C20).
+Release uses `workflow_run` completion events, checks all five required
+results for the same immutable commit and publishes the explicit
+runtime allowlist as `ghost-{short-commit}`. Publication and archive
+inspection are separate evidence from portable skill execution.
+
+## Phase status
+
+| Phase                    | Completed or authored                                                                                   | Remaining gate                                                      |
+| ------------------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| 0 — Foundation           | Core catalog, naming/content review, repository CI and runtime releases                                 | Maintain checks; behavior is assessed in later gates                |
+| 1 — Cognitive core       | Repository mapping, framing, planning, blast-radius and claim/completeness procedures; historical trial | Fresh representative host trial and routing evidence (C03–C05)      |
+| 2 — Safe execution       | Implementation, debugging, review, test strategy/signal, refactoring and migration procedures           | Positive, non-trigger and failure cases on a named host (C03)       |
+| 3 — Frontend depth       | Scoped React boundaries, native forms, metadata and stale-state guidance                                | Broader JS/browser/network models and observed learning (C07–C10)   |
+| 4 — User-facing quality  | Accessibility/performance reviews and component contract/consistency procedures                         | Real quality cases and package-consumer evidence (C11–C12)          |
+| 5 — Production evolution | Portable CI/CD rules, build analysis and migration template                                             | Operational cases, runbooks and recovery evidence when needed (C15) |
+| 6 — Systemic judgment    | Claim verification, research, documentation, lessons and handover procedures                            | Concrete decision cases and durable evidence refresh (C13–C14)      |
+
+Partial capability coverage does not close an entire phase. Future
+standalone skills remain conditional on the promotion policy and C16.
 
 ## Purpose
 
@@ -57,8 +91,8 @@ candidate procedure
 ```
 
 The complete imported inventory is preserved in [backlog](backlog.md). This
-document is the prioritized implementation plan; the appendix is the exhaustive
-candidate list.
+document owns priorities and implementation status; the backlog preserves the
+exhaustive candidate list.
 
 ## Current baseline — Phase 0: foundation (authored)
 
@@ -126,11 +160,11 @@ an explicit uncertainty.
 The following capabilities were promoted from user-confirmed cross-project
 patterns without creating one skill per observation:
 
-- `analyze-form-behavior` groups form validation, lifecycle, state ownership,
-  server-boundary, and primary/secondary failure procedures.
+- `analyze-form-behavior` traces native ownership, payload, validation,
+  submit/reset and navigation before framework enhancements and failure paths.
 
-- `detect-stale-state` observes debounce, cancellation, freshness, and stale
-  response risks during user-driven asynchronous work.
+- `detect-stale-state` compares current sources of truth with snapshots,
+  closures, derived state, cache and asynchronous results.
 
 - `async-ui-state-and-cancellation`, `nextjs-server-actions`,
   `content-trust-boundaries`, and `engineering-patterns` preserve the underlying
@@ -152,7 +186,7 @@ knowledge file; it is intentionally not a new standalone skill.
 | `review-metadata-strategy`                                                                                                                                                        | `skills/active/review-metadata-strategy`, `knowledge/web-document-metadata.md`                                                                                | active + knowledge        | implemented | page metadata, indexability, locale, social preview, or structured data changes |
 | `implement-cancellation`                                                                                                                                                          | `knowledge/async-ui-state-and-cancellation.md`, `skills/passive/detect-stale-state`                                                                           | knowledge + passive       | covered     | `debug-systematically` or async signal                                          |
 | `analyze-module-loading`                                                                                                                                                          | `knowledge/data-loading-and-failure-model.md`, `skills/active/review-for-performance`                                                                         | knowledge + active        | covered     | a dependency or renderer may be loaded too broadly                              |
-| `analyze-async-control-flow`, `review-state-transitions`, `detect-stale-state`                                                                                                    | `knowledge/async-ui-state-and-cancellation.md`, `skills/passive/detect-stale-state`                                                                           | knowledge + passive       | covered     | user-driven async state can become obsolete                                     |
+| `analyze-async-control-flow`, `review-state-transitions`, `detect-stale-state`                                                                                                    | `knowledge/async-ui-state-and-cancellation.md`, `skills/passive/detect-stale-state`                                                                           | knowledge + passive       | covered     | derived, captured, cached or async state may become obsolete                    |
 | `choose-server-vs-client-component`, `review-server-component-boundaries`, `identify-client-server-boundaries`                                                                    | `rules/40-frontend-contracts.md`, `skills/active/review-component-boundaries`                                                                                 | rule + active             | covered     | React/Next.js boundary is in scope                                              |
 | `analyze-server-actions`                                                                                                                                                          | `knowledge/nextjs-server-actions.md`, `rules/40-frontend-contracts.md`                                                                                        | knowledge + rule          | covered     | Next.js mutation is in scope                                                    |
 | `review-data-fetching-strategy`, `optimize-data-fetching`, `optimize-caching`                                                                                                     | `rules/50-data-and-failure-contracts.md`, `knowledge/data-loading-and-failure-model.md`                                                                       | rule + knowledge          | covered     | data boundary or freshness risk                                                 |
@@ -228,9 +262,11 @@ pending.
 The user-approved `info-for-ghost` import implements portable procedures and
 structural checks, not completion of a roadmap phase. Review, test strategy,
 refactoring, migration planning, handover, research, documentation, and lesson
-capture have authored artifacts. Five new passive detectors cover the planned
-Phase 2 signals. Representative runtime trials and outcome evaluation are
-pending.
+capture have authored artifacts. The import originally added five passive
+signals. The current catalog promotes `improve-test-signal` to an active
+procedure, retains four of those checks as passive, and separately promotes
+accessibility, performance and component-consistency review. Representative
+runtime trials and outcome evaluation remain pending.
 
 | Backlog candidates                                                                                                                                                                                           | GHOST artifact                                                                                                                                             | Kind               | Status      | Routing                                        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------- | ---------------------------------------------- |
@@ -358,15 +394,16 @@ review workflows.
 
 ### Phase 2: deliverables
 
-The parent procedures, review/test skills, five passive signals and migration
-guidance listed below are authored. Their remaining gate is representative
-runtime evidence, not another implementation pass.
+The parent procedures, active reviews/test improvement, scoped passive
+checks and migration guidance are authored. Their remaining gate is
+representative runtime evidence, not another implementation pass.
 
 - Trial `debug-systematically` and `estimate-blast-radius` procedure checklists.
 
 - Trial `review-code-change` and `design-test-strategy`, including non-triggers.
 
-- Exercise test-signal, overmocking, abstraction, complexity and build-impact
+- Exercise active `improve-test-signal` on a weak assertion and a meaningful
+  negative case. Check overmocking, abstraction, complexity and CI-impact
   detectors on positive and no-signal cases.
 
 - Exercise compatibility and rollback planning through `plan-migration`, while
@@ -418,10 +455,17 @@ network, and rendering fundamentals.
 
 ### Phase 3: deliverables
 
+Already authored: `review-component-boundaries`,
+`analyze-form-behavior`, `review-metadata-strategy` and
+`detect-stale-state`, supported by existing knowledge. Their scope does
+not establish a complete platform curriculum or close C07–C10.
+Remaining work:
+
 - Add knowledge/mental-model documents before adding many active procedures.
 
-- Create parent active skills for browser rendering, React rendering, and the
-  Next.js rendering model.
+- Consider `analyze-browser-rendering-pipeline`, `analyze-react-rendering`
+  and `analyze-next-rendering-model` only when the models and repeated tasks
+  justify standalone procedures under C16.
 
 - Keep framework-specific procedures dependent on platform-level mental models.
 
@@ -464,15 +508,21 @@ design-system quality part of the implementation contract.
 
 ### Phase 4: deliverables
 
-- Add active parent skills `profile-before-optimizing`,
-  `review-frontend-security`, `audit-accessibility`, and
-  `review-design-system-component`.
+Already authored: `review-for-accessibility`, `review-for-performance`,
+`design-component-contract` and `review-component-consistency`. The first,
+second and fourth now have full active review procedures. They produce
+scoped findings; they do not establish a whole-product audit capability.
+Remaining work:
 
-- Connect existing passive detectors to these parents only at a severity
-  threshold.
+- Exercise current procedures on real user paths and measurements (C12),
+  plus packed-package consumers where relevant (C11).
 
-- Add risk-specific verification templates for browser, accessibility,
-  performance, and security claims.
+- Consider `profile-before-optimizing`, `review-frontend-security`,
+  `audit-accessibility` or `review-design-system-component` only if the
+  existing procedure cannot cover a repeated need and C16 is satisfied.
+
+- Connect material signals conditionally; add a risk-specific template
+  only when existing verification/manual-test templates omit needed proof.
 
 ### Phase 4: done when
 
@@ -510,7 +560,13 @@ Goal: extend GHOST from local code changes to long-lived system behavior.
 
 ### Phase 5: deliverables
 
-- Add runbook and migration templates before adding specialized skills.
+Already authored: portable CI/CD rules, `analyze-build-pipeline`,
+`check-ci-impact`, `plan-migration` and the migration-plan template.
+The GHOST release path is exercised; this does not establish deployment
+or recovery evidence for an adopting product. Remaining work:
+
+- Trial these procedures on a real operational change (C15). Add a runbook
+  when that case needs one; do not recreate the existing migration template.
 
 - Require rollback, observability, and operational ownership in production
   change plans.
@@ -555,8 +611,14 @@ principal-level system judgment.
 
 ### Phase 6: deliverables
 
-- Add `evaluate-systemic-impact` and `critique-own-solution` as active parent
-  skills with explicit evidence and counterexample steps.
+Already authored: `verify-before-claiming`, `check-task-completeness`,
+`research-unknown-api`, `extract-engineering-lessons`,
+`update-documentation` and `write-maintainer-notes`. Claim verification
+now applies to research/review as well as implemented changes. Remaining work:
+
+- Practice decision and counterexample checks through existing planning/review
+  procedures (C13). Promote `evaluate-systemic-impact` or
+  `critique-own-solution` only when independent value satisfies C16.
 
 - Trial the existing `research-unknown-api`; it is already authored.
 
@@ -613,23 +675,25 @@ artifact: <relative path or list of paths>
 
 ## Next implementation slice
 
-1. Confirm individual linter workflows and the native GitHub archive release
-   path (C01–C02).
+1. Keep completed tooling, archive and catalog checks green (C01–C02,
+   C17–C19). Do not reimplement or reopen these without relevant changes.
 
 1. Trial the authored Phase 2 workflows on one real repository and one named
    host, including non-triggers and explicit action boundaries (C03).
 
 1. Record routing cost and failures, make narrow corrections, then extend the
-   evidence matrix to the remaining target hosts (C04–C05, C14).
+   evidence matrix to the remaining target hosts (C04–C05, C14). Exercise
+   PR/dependency automation on the next eligible event (C20).
 
 1. Run the personal fundamentals learning loop in parallel within the existing
    study budget; apply systemic decision questions to current work (C07–C10,
    C13).
 
-This slice is complete only when the individual CI checks pass and
-representative agent workflows have observed outcomes. Documentation authorship
-is not behavioral acceptance. The [checklist](checklist.md) owns unfinished
-actions; this roadmap owns sequencing and promotion policy.
+The repository CI/archive gate is already met. The remaining slice closes
+when representative agent workflows have observed outcomes for the current
+contracts. Documentation authorship is not behavioral acceptance. The
+[checklist](checklist.md) owns completed work and remaining actions; this
+roadmap owns sequencing and promotion policy.
 
 ## Source boundary
 

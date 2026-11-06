@@ -18,11 +18,11 @@ Conventional Commits.
 - [Backlog](planning/backlog.md): the preserved inventory of 479 candidate
   procedures.
 
-- [Checklist](planning/checklist.md): unfinished actions and acceptance
-  criteria.
+- [Checklist](planning/checklist.md): completed work, remaining actions and
+  acceptance criteria.
 
 The roadmap owns direction, the backlog owns candidate names, and the checklist
-owns actionable work. Keep completed tasks out of the open checklist.
+owns actionable work. Keep completed tasks separate from remaining gates.
 
 ## Reference
 
