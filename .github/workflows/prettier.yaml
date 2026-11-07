@@ -1,8 +1,22 @@
+name: Prettier
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
 jobs:
   prettier:
     name: Prettier
 
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout Repository
@@ -16,16 +30,3 @@ jobs:
 
       - name: Lint
         run: bun prettier . --check
-    timeout-minutes: 10
-name: Prettier
-
-on:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
-
-permissions:
-  contents: read

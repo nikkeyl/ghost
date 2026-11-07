@@ -1,5 +1,15 @@
 {
+  "name": "ghost",
   "description": "Portable engineering rules and skills for coding agents",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "scripts": {
+    "init": "bun i && husky",
+    "prettier:fix": "prettier . --write"
+  },
   "devDependencies": {
     "@archoleat/commitlint-define-config": "^1.1.3",
     "@archoleat/prettier-define-config": "^1.2.3",
@@ -15,15 +25,5 @@
     "remark-preset-lint-consistent": "^6.0.1",
     "remark-preset-lint-markdown-style-guide": "^6.0.1",
     "remark-preset-lint-recommended": "^7.0.1"
-  },
-  "engines": {
-    "bun": ">=1.0.0"
-  },
-  "license": "MIT",
-  "name": "ghost",
-  "scripts": {
-    "init": "bun i && husky",
-    "prettier:fix": "prettier . --write"
-  },
-  "type": "module"
+  }
 }

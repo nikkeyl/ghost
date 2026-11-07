@@ -1,8 +1,22 @@
+name: Remark
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
 jobs:
   remark:
     name: Remark
 
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout Repository
@@ -16,16 +30,3 @@ jobs:
 
       - name: Lint
         run: bun remark . --quiet --frail
-    timeout-minutes: 10
-name: Remark
-
-on:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
-
-permissions:
-  contents: read

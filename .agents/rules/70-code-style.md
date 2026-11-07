@@ -52,12 +52,16 @@ mentioned tool into a project that does not use its language.
   name. Do not rename a public key or change a method's `this` behavior
   just to achieve shorthand or arrow syntax.
 
-- Sort independent named elements alphabetically when their order does
-  not affect behavior or express a meaningful sequence. Apply this to
-  object and YAML mapping keys, enumeration-style list values, and
-  similar structures. Preserve meaningful execution, evaluation,
-  override, enumeration, and cascade order; do not sort arbitrary arrays
-  or procedural steps mechanically. Explicit project configuration and
+- Sort independent named elements alphabetically within an appropriate
+  existing group, such as data-object keys, dependency names, or values
+  in an enumeration-style list. Preserve the established document
+  structure and semantic grouping of configuration files. Do not reorder
+  workflow, job, or step fields, package manifest sections, or other
+  configuration blocks merely to alphabetize their keys. For example,
+  sort the workflow-name list without moving `name`, `on`, `permissions`,
+  or `jobs`. Preserve meaningful execution, evaluation, override,
+  enumeration, and cascade order; do not sort arbitrary arrays or
+  procedural steps mechanically. Explicit project configuration and
   conventions take precedence.
 
 - In object literals, place shorthand properties before properties with

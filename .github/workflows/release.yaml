@@ -1,24 +1,45 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows:
+      - Commit Lint
+      - Editorconfig
+      - Pre Commit
+      - Prettier
+      - Remark
+    types:
+      - completed
+    branches:
+      - main
+
+permissions:
+  actions: read
+  contents: write
+
 concurrency:
-  cancel-in-progress: false
   group: release-${{ github.event.workflow_run.head_sha }}
+  cancel-in-progress: false
 
 jobs:
   release:
-    env:
-      COMMIT: ${{ github.event.workflow_run.head_sha }}
-      GH_REPO: ${{ github.repository }}
-      GH_TOKEN: ${{ github.token }}
+    name: Release
 
     if: >-
       ${{ github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.event == 'push' }}
-    name: Release
 
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      COMMIT: ${{ github.event.workflow_run.head_sha }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
 
     steps:
-      - id: linters
-        name: Check Linters
+      - name: Check Linters
+        id: linters
         run: |
           VERSION="ghost-${COMMIT::7}"
 
@@ -42,14 +63,14 @@ jobs:
 
           echo "ready=$READY" >> "$GITHUB_OUTPUT"
 
-      - if: steps.linters.outputs.ready == 'true'
-        name: Checkout Repository
+      - name: Checkout Repository
+        if: steps.linters.outputs.ready == 'true'
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
 
-      - if: steps.linters.outputs.ready == 'true'
-        name: Build
+      - name: Build
+        if: steps.linters.outputs.ready == 'true'
         run: |
           for AGENT in codex claude cursor copilot gemini opencode; do
             NAME="ghost-$AGENT-${COMMIT::7}"
@@ -163,27 +184,8 @@ jobs:
             (cd "$RUNNER_TEMP" && zip -qr "$NAME.zip" "$NAME")
           done
 
-      - if: steps.linters.outputs.ready == 'true'
-        name: Create Release
+      - name: Create Release
+        if: steps.linters.outputs.ready == 'true'
         run: >-
           gh release create "$VERSION" "$RUNNER_TEMP"/ghost-*-${COMMIT::7}.zip
           --target "$COMMIT" --generate-notes
-    timeout-minutes: 10
-name: Release
-
-on:
-  workflow_run:
-    branches:
-      - main
-    types:
-      - completed
-    workflows:
-      - Commit Lint
-      - Editorconfig
-      - Pre Commit
-      - Prettier
-      - Remark
-
-permissions:
-  actions: read
-  contents: write
