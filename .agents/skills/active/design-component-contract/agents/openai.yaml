@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $design-component-contract for the current task.'
   display_name: 'design-component-contract'
   short_description: 'Define component ownership and public contracts'
-  default_prompt: 'Use $design-component-contract for the current task.'

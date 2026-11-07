@@ -1,7 +1,7 @@
 ---
-name: detect-overmocking
 description: "Notice mocks that replace the very boundary a test claims to verify."
 kind: passive
+name: detect-overmocking
 ---
 
 # Detect overmocking

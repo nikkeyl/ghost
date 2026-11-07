@@ -1,8 +1,8 @@
 ---
-name: write-maintainer-notes
-description: "Prepare a concise change handover or PR-description draft grounded in
-  the actual diff, decisions, and verification."
+description: "Prepare a concise change handover or PR-description draft
+  grounded in the actual diff, decisions, and verification."
 kind: active
+name: write-maintainer-notes
 ---
 
 # Write maintainer notes
@@ -74,5 +74,5 @@ implementation or verification.
 ## Graph
 
 ```yaml
-references: [verify-before-claiming, review-code-change, update-documentation]
+references: [review-code-change, update-documentation, verify-before-claiming]
 ```

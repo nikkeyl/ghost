@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $extract-engineering-lessons for the current task.'
   display_name: 'extract-engineering-lessons'
   short_description: 'Turn demonstrated failures into durable guidance'
-  default_prompt: 'Use $extract-engineering-lessons for the current task.'

@@ -1,24 +1,9 @@
-name: Pre Commit
-
-on:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
-
-permissions:
-  contents: read
-
 jobs:
   pre-commit:
+    if: ${{ github.actor != 'dependabot[bot]' || github.ref == 'refs/heads/main' }}
     name: Pre Commit
 
-    if: ${{ github.actor != 'dependabot[bot]' || github.ref == 'refs/heads/main' }}
-
     runs-on: ubuntu-latest
-    timeout-minutes: 10
 
     steps:
       - name: Checkout Repository
@@ -34,3 +19,16 @@ jobs:
 
       - name: Lint
         run: pre-commit run --all-files --show-diff-on-failure
+    timeout-minutes: 10
+name: Pre Commit
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read

@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $review-for-performance for the current task.'
   display_name: 'review-for-performance'
   short_description: 'Review performance risks with measurable evidence'
-  default_prompt: 'Use $review-for-performance for the current task.'

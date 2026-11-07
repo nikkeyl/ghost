@@ -1,8 +1,8 @@
 ---
-name: review-for-performance
 description: Review a scoped change for performance risks by tracing work,
   resource cost, affected user paths, and available measurements.
 kind: active
+name: review-for-performance
 ---
 
 # Review for performance
@@ -73,5 +73,5 @@ completion.
 
 ```yaml
 may-trigger: [design-test-strategy, research-unknown-api]
-references: [verify-before-claiming, source-derived-patterns]
+references: [source-derived-patterns, verify-before-claiming]
 ```

@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $analyze-build-pipeline for the current task.'
   display_name: 'analyze-build-pipeline'
   short_description: 'Analyze source-to-artifact build stages'
-  default_prompt: 'Use $analyze-build-pipeline for the current task.'

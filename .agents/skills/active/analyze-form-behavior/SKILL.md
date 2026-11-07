@@ -1,8 +1,8 @@
 ---
-name: analyze-form-behavior
-description: Analyze native form ownership, validation, submitted data, browser
-  navigation, reset, and enhanced submission behavior.
+description: Analyze native form ownership, validation, submitted data,
+  browser navigation, reset, and enhanced submission behavior.
 kind: active
+name: analyze-form-behavior
 ---
 
 # Analyze form behavior
@@ -138,8 +138,8 @@ conditional on the repository rather than the core of the procedure.
 ## Graph
 
 ```yaml
-requires: [plan-code-change]
-may-trigger: [estimate-blast-radius]
 followed-by: [verify-before-claiming]
+may-trigger: [estimate-blast-radius]
 references: [data-loading-and-failure-model, nextjs-server-actions]
+requires: [plan-code-change]
 ```

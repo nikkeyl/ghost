@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $update-documentation for the current task.'
   display_name: 'update-documentation'
   short_description: 'Update documentation to match verified behavior'
-  default_prompt: 'Use $update-documentation for the current task.'

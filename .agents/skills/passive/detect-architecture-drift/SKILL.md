@@ -1,8 +1,8 @@
 ---
-name: detect-architecture-drift
-description: Detect ownership, layer, abstraction, state, and dependency changes
-  that drift from the repository architecture.
+description: Detect ownership, layer, abstraction, state, and dependency
+  changes that drift from the repository architecture.
 kind: passive
+name: detect-architecture-drift
 ---
 
 # Detect architecture drift

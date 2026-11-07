@@ -1,8 +1,8 @@
 ---
-name: review-for-accessibility
 description: Review a scoped change for accessibility defects using semantics,
   keyboard, focus, assistive output, and applicable visual behavior.
 kind: active
+name: review-for-accessibility
 ---
 
 # Review for accessibility

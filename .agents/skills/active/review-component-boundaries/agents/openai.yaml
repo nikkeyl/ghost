@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $review-component-boundaries for the current task.'
   display_name: 'review-component-boundaries'
   short_description: 'Review component ownership and dependencies'
-  default_prompt: 'Use $review-component-boundaries for the current task.'

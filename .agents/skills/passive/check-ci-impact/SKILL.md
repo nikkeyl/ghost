@@ -1,8 +1,8 @@
 ---
-name: check-ci-impact
 description: Check whether a change affects CI triggers, job dependencies,
   tools, permissions, required checks, caches, or artifact publication.
 kind: passive
+name: check-ci-impact
 ---
 
 # Check CI impact

@@ -1,8 +1,8 @@
 ---
-name: improve-test-signal
 description: Strengthen existing tests so they fail for a violated behavior
   contract and pass for a correct implementation without hiding failures.
 kind: active
+name: improve-test-signal
 ---
 
 # Improve test signal
@@ -70,6 +70,6 @@ the assessment completed rather than an implemented improvement.
 ## Graph
 
 ```yaml
-may-trigger: [design-test-strategy, debug-systematically]
+may-trigger: [debug-systematically, design-test-strategy]
 references: [verify-before-claiming]
 ```

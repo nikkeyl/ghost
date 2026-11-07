@@ -1,8 +1,8 @@
 ---
-name: map-codebase
-description: Build an evidence-backed repository context model before changing an
-  unfamiliar or cross-cutting codebase.
+description: Build an evidence-backed repository context model before changing
+  an unfamiliar or cross-cutting codebase.
 kind: active
+name: map-codebase
 ---
 
 # Map codebase
@@ -126,7 +126,7 @@ rediscovering the same structure during implementation.
 ## Graph
 
 ```yaml
-requires: [plan-code-change]
-may-trigger: [estimate-blast-radius]
 followed-by: [implement-minimal-change, verify-before-claiming]
+may-trigger: [estimate-blast-radius]
+requires: [plan-code-change]
 ```

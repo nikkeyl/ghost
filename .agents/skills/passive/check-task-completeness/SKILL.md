@@ -1,8 +1,8 @@
 ---
-name: check-task-completeness
 description: Compare requested outcomes and acceptance criteria with delivered
   artifacts, performed actions, verification, and unresolved work.
 kind: passive
+name: check-task-completeness
 ---
 
 # Check task completeness

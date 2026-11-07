@@ -1,13 +1,12 @@
-version: 2
-
 updates:
-  - package-ecosystem: github-actions
-    directory: /
+  - directory: /
+    package-ecosystem: github-actions
     schedule:
       interval: semiannually
 
-  - package-ecosystem: bun
-    directory: /
+  - directory: /
+    package-ecosystem: bun
     schedule:
       interval: semiannually
     versioning-strategy: increase
+version: 2

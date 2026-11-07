@@ -1,8 +1,8 @@
 ---
-name: estimate-blast-radius
-description: Analyze the blast radius of shared, public, data-flow, configuration,
-  routing, security, and cross-cutting changes.
+description: Analyze the blast radius of shared, public, data-flow,
+  configuration, routing, security, and cross-cutting changes.
 kind: active
+name: estimate-blast-radius
 ---
 
 # Estimate blast radius
@@ -75,7 +75,7 @@ does not present an incomplete consumer search as a guarantee of safety.
 ## Graph
 
 ```yaml
-requires: [plan-code-change]
-may-trigger: [debug-systematically, plan-migration]
 followed-by: [implement-minimal-change, verify-before-claiming]
+may-trigger: [debug-systematically, plan-migration]
+requires: [plan-code-change]
 ```

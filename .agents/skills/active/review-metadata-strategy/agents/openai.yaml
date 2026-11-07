@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $review-metadata-strategy for the current task.'
   display_name: 'review-metadata-strategy'
   short_description: 'Review web metadata and rendering ownership'
-  default_prompt: 'Use $review-metadata-strategy for the current task.'

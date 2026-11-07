@@ -1,8 +1,8 @@
 ---
-name: implement-minimal-change
-description: Implement an authorized change as the smallest coherent diff while
-  preserving existing contracts and local conventions.
+description: Implement an authorized change as the smallest coherent diff
+  while preserving existing contracts and local conventions.
 kind: active
+name: implement-minimal-change
 ---
 
 # Implement a minimal change
@@ -98,13 +98,13 @@ next step is either verified or explicitly blocked by evidence.
 ## Graph
 
 ```yaml
-requires: [plan-code-change]
+followed-by: [verify-before-claiming]
 may-trigger:
   [
     debug-systematically,
-    refactor-without-behavior-change,
-    plan-migration,
     design-test-strategy,
+    plan-migration,
+    refactor-without-behavior-change,
   ]
-followed-by: [verify-before-claiming]
+requires: [plan-code-change]
 ```

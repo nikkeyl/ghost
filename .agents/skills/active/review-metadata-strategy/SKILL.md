@@ -1,8 +1,8 @@
 ---
-name: review-metadata-strategy
-description: Review route-level document metadata, indexing directives, localized
-  URL relationships, social previews, and structured data.
+description: Review route-level document metadata, indexing directives,
+  localized URL relationships, social previews, and structured data.
 kind: active
+name: review-metadata-strategy
 ---
 
 # Review a metadata strategy
@@ -99,8 +99,8 @@ observed evidence.
 ## Graph
 
 ```yaml
-requires: [plan-code-change]
-may-trigger: [estimate-blast-radius]
 followed-by: [verify-before-claiming]
+may-trigger: [estimate-blast-radius]
 references: [web-document-metadata]
+requires: [plan-code-change]
 ```

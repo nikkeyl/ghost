@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $improve-test-signal for the current task.'
   display_name: 'improve-test-signal'
   short_description: 'Strengthen tests around observable contracts'
-  default_prompt: 'Use $improve-test-signal for the current task.'

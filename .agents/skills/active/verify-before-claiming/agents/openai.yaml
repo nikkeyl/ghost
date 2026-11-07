@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $verify-before-claiming for the current task.'
   display_name: 'verify-before-claiming'
   short_description: 'Verify engineering claims against current evidence'
-  default_prompt: 'Use $verify-before-claiming for the current task.'

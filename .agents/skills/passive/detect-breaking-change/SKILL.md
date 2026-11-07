@@ -1,8 +1,8 @@
 ---
-name: detect-breaking-change
-description: Detect incompatible changes to public types, props, routes, schemas,
-  configuration, serialization, or behavior.
+description: Detect incompatible changes to public types, props, routes,
+  schemas, configuration, serialization, or behavior.
 kind: passive
+name: detect-breaking-change
 ---
 
 # Detect breaking change

@@ -1,8 +1,8 @@
 ---
-name: review-component-boundaries
 description: Review React component responsibilities, state ownership, public
   props, composition, dependencies, and client/server boundaries.
 kind: active
+name: review-component-boundaries
 ---
 
 # Review component boundaries
@@ -78,6 +78,6 @@ component design.
 ## Graph
 
 ```yaml
-may-trigger: [estimate-blast-radius, design-component-contract]
+may-trigger: [design-component-contract, estimate-blast-radius]
 references: [refactor-without-behavior-change, verify-before-claiming]
 ```

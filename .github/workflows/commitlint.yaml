@@ -1,19 +1,9 @@
-name: Commit Lint
-
-on:
-  push:
-
-permissions:
-  contents: read
-
 jobs:
   commit-lint:
+    if: ${{ github.actor != 'dependabot[bot]' || github.ref == 'refs/heads/main' }}
     name: Commit Lint
 
-    if: ${{ github.actor != 'dependabot[bot]' || github.ref == 'refs/heads/main' }}
-
     runs-on: ubuntu-latest
-    timeout-minutes: 10
 
     steps:
       - name: Checkout Repository
@@ -27,3 +17,11 @@ jobs:
 
       - name: Lint
         run: git log -1 --pretty=%B | bun commitlint
+    timeout-minutes: 10
+name: Commit Lint
+
+on:
+  push:
+
+permissions:
+  contents: read

@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $review-for-accessibility for the current task.'
   display_name: 'review-for-accessibility'
   short_description: 'Review semantics, keyboard use and accessibility'
-  default_prompt: 'Use $review-for-accessibility for the current task.'

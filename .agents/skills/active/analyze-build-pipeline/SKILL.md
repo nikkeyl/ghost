@@ -1,8 +1,8 @@
 ---
-name: analyze-build-pipeline
 description: Analyze how source, dependencies, configuration, and build stages
   produce artifacts locally and in CI; propose scoped improvements.
 kind: active
+name: analyze-build-pipeline
 ---
 
 # Analyze build pipeline
@@ -79,6 +79,6 @@ alone does not imply a build or publication occurred.
 ## Graph
 
 ```yaml
-may-trigger: [research-unknown-api, estimate-blast-radius]
+may-trigger: [estimate-blast-radius, research-unknown-api]
 references: [implement-minimal-change, verify-before-claiming]
 ```

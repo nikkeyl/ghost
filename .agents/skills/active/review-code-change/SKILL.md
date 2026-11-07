@@ -1,8 +1,8 @@
 ---
-name: review-code-change
-description: "Review a scoped diff or triage review feedback using current code,
-  concrete failure mechanisms, and project contracts."
+description: "Review a scoped diff or triage review feedback using current
+  code, concrete failure mechanisms, and project contracts."
 kind: active
+name: review-code-change
 ---
 
 # Review a code change

@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $write-maintainer-notes for the current task.'
   display_name: 'write-maintainer-notes'
   short_description: 'Write evidence-backed maintainer handoffs'
-  default_prompt: 'Use $write-maintainer-notes for the current task.'

@@ -1,3 +1,18 @@
+jobs:
+  auto-merge-dependabot-pull-request:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PR_URL: ${{ github.event.pull_request.html_url }}
+
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    name: Auto Merge Dependabot Pull Request
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Merge
+        run: gh pr merge "$PR_URL" --auto --squash
+    timeout-minutes: 10
 name: Auto Merge Dependabot Pull Request
 
 on:
@@ -8,20 +23,3 @@ on:
 permissions:
   contents: write
   pull-requests: write
-
-jobs:
-  auto-merge-dependabot-pull-request:
-    name: Auto Merge Dependabot Pull Request
-
-    if: ${{ github.actor == 'dependabot[bot]' }}
-
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
-    env:
-      PR_URL: ${{ github.event.pull_request.html_url }}
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    steps:
-      - name: Merge
-        run: gh pr merge "$PR_URL" --auto --squash

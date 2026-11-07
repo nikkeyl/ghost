@@ -1,8 +1,8 @@
 ---
-name: plan-migration
 description: "Plan staged API, component, state, dependency, or configuration
   changes with compatibility, recovery, and preservation evidence."
 kind: active
+name: plan-migration
 ---
 
 # Plan a migration
@@ -80,7 +80,7 @@ authorized.
 ## Graph
 
 ```yaml
-requires: [estimate-blast-radius]
-may-trigger: [design-test-strategy]
 followed-by: [implement-minimal-change, verify-before-claiming]
+may-trigger: [design-test-strategy]
+requires: [estimate-blast-radius]
 ```

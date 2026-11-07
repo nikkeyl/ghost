@@ -1,8 +1,8 @@
 ---
-name: refactor-without-behavior-change
-description: "Change code structure while preserving observable behavior, public
-  interfaces, ordering, and failure semantics."
+description: "Change code structure while preserving observable behavior,
+  public interfaces, ordering, and failure semantics."
 kind: active
+name: refactor-without-behavior-change
 ---
 
 # Refactor without behavior change
@@ -67,6 +67,6 @@ preservation boundary.
 ## Graph
 
 ```yaml
-may-trigger: [estimate-blast-radius, design-test-strategy, plan-migration]
 followed-by: [verify-before-claiming]
+may-trigger: [design-test-strategy, estimate-blast-radius, plan-migration]
 ```

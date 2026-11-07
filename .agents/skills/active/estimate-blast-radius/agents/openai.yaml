@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $estimate-blast-radius for the current task.'
   display_name: 'estimate-blast-radius'
   short_description: 'Trace consumers and cross-cutting change risks'
-  default_prompt: 'Use $estimate-blast-radius for the current task.'

@@ -1,8 +1,8 @@
 ---
-name: review-component-consistency
 description: Compare related components against an established design-system
   contract across API, variants, semantics, styling, and interaction.
 kind: active
+name: review-component-consistency
 ---
 
 # Review component consistency

@@ -1,8 +1,8 @@
 ---
-name: debug-systematically
-description: Investigate failures and regressions by reproducing behavior, testing
-  hypotheses, and identifying the violated invariant.
+description: Investigate failures and regressions by reproducing behavior,
+  testing hypotheses, and identifying the violated invariant.
 kind: active
+name: debug-systematically
 ---
 
 # Debug systematically
@@ -81,7 +81,7 @@ original failure no longer reproduces under the stated conditions.
 ## Graph
 
 ```yaml
-requires: [plan-code-change]
-may-trigger: [estimate-blast-radius, design-test-strategy, research-unknown-api]
 followed-by: [verify-before-claiming]
+may-trigger: [design-test-strategy, estimate-blast-radius, research-unknown-api]
+requires: [plan-code-change]
 ```

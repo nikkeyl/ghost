@@ -1,8 +1,8 @@
 ---
-name: design-component-contract
 description: Define a component's consumer-facing inputs, events, state
   ownership, composition, semantics, and compatibility guarantees.
 kind: active
+name: design-component-contract
 ---
 
 # Design component contract
@@ -82,6 +82,6 @@ Design completion is separate from implementation or runtime proof.
 ## Graph
 
 ```yaml
-may-trigger: [estimate-blast-radius, design-test-strategy]
+may-trigger: [design-test-strategy, estimate-blast-radius]
 references: [review-component-boundaries, source-derived-patterns]
 ```

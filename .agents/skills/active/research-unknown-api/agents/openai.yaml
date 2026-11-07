@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $research-unknown-api for the current task.'
   display_name: 'research-unknown-api'
   short_description: 'Resolve API uncertainty with primary evidence'
-  default_prompt: 'Use $research-unknown-api for the current task.'

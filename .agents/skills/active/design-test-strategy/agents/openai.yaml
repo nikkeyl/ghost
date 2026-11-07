@@ -1,4 +1,4 @@
 interface:
+  default_prompt: 'Use $design-test-strategy for the current task.'
   display_name: 'design-test-strategy'
   short_description: 'Choose checks for changed behavior and regression risk'
-  default_prompt: 'Use $design-test-strategy for the current task.'

@@ -1,8 +1,8 @@
 ---
-name: design-test-strategy
 description: "Choose focused automated or manual checks for changed behavior,
   regression risk, and affected boundaries."
 kind: active
+name: design-test-strategy
 ---
 
 # Design a test strategy
@@ -87,6 +87,6 @@ Extra tests and broad builds have a task-relevant reason.
 ## Graph
 
 ```yaml
-may-trigger: [debug-systematically, improve-test-signal]
 followed-by: [verify-before-claiming]
+may-trigger: [debug-systematically, improve-test-signal]
 ```

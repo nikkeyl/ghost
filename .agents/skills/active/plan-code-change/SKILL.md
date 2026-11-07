@@ -1,8 +1,8 @@
 ---
-name: plan-code-change
-description: Build a bounded context model and implementation plan before changing
-  code or architecture.
+description: Build a bounded context model and implementation plan before
+  changing code or architecture.
 kind: active
+name: plan-code-change
 ---
 
 # Plan code change
@@ -103,27 +103,27 @@ structure.
 ## Graph
 
 ```yaml
+followed-by: [implement-minimal-change]
 may-trigger:
   [
-    clarify-engineering-task,
-    map-codebase,
-    estimate-blast-radius,
-    review-code-change,
-    design-test-strategy,
-    refactor-without-behavior-change,
-    plan-migration,
-    research-unknown-api,
     analyze-build-pipeline,
+    clarify-engineering-task,
     design-component-contract,
+    design-test-strategy,
+    estimate-blast-radius,
+    extract-engineering-lessons,
+    improve-test-signal,
+    map-codebase,
+    plan-migration,
+    refactor-without-behavior-change,
+    research-unknown-api,
+    review-code-change,
     review-component-boundaries,
     review-component-consistency,
     review-for-accessibility,
     review-for-performance,
-    improve-test-signal,
     update-documentation,
     write-maintainer-notes,
-    extract-engineering-lessons,
   ]
-followed-by: [implement-minimal-change]
 references: [verify-before-claiming]
 ```

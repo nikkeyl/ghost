@@ -1,8 +1,8 @@
 ---
-name: detect-stale-state
 description: Detect values, closures, derived state, caches, or asynchronous
   results that no longer match their current source of truth.
 kind: passive
+name: detect-stale-state
 ---
 
 # Detect stale state

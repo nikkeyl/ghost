@@ -1,8 +1,8 @@
 ---
-name: research-unknown-api
 description: "Resolve an uncertain API or runtime claim using focused
   primary-source research and a discriminating experiment."
 kind: active
+name: research-unknown-api
 ---
 
 # Research an unknown API

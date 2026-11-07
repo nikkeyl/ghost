@@ -1,8 +1,8 @@
 ---
-name: clarify-engineering-task
 description: Turn an ambiguous engineering request or symptom into a bounded
   contract with requirements, invariants, risks, and success criteria.
 kind: active
+name: clarify-engineering-task
 ---
 
 # Clarify an engineering task
@@ -98,7 +98,7 @@ question is small, consequential, and clearly phrased.
 ## Graph
 
 ```yaml
-requires: [plan-code-change]
-may-trigger: [estimate-blast-radius]
 followed-by: [implement-minimal-change, verify-before-claiming]
+may-trigger: [estimate-blast-radius]
+requires: [plan-code-change]
 ```

@@ -1,8 +1,8 @@
 ---
-name: find-unnecessary-changes
-description: Detect scope drift, formatting churn, and changes without a credible
-  connection to the requested outcome.
+description: Detect scope drift, formatting churn, and changes without a
+  credible connection to the requested outcome.
 kind: passive
+name: find-unnecessary-changes
 ---
 
 # Find unnecessary changes

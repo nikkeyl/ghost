@@ -1,8 +1,8 @@
 ---
-name: verify-before-claiming
-description: Check engineering claims against current evidence, execution scope,
-  and known limits before reporting them as established or complete.
+description: Check engineering claims against current evidence, execution
+  scope, and known limits before reporting them as established or complete.
 kind: active
+name: verify-before-claiming
 ---
 
 # Verify before claiming
@@ -140,7 +140,7 @@ material risks are either checked, mitigated, or explicitly left open.
 ## Graph
 
 ```yaml
+followed-by: []
 may-trigger: [design-test-strategy]
 references: [estimate-blast-radius]
-followed-by: []
 ```
