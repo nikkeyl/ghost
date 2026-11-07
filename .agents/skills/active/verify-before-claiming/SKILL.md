@@ -34,7 +34,7 @@ Establish what is actually verified and prevent false completion claims.
    and generated-file changes.
 
 1. For source edits, inspect changed implementation files against the
-   file-boundary convention in `.agents/rules/70-code-style.md`. Check
+   file-boundary convention in `.agents/rules/code-style.md`. Check
    that independent helpers, types, and configuration are imported from
    their owning files, while short callbacks and owner-bound closures
    remain local. Explain necessary language, platform, generated-code,

@@ -10,10 +10,10 @@ copy of the engineering rules.
 
 ## Loading order
 
-1. Read `.agents/rules/00-operating-principles.md` and
-   `.agents/rules/20-change-scope.md` before substantive work. Read other
+1. Read `.agents/rules/operating-principles.md` and
+   `.agents/rules/change-scope.md` before substantive work. Read other
    rules when their scope matches; source edits also require
-   `.agents/rules/70-code-style.md`.
+   `.agents/rules/code-style.md`.
 
 1. Select at most five active skills and traverse at most two skill-graph hops.
    Prefer the host's native skill invocation when available. Read the selected

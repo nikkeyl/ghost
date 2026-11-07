@@ -40,7 +40,7 @@
 - In an FSD repository, place code by ownership and responsibility, not
   only by reuse count. Keep single-use domain logic near its owner.
   Follow the file-boundary convention in
-  `.agents/rules/70-code-style.md`: keep extracted functions in separate
+  `.agents/rules/code-style.md`: keep extracted functions in separate
   files near that owner. Promote code to `shared` only after a second
   real consumer or an explicitly stable cross-domain contract exists.
 

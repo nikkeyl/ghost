@@ -86,7 +86,7 @@ mentioned tool into a project that does not use its language.
 
 - Prefer immutable bindings and do not mark synchronous work `async` for
   style. Keep `if`/ternary/map choices and nullish defaults consistent
-  with `.agents/rules/00-operating-principles.md`.
+  with `.agents/rules/operating-principles.md`.
 
 - Prefer object property shorthand when key and binding have the same
   name. Do not rename a public key or change a method's `this` behavior

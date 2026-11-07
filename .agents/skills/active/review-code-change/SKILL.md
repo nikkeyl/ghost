@@ -50,7 +50,7 @@ and optional preferences.
   certainty or treat an absence of findings as proof of correctness.
 
 - Keep stylistic preferences distinct from merge blockers. For code-style
-  findings, use `.agents/rules/70-code-style.md` with the effective local
+  findings, use `.agents/rules/code-style.md` with the effective local
   configuration. Respect severity, language contracts, import side
   effects, JSX spreads and CSS cascade behavior; sorting alone does not
   justify changing runtime semantics.

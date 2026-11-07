@@ -83,7 +83,7 @@ These are persistent rules for relevant engineering work.
 ## Code style and formatting
 
 For source-code changes, read the applicable sections of
-`.agents/rules/70-code-style.md`. It owns the GHOST defaults for file
+`.agents/rules/code-style.md`. It owns the GHOST defaults for file
 formatting, functions, names, modules, types, JSX, CSS and SCSS, including
 repository and language-contract exceptions. Keep the detailed rules in
 that owner rather than creating conflicting copies in other files.

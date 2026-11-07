@@ -424,7 +424,7 @@ Reviewed on 2026-11-06 through the browser's Playwright interface.
 Sixty file/profile views were recorded across 16 public source repositories.
 The original 479-candidate inventory, existing application repositories,
 and GHOST's dependency/workflow configuration were not changed by this
-review. Runtime instructions live in `rules/70-code-style.md`; this
+review. Runtime instructions live in `rules/code-style.md`; this
 section records where the defaults came from, not a second rule set.
 
 ### Sources

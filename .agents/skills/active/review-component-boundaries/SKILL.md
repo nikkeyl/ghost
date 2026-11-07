@@ -45,7 +45,7 @@ identify the smallest boundary correction supported by actual use.
 - Extract when independent responsibility or useful isolation outweighs
   coordination cost. Keep cohesive one-use logic near its owner while
   following the file-boundary convention in
-  `.agents/rules/70-code-style.md`. Put standalone helpers in separate
+  `.agents/rules/code-style.md`. Put standalone helpers in separate
   colocated files; retain short callbacks and owner-bound closures
   locally. Local ownership does not require sharing one file.
 

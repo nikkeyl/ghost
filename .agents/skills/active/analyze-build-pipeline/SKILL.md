@@ -37,7 +37,7 @@ assumptions, and recommend only changes justified by the requested task.
    a clean build only when correctness, reproducibility, or build cost
    is part of the question. Do not infer cache safety from a fast run.
 
-1. For publication, read `.agents/rules/60-ci-cd.md` and trace required
+1. For publication, read `.agents/rules/ci-cd.md` and trace required
    checks, immutable revision, artifact selection, trust, and retries.
    Hook and dependency-update wiring matter when they feed this path.
 

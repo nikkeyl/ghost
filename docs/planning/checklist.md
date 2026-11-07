@@ -45,7 +45,7 @@ The 479 backlog candidates remain a registry, not a target file count.
       contracts are in `.agents`. Arrow functions, single quotes and
       statement spacing are explicit defaults. A 60-view Playwright review
       also captured module, TypeScript, JSX and CSS/SCSS conventions in
-      `rules/70-code-style.md`; implementation/review share that owner.
+      `rules/code-style.md`; implementation/review share that owner.
       Project-specific overrides retain their scope.
       English documentation is organized as
       planning, reference and history. The main README covers purpose

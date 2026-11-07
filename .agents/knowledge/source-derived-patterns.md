@@ -7,7 +7,7 @@ the current project before applying them.
 
 - Keep props contracts and standalone variant/configuration tables in
   dedicated files and import them. Follow the file-boundary convention
-  in `.agents/rules/70-code-style.md`; short callbacks and owner-bound
+  in `.agents/rules/code-style.md`; short callbacks and owner-bound
   closures can stay inside their owner.
 
 - Compose props from native or generated types when the external

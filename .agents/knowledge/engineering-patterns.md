@@ -4,7 +4,7 @@ This document records reusable engineering patterns confirmed through
 source analysis and user review. It is knowledge and rationale, not an
 additional instruction layer. Normative constraints belong in
 `.agents/rules`, and procedures belong in `.agents/skills`. The shared
-source-code style owner is `.agents/rules/70-code-style.md`; read its
+source-code style owner is `.agents/rules/code-style.md`; read its
 applicable sections when implementing or reviewing source files.
 
 ## Confirmed engineering patterns
