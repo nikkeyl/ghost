@@ -28,6 +28,14 @@ These are persistent rules for relevant engineering work.
   correctness, validation, security, accessibility, and failure
   handling.
 
+- Prefer the platform's and ecosystem's built-in APIs, primitives, and
+  recommended mechanisms when they fit the task. Before writing a custom
+  implementation or adding a dependency, check the capabilities of the
+  platform, framework, and libraries already in use. Respect their
+  contracts and integration with lifecycle, routing, data loading,
+  caching, and build behavior. Use an alternative when the native
+  mechanism does not meet the requirements, and explain the reason.
+
 - When a capability is non-trivial, prefer a known and maintained
   package over a bespoke implementation if it fits the repository's
   constraints. Do not add a dependency for small, stable behavior
