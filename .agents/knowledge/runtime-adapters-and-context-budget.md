@@ -135,12 +135,14 @@ paths. This cross-host reference retains its authoring examples.
 Codex alone receives `agents/openai.yaml` UI metadata. UI appearance
 and skill execution remain host behavior, not a guarantee from YAML.
 
-In a checkout, Claude's per-skill symlinks point to the canonical active
-folders. Update those links when adding/removing an active procedure;
-never edit a second copy of its body. Release builds use the immutable
-Git commit and materialize fresh ordinary files, so ZIP extraction does
-not require symlink support. Upgrades replace the selected profile's
-previous GHOST-owned files; preserve unrelated local skills and merge
+The checkout keeps all agent guidance under `.agents/`, including the
+portable loader at `.agents/AGENTS.md` and the Claude/Gemini loaders at
+`.agents/CLAUDE.md` and `.agents/GEMINI.md`. The release workflow generates
+Cursor and Copilot loaders. Native runtime directories and root
+instruction files are generated only in release archives. Release builds
+use the immutable Git commit and materialize fresh ordinary files, so ZIP
+extraction does not require symlink support. Upgrades replace the selected
+profile's previous GHOST-owned files; preserve unrelated local skills and merge
 existing instruction entries. Remove the installed GHOST skill folders
 and loader entries to uninstall; retain other project instructions.
 

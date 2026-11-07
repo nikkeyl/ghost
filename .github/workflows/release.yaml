@@ -77,30 +77,70 @@ jobs:
             DIRECTORY="$RUNNER_TEMP/$NAME"
 
             mkdir -p "$DIRECTORY"
-            git archive HEAD -- .agents AGENTS.md LICENSE |
+            git archive HEAD -- .agents LICENSE |
               tar -x -C "$DIRECTORY"
+            mv "$DIRECTORY/.agents/AGENTS.md" "$DIRECTORY/AGENTS.md"
             mv "$DIRECTORY/.agents/skills/README.md" "$DIRECTORY/.agents/skills.md"
             mv "$DIRECTORY/.agents/skills/passive" "$DIRECTORY/.agents/detectors"
             mv "$DIRECTORY/.agents/skills/active" "$DIRECTORY/skills"
             rmdir "$DIRECTORY/.agents/skills"
 
             case "$AGENT" in
-              codex) SKILLS=".agents/skills"; LOADER="AGENTS.md" ;;
-              claude) SKILLS=".claude/skills"; LOADER="CLAUDE.md" ;;
+              codex)
+                SKILLS=".agents/skills"
+                ADAPTER=""
+                LOADER="AGENTS.md" ;;
+              claude)
+                SKILLS=".claude/skills"
+                ADAPTER="CLAUDE.md"
+                LOADER="CLAUDE.md" ;;
               cursor)
                 SKILLS=".cursor/skills"
+                ADAPTER=""
                 LOADER=".cursor/rules/ghost.mdc" ;;
               copilot)
                 SKILLS=".github/skills"
+                ADAPTER=""
                 LOADER=".github/copilot-instructions.md" ;;
-              gemini) SKILLS=".gemini/skills"; LOADER="GEMINI.md" ;;
-              opencode) SKILLS=".opencode/skills"; LOADER="AGENTS.md" ;;
+              gemini)
+                SKILLS=".gemini/skills"
+                ADAPTER="GEMINI.md"
+                LOADER="GEMINI.md" ;;
+              opencode)
+                SKILLS=".opencode/skills"
+                ADAPTER=""
+                LOADER="AGENTS.md" ;;
             esac
 
             mkdir -p "$DIRECTORY/$(dirname "$SKILLS")" \
               "$DIRECTORY/$(dirname "$LOADER")"
             mv "$DIRECTORY/skills" "$DIRECTORY/$SKILLS"
-            git show "HEAD:$LOADER" > "$DIRECTORY/$LOADER"
+            if [ -n "$ADAPTER" ]; then
+              mv "$DIRECTORY/.agents/$ADAPTER" "$DIRECTORY/$LOADER"
+            elif [ "$AGENT" = cursor ]; then
+              cat > "$DIRECTORY/$LOADER" <<'CURSOR'
+          ---
+          description: GHOST engineering guidance and skill routing
+          alwaysApply: true
+          ---
+
+          Read `AGENTS.md` before substantive work. Apply its relevant rule files
+          and invoke matching procedures from the native skills catalog. Keep
+          passive detectors on demand. State missing discovery instead of claiming
+          that a manual file read produced a native skill activation.
+          CURSOR
+            elif [ "$AGENT" = copilot ]; then
+              cat > "$DIRECTORY/$LOADER" <<'COPILOT'
+          # GHOST Copilot adapter
+
+          Read `AGENTS.md` before substantive work. Apply its relevant rules and
+          use matching procedures from `.github/skills/`. Keep passive detectors
+          on demand. Report the selected skills and verification evidence;
+          discovery or a successful formatter run does not establish compliance.
+          COPILOT
+            fi
+
+            rm -f "$DIRECTORY/.agents/CLAUDE.md" "$DIRECTORY/.agents/GEMINI.md"
 
             if [ "$AGENT" != codex ]; then
               find "$DIRECTORY/$SKILLS" -name openai.yaml -delete

@@ -2,7 +2,11 @@
 
 GHOST runtime instructions live in [`.agents/`](../.agents/skills/README.md).
 This directory contains maintainer documentation and is excluded from release
-archives.
+archives. The checkout stores the portable loader at `.agents/AGENTS.md`
+and the Claude/Gemini loaders at `.agents/CLAUDE.md` and `.agents/GEMINI.md`.
+Release builds generate each agent's native paths from this source, with
+Cursor/Copilot loaders defined in the workflow. No native projections or
+skill symlinks are maintained in the checkout.
 
 ## Contributing
 

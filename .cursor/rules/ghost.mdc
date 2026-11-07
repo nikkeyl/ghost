@@ -1,9 +1,0 @@
----
-description: GHOST engineering guidance and skill routing
-alwaysApply: true
----
-
-Read `AGENTS.md` before substantive work. Apply its relevant rule files
-and invoke matching procedures from the native skills catalog. Keep
-passive detectors on demand. State missing discovery instead of claiming
-that a manual file read produced a native skill activation.
