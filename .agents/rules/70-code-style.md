@@ -52,6 +52,21 @@ mentioned tool into a project that does not use its language.
   name. Do not rename a public key or change a method's `this` behavior
   just to achieve shorthand or arrow syntax.
 
+- Sort independent named elements alphabetically when their order does
+  not affect behavior or express a meaningful sequence. Apply this to
+  object and YAML mapping keys, enumeration-style list values, and
+  similar structures. Preserve meaningful execution, evaluation,
+  override, enumeration, and cascade order; do not sort arbitrary arrays
+  or procedural steps mechanically. Explicit project configuration and
+  conventions take precedence.
+
+- In object literals, place shorthand properties before properties with
+  explicit values. Within each group, sort properties alphabetically by
+  key name. Preserve the existing order when reordering changes behavior,
+  including evaluation order, property overrides through spreads, or
+  meaningful key enumeration order. Explicit project configuration takes
+  precedence.
+
 - Follow role-based naming: camelCase for ordinary bindings/callables,
   PascalCase for types/components, and uppercase for stable named shared
   constants. Preserve snake_case or other external field spellings when
