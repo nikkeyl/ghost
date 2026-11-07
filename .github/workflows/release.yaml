@@ -77,46 +77,68 @@ jobs:
             DIRECTORY="$RUNNER_TEMP/$NAME"
 
             mkdir -p "$DIRECTORY"
+
             git archive HEAD -- .agents LICENSE |
               tar -x -C "$DIRECTORY"
+
             mv "$DIRECTORY/.agents/AGENTS.md" "$DIRECTORY/AGENTS.md"
             mv "$DIRECTORY/.agents/skills/README.md" "$DIRECTORY/.agents/skills.md"
             mv "$DIRECTORY/.agents/skills/passive" "$DIRECTORY/.agents/detectors"
             mv "$DIRECTORY/.agents/skills/active" "$DIRECTORY/skills"
+
             rmdir "$DIRECTORY/.agents/skills"
 
             case "$AGENT" in
               codex)
                 SKILLS=".agents/skills"
-                ADAPTER=""
                 LOADER="AGENTS.md" ;;
               claude)
                 SKILLS=".claude/skills"
-                ADAPTER="CLAUDE.md"
                 LOADER="CLAUDE.md" ;;
               cursor)
                 SKILLS=".cursor/skills"
-                ADAPTER=""
                 LOADER=".cursor/rules/ghost.mdc" ;;
               copilot)
                 SKILLS=".github/skills"
-                ADAPTER=""
                 LOADER=".github/copilot-instructions.md" ;;
               gemini)
                 SKILLS=".gemini/skills"
-                ADAPTER="GEMINI.md"
                 LOADER="GEMINI.md" ;;
               opencode)
                 SKILLS=".opencode/skills"
-                ADAPTER=""
                 LOADER="AGENTS.md" ;;
             esac
 
             mkdir -p "$DIRECTORY/$(dirname "$SKILLS")" \
               "$DIRECTORY/$(dirname "$LOADER")"
+
             mv "$DIRECTORY/skills" "$DIRECTORY/$SKILLS"
-            if [ -n "$ADAPTER" ]; then
-              mv "$DIRECTORY/.agents/$ADAPTER" "$DIRECTORY/$LOADER"
+
+            if [ "$AGENT" = claude ]; then
+              cat > "$DIRECTORY/$LOADER" <<'CLAUDE'
+          # GHOST Claude Code adapter
+
+          @AGENTS.md
+
+          Use the native Skill tool for matching procedures exposed in
+          `.claude/skills/`. The portable source is `.agents/skills/active/` in a
+          checkout; the Claude release contains ordinary skill directories at the
+          native path. Keep passive detectors outside the native procedure catalog.
+
+          If the native catalog is unavailable, report the missing integration
+          before using direct file reads as a fallback. Do not claim a native
+          activation or interface badge from a manual read.
+          CLAUDE
+            elif [ "$AGENT" = gemini ]; then
+              cat > "$DIRECTORY/$LOADER" <<'GEMINI'
+          # GHOST Gemini CLI adapter
+
+          @./AGENTS.md
+
+          Use `activate_skill` for matching procedures discovered in
+          `.gemini/skills/`. Honor the host's activation consent. Keep passive
+          signals as on-demand references and distinguish discovery from execution.
+          GEMINI
             elif [ "$AGENT" = cursor ]; then
               cat > "$DIRECTORY/$LOADER" <<'CURSOR'
           ---
@@ -139,8 +161,6 @@ jobs:
           discovery or a successful formatter run does not establish compliance.
           COPILOT
             fi
-
-            rm -f "$DIRECTORY/.agents/CLAUDE.md" "$DIRECTORY/.agents/GEMINI.md"
 
             if [ "$AGENT" != codex ]; then
               find "$DIRECTORY/$SKILLS" -name openai.yaml -delete

@@ -136,9 +136,9 @@ Codex alone receives `agents/openai.yaml` UI metadata. UI appearance
 and skill execution remain host behavior, not a guarantee from YAML.
 
 The checkout keeps all agent guidance under `.agents/`, including the
-portable loader at `.agents/AGENTS.md` and the Claude/Gemini loaders at
-`.agents/CLAUDE.md` and `.agents/GEMINI.md`. The release workflow generates
-Cursor and Copilot loaders. Native runtime directories and root
+single portable loader at `.agents/AGENTS.md`. The release workflow
+generates Claude, Gemini, Cursor and Copilot loaders. Native runtime
+directories and root
 instruction files are generated only in release archives. Release builds
 use the immutable Git commit and materialize fresh ordinary files, so ZIP
 extraction does not require symlink support. Upgrades replace the selected
