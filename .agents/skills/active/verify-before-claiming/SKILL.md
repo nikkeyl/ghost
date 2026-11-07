@@ -33,6 +33,14 @@ Establish what is actually verified and prevent false completion claims.
 1. Inspect outputs for warnings, skipped tests, environment assumptions,
    and generated-file changes.
 
+1. For source edits, inspect changed implementation files against the
+   file-boundary convention in `.agents/rules/70-code-style.md`. Check
+   that independent helpers, types, and configuration are imported from
+   their owning files, while short callbacks and owner-bound closures
+   remain local. Explain necessary language, platform, generated-code,
+   or compatibility exceptions. A successful formatter or test run does
+   not establish this structural compliance.
+
 1. Compare the plan with the implementation: mark each planned unit as
    implemented, intentionally changed, omitted, or blocked; identify
    every unplanned changed path; and challenge at least the material

@@ -39,9 +39,10 @@
 
 - In an FSD repository, place code by ownership and responsibility, not
   only by reuse count. Keep single-use domain logic near its owner.
-  Extract a local function or module when that improves a complex unit,
-  but promote code to `shared` only after a second real consumer or an
-  explicitly stable cross-domain contract exists.
+  Follow the file-boundary convention in
+  `.agents/rules/70-code-style.md`: keep extracted functions in separate
+  files near that owner. Promote code to `shared` only after a second
+  real consumer or an explicitly stable cross-domain contract exists.
 
 - Treat duplicated behavior and growing component complexity as
   refactoring signals. Extract a unit when it has a distinct

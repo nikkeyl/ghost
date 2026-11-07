@@ -37,6 +37,46 @@ mentioned tool into a project that does not use its language.
   correctness, or semantic statement spacing. Fix code to the selected
   rules instead of adding exceptions merely to preserve old formatting.
 
+## File boundaries
+
+- Keep one primary standalone function per handwritten implementation
+  file. Put each independent module-level helper in its own colocated
+  file and import it, even when it is small or has only one consumer.
+  Apply this convention within the authorized change; leave unrelated
+  existing files alone.
+
+- Keep short callbacks and owner-bound handlers or closures inside the
+  function that owns their state and lifecycle. A local name or a simple
+  conditional does not by itself require a separate file. Extract
+  independent parsing, formatting, validation, date, storage, and
+  calculation logic instead of embedding it in an entry point or mixing
+  it with unrelated responsibilities.
+
+- Declare types and interfaces in separate files and import them, using
+  type-only imports where supported. Group related types by domain or
+  contract. Keep schemas, configuration objects, lookup tables, and
+  standalone constants in dedicated files and import them. Keep local
+  calculation variables inside their owning function.
+
+- Let filenames communicate the file's role. Follow existing conventions
+  such as `.props`, `.type`, `.schema`, and `.config` when the project
+  uses them; do not impose language-specific suffixes universally.
+  Type-only and configuration-only files do not need a function.
+
+- Keep files near the feature or module that owns them. A single
+  consumer does not justify combining standalone functions, and
+  extraction does not require promotion into a shared layer. Do not
+  gather unrelated entities into generic utils, helpers, types, or
+  constants files.
+
+- Preserve required language and platform structures, generated output,
+  and explicit project conventions. Entry-point adapters may retain
+  required exports while delegating substantive logic to imported
+  functions. Retain an existing public import path when compatibility
+  requires it; do not add wrappers or barrels merely to split code.
+  Tests may group related scenarios in one file. Explain necessary
+  exceptions; a small demo or a passing formatter is not an exception.
+
 ## Functions, values and names
 
 - Declare named functions and components as `const` arrow functions and

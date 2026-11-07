@@ -23,10 +23,10 @@ Change only the smallest coherent unit that satisfies the contract.
 
 1. For source-code changes, read the relevant sections of
    `.agents/rules/70-code-style.md` and inspect effective configuration.
-   Check function form, quotes, spacing, names, imports/exports, types,
-   JSX and stylesheet conventions only where applicable. Resolve
-   repository exceptions; a formatter pass does not verify all lint or
-   type contracts.
+   Check file boundaries, function form, quotes, spacing, names,
+   imports/exports, types, JSX and stylesheet conventions only where
+   applicable. Resolve repository exceptions; a formatter pass does not
+   verify all lint or type contracts.
 
 1. Select the narrowest extension point.
 
@@ -87,8 +87,13 @@ work.
 ## Verification
 
 Run the narrowest relevant formatter, type check, lint, unit test, or
-focused browser check. Inspect the diff for unrelated changes and
-accidental contract drift.
+focused browser check. Inspect each changed implementation file against
+`.agents/rules/70-code-style.md`: one primary standalone function,
+imported independent helpers, types and configuration, and explicit
+reasons for exceptions. Preserve short callbacks and owner-bound closures
+inside their owning function. Inspect the diff for unrelated changes and
+accidental contract drift;
+formatting and passing tests alone do not prove file-boundary compliance.
 
 ## Completion criteria
 

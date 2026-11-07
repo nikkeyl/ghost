@@ -5,8 +5,10 @@ the current project before applying them.
 
 ## Components
 
-- Separate a component implementation from a large props contract when
-  that reduces import weight and improves navigation.
+- Keep props contracts and standalone variant/configuration tables in
+  dedicated files and import them. Follow the file-boundary convention
+  in `.agents/rules/70-code-style.md`; short callbacks and owner-bound
+  closures can stay inside their owner.
 
 - Compose props from native or generated types when the external
   contract is already defined there.

@@ -43,8 +43,11 @@ identify the smallest boundary correction supported by actual use.
   change coupling, and consumer contracts as evidence.
 
 - Extract when independent responsibility or useful isolation outweighs
-  coordination cost. Keep cohesive one-use logic local when splitting
-  would merely move complexity between files.
+  coordination cost. Keep cohesive one-use logic near its owner while
+  following the file-boundary convention in
+  `.agents/rules/70-code-style.md`. Put standalone helpers in separate
+  colocated files; retain short callbacks and owner-bound closures
+  locally. Local ownership does not require sharing one file.
 
 - Prefer composition for independently owned content; avoid exposing
   internal implementation details just to make an extraction possible.
