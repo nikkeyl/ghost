@@ -6,7 +6,7 @@ updates:
     schedule:
       interval: semiannually
 
-  - package-ecosystem: npm
+  - package-ecosystem: bun
     directory: /
     schedule:
       interval: semiannually
