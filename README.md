@@ -2,26 +2,57 @@
 
 ![AI](https://img.shields.io/badge/AI-red)
 
-Reusable engineering rules, knowledge and skills for coding agents.
+Engineering rules and skills for coding agents. Use them to investigate a
+codebase, plan a change, review a diff or debug a failure.
 
-GHOST helps an agent understand a codebase, plan focused changes, review code,
-debug problems and verify results. Add it to an existing project to make the
-agent's engineering approach more consistent.
+The project was created entirely with AI assistance from Nikkeyl's writing
+and an engineering blueprint.
 
-## Usage
+## Install
 
-1. Download your agent's archive from the
-   [latest release](https://github.com/nikkeyl/ghost/releases/latest).
+Download your agent's archive from the
+[latest release](https://github.com/nikkeyl/ghost/releases/latest). Archives
+are available for Codex, Claude Code, Cursor, GitHub Copilot, Gemini CLI and
+OpenCode.
 
-1. Copy the archive contents into your project, including hidden folders.
-   Merge instruction files if your project already has them.
+Extract the archive into the project where you want to use it, including
+hidden folders. If that project already has agent instructions, merge the
+relevant content instead of replacing the existing files.
 
-1. Open that project in your agent and select a skill, or describe a matching
-   task. Check the agent's skill list before relying on automatic selection.
+Open the project in your agent and check its skill list. Discovery and
+automatic selection depend on the host and its version; an extracted folder
+alone does not confirm that a skill is active.
 
-Created with AI assistance from Nikkeyl's writing and the supplied engineering
-blueprint. See the [documentation](docs/README.md) for the design, roadmap and
-source records.
+## Use
+
+Ask the agent to apply a skill to a specific task, for example:
+
+```text
+Use debug-systematically to investigate why this form submits twice.
+Use review-for-accessibility to review keyboard behavior in this dialog.
+```
+
+The [skill index](.agents/skills/README.md) lists available procedures and
+their triggers. Rules describe constraints, skills describe tasks, and
+knowledge files supply background when a task needs it. Keep
+project-specific instructions in the project that owns them.
+
+GHOST cannot establish that a change works or that an agent followed its
+instructions. Review the resulting diff and the evidence for the changed
+behavior.
+
+## Maintain
+
+The checkout keeps the shared instructions in `.agents/`; the release
+workflow generates each agent's directory layout and loader. It excludes
+maintainer docs from the archives.
+
+```sh
+bun run init
+```
+
+See the [documentation](docs/README.md) for authoring, runtime discovery
+records and the roadmap.
 
 ## License
 
