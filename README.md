@@ -15,9 +15,11 @@ Download your agent's archive from the
 are available for Codex, Claude Code, Cursor, GitHub Copilot, Gemini CLI and
 OpenCode.
 
-Extract the archive into the project where you want to use it, including
-hidden folders. If that project already has agent instructions, merge the
-relevant content instead of replacing the existing files.
+> [!IMPORTANT]
+>
+> Extract the archive into the project, including hidden folders. If the
+> project already has agent instructions, merge the relevant content instead
+> of replacing the existing files.
 
 Open the project in your agent and check its skill list. Discovery and
 automatic selection depend on the host and its version; an extracted folder
