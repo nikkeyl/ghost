@@ -41,6 +41,10 @@ the author's proficiency.
 
 ## History
 
+- [Gist integration](history/gist-integration.md): source revisions, owner
+  mapping and boundaries for the React, MIG, disagreement and verification
+  guidance imported on 2026-11-12.
+
 - [Native discovery trial](history/runtime-discovery-2026-11-06.md): host
   versions, archive profiles, observed discovery and execution limits.
 

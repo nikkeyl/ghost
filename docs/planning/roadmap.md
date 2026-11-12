@@ -2,10 +2,17 @@
 
 Reviewed: 2026-11-06 against repository baseline `82af2d6`.
 
+Content update: 2026-11-12. The [gist integration](../history/gist-integration.md)
+extends existing code-style, reasoning and verification owners. It adds one
+on-demand developer-verification knowledge file and no new skill or tracker
+workflow. Current catalog: 8 rules, 17 knowledge files, 24 active skills,
+9 passive detectors and 8 templates. Runtime behavioral gates remain open;
+the historical checks below retain their original versions and scope.
+
 Repository tooling, separate push checks, gated releases, English docs,
 portable CI/CD guidance, and skill naming/content alignment are
-implemented. The catalog contains 8 rules, 16 knowledge files, 24 active
-skills, 9 passive checks and 8 templates. All 33 skill names belong to
+implemented. The reviewed baseline contained 8 rules, 16 knowledge files,
+24 active skills, 9 passive checks and 8 templates. All 33 skill names belong to
 the original 479-candidate backlog.
 
 All five push checks passed on `82af2d6`. Its published runtime archive
@@ -103,7 +110,8 @@ Already implemented in `.agents/`:
   The code-style owner records portable authoring defaults and explicit
   adopting-repository exceptions.
 
-- 16 knowledge files covering activation, source-derived frontend patterns, web
+- 17 knowledge files covering developer verification, activation,
+  source-derived frontend patterns, web
   document metadata, data loading and failure, async UI state, Next.js Server
   Actions, runtime/context adaptation, content trust boundaries, and general
   engineering patterns, plus behavior preservation, research, writing, skill

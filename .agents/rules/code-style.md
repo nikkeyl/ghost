@@ -180,9 +180,26 @@ mentioned tool into a project that does not use its language.
 
 ## React and JSX
 
+- Keep each component in its owning folder, with implementation and props
+  contracts separated according to the repository's naming convention.
+  Prefer narrow props derived from existing native or generated contracts
+  when their semantics match; use domain-specific props where they do not.
+  Do not build a universal half-optional props type for unrelated consumers.
+
 - Destructure props and relevant inputs rather than scattering repeated
   property access throughout a component. Keep state ownership and
   component boundaries explicit.
+
+- Prefer a readable body order: props destructuring, state/ref and other
+  Hooks, derived values, handlers, then effects before rendering. This is a
+  default, not a guarantee against forward references or lifecycle defects;
+  Hook contracts, dependency initialization and repository conventions take
+  precedence. Do not move a Hook behind a conditional return to match style.
+
+- Keep static visual variants in an imported, typed configuration table
+  when they are data. Use composition or slots for genuinely shared layout
+  with consumer-owned content; retain meaningful boolean state rather than
+  inventing slots or extracting markup without demonstrated reuse.
 
 - Sort independent JSX props with the configured rule. Preserve spreads,
   overriding order and expression evaluation. Use self-closing syntax
@@ -198,6 +215,12 @@ mentioned tool into a project that does not use its language.
   spellings when those tools are adopted. Resolve classes against the
   actual design tokens and stylesheet; no particular CSS path, utility
   framework or component directory is a portable requirement.
+
+- With a composition utility, pass independent class groups separately.
+  Put a consumer's `className` last when consumer overrides are part of the
+  contract and the adopted merger supports them; argument order alone does
+  not establish CSS precedence. Do not add an override prop or merger solely
+  to satisfy this convention. Named exports follow the module rules above.
 
 ## CSS and SCSS
 

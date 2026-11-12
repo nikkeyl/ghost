@@ -20,7 +20,8 @@ evidence.
 ## Investigation / reasoning
 
 1. Name the behavior, affected boundary, relevant consumers, and failure
-   cost.
+   cost. Preserve mandatory criterion IDs and map each to preconditions,
+   role, inputs, actions and independently derived expected results.
 
 1. Inspect current tests and baseline failures before adding new
    infrastructure.
@@ -69,7 +70,11 @@ Produce a requirement-to-check map, baseline, expected failure/pass
 signals, execution order, and residual risk. Use
 `.agents/templates/manual-test.md` for human checks and
 `.agents/templates/verification-record.md` for results. Run checks or
-implement tests only within the authorized task.
+implement tests only within the authorized task. For implementation
+submission and review fixes, use
+`.agents/knowledge/developer-verification.md` for role, persistence,
+recovery and cleanup cases; select them by affected requirements rather
+than treating every example as a mandatory suite.
 
 ## Verification
 

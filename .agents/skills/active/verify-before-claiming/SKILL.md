@@ -23,6 +23,14 @@ Establish what is actually verified and prevent false completion claims.
    needed to support it. For a change, compare the diff with the task
    and plan; for research or review, inspect sources and observations.
 
+1. For implementation submission or review fixes, map every mandatory
+   criterion to a scenario and evidence. Preserve source IDs, or assign
+   local IDs quoting the requirement. Record the source/build version,
+   role, inputs and expected outcome independently of current output.
+   Use `.agents/knowledge/developer-verification.md` for the execution,
+   recovery and readiness contract; a review fix does not close other
+   unverified criteria.
+
 1. Select checks by risk: type/build, unit/integration, browser
    behavior, accessibility, performance, security, migration, or
    operational recovery.
@@ -32,6 +40,11 @@ Establish what is actually verified and prevent false completion claims.
 
 1. Inspect outputs for warnings, skipped tests, environment assumptions,
    and generated-file changes.
+
+1. Correct verification-method failures before classifying product
+   defects. Complete independent checks after a failure; fix within
+   authorized scope, retest affected journeys and consumers, and verify
+   restoration of temporary data and settings by reading them back.
 
 1. For source edits, inspect changed implementation files against the
    file-boundary convention in `.agents/rules/code-style.md`. Check
@@ -69,6 +82,11 @@ Use the narrowest check that can falsify the relevant failure mode:
 ## Decision rules
 
 - A check is evidence only for the behavior it actually exercises.
+
+- Self-verification does not replace independent acceptance. A
+  verification-only task does not authorize fixes, and this procedure
+  grants no additional permission to publish, merge, release, change
+  tracker state, or message people.
 
 - A successful type check does not prove browser, UX, performance, or
   security correctness.
@@ -129,9 +147,11 @@ plan-versus-implementation status, challenged assumptions or
 counterexamples, remaining uncertainty, and follow-up.
 
 Use `.agents/templates/verification-record.md` when a persistent record
-is needed. Use `design-test-strategy` when a material failure mode has
-no clear proof; keep structural validation distinct from a real runtime
-trial.
+is needed. For implementation handover, include every mandatory
+scenario and report ready for independent acceptance, defects remain,
+or verification incomplete using the readiness contract. Use
+`design-test-strategy` when a material failure mode has no clear proof;
+keep structural validation distinct from a real runtime trial.
 
 ## Verification
 
